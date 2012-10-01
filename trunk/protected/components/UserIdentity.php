@@ -7,27 +7,44 @@
  */
 class UserIdentity extends CUserIdentity
 {
-	/**
-	 * Authenticates a user.
-	 * The example implementation makes sure if the username and password
-	 * are both 'demo'.
-	 * In practical applications, this should be changed to authenticate
-	 * against some persistent user identity storage (e.g. database).
-	 * @return boolean whether authentication succeeds.
-	 */
-	public function authenticate()
-	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
-	}
+    private static $salt = '$2a$07$';
+
+    /**
+     * Authenticates a user.
+     * @return boolean whether authentication succeeds.
+     */
+    public function authenticate()
+    {
+        $criteria = new CDbCriteria();
+        $criteria->select = 'password';
+        $criteria->addCondition('login_name = :login_name');
+        $criteria->params = array(':login_name' => $this->username);
+
+        $user = Users::model()->find($criteria);
+
+        if ($user == NULL) {
+            $this->errorCode = self::ERROR_USERNAME_INVALID;
+        }
+        else if (!self::comparePasswords($this->password, $user->password)) {
+            $this->errorCode = self::ERROR_PASSWORD_INVALID;
+        }
+        else {
+            $this->errorCode = self::ERROR_NONE;
+        }
+        return !$this->errorCode;
+    }
+
+    public static function comparePasswords($plain, $encrypted)
+    {
+        return crypt($plain, $encrypted) == $encrypted;
+    }
+
+    public static function encryptPassword($password)
+    {
+        $salt = self::$salt;
+        for ($i = 0; $i < 22; $i++) {
+            $salt .= substr("./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", mt_rand(0, 63), 1);
+        }
+        return crypt($password, $salt);
+    }
 }
