@@ -24,3 +24,5 @@ Cakame...
 
 ==Bod 3:== 
 Az SVN dobehne, v prehliadaci si otvorime localhost + nazov adresara kam sme to umiestnili , tj napr localhost/tis2012 (to je myslim default)
+
+Autor: Vladimir Jurenka
