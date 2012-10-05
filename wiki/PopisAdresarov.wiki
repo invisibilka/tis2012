@@ -28,4 +28,7 @@ Vacsinou "nudny" kod..
 
 Ok, to by asi stacilo, nabuduce k databaze / testom / uvidime ako to pojde
 
+Kam dalej: [Modely]
+
+----
 Autor: Vladimir Jurenka
