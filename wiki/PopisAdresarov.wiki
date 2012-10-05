@@ -19,7 +19,7 @@ tu je toho vela, ale co nas zaujima su 4 veci:
   * */controlles/SiteController.php* tu je hlavne aplikacna logika, tu to bude plne cyklov / ifov a proste toho "zaujimaveho" kodu, tu sa urcuje co sa vykona ked je zadana adresa do prehliadaca actionIndex reprezentuje /index , actionHome by bolo /home atd, mapuje to za nas framework automaticky akonahle vytvorime v tejto triede funkciu ktora zacina slovom action. Kazda akcia by mala koncit volanim $this->render, kde je prvym parametrom nazov subora bez pripony v adresary views/nazovControllera/ , druhy je mapa (v php obycajne stringami indexovane pole ) nazov=>hodnota, kde si posielame premenne
   * */models/* tu pride trieda za kazdu tabulku v databaze (Okrem N:M relacnych tabuliek, to je zbytocne), definuju v nej napr. pravidla validacie, vztahy medzi tabulkami (joiny) a pod. Tento kod je do znacnej miery copy/paste dokonca framework obsahuje aj generator, ukazku commitnem neskor.
 
-Tiez sa sem davaju druhe typu modelov a to su modely formularov, kazdy formular ktory neposiela data priamo do databazy by mal mat zvlast model. Takych bude malo, ale napriklad LoginForm / Password Reset Form, je toho prikladom. Resp vsetko co nie je vernym obrazom nejakej tabulky. 
+Tiez sa sem davaju druhe typu modelov a to su modely formularov, kazdy formular ktory neposiela data priamo do databazy by mal mat zvlast model. Takych bude malo, ale napriklad Login Form / Password Reset Form, je toho prikladom. Resp vsetko co nie je vernym obrazom nejakej tabulky. 
 Vacsinou "nudny" kod..
 
   * */views/* , je tu:
