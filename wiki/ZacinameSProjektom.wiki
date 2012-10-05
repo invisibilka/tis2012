@@ -12,7 +12,7 @@ a) Osobne mi vyhovuje Wamp, lahka instalacia, je tam vsetko vyssie spomenute, ve
 
 Marek, na Mac je Mamp http://www.mamp.info/en/index.html , alebo mozno mas skusenosti s niecim inym
 
-b) Navod som uz pisal tu: http://www.facebook.com/groups/425568407503218/permalink/425572587502800/
+b) Navod som uz pisal tu: [NavodSVN]
 
 c) Ako staci PSPad, kto oblubuje Eclipse moze skusit Zend Studio http://www.zend.com/en/products/studio/ , je tusim nejaka free verzia, alebo si "niekde" najdete aj plnu :)
 Moj osobny favorit je PHPStrom, kto ma rad / pozna IDEA prostredia na Javu, je to od tych istych autorov, tj vysoka kvalita a hlavne to pri velkych suboroch tak strasne neseka oproti Zendu, samozrejme je na Win / Mac / Linux : http://www.jetbrains.com/phpstorm/ , nevyhoda je, ze free verzia neexistuje, ale da sa to na internete "zohnat", pripadne viem poskytnut :)
