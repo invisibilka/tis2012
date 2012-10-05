@@ -1,4 +1,4 @@
-#strucny tutorial co a ako treba rozbehat na zaciatok s projektom
+#summary strucny tutorial co a ako treba rozbehat na zaciatok s projektom
 
 =Zaciname s projektom=
 
