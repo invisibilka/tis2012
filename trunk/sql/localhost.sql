@@ -18,7 +18,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Databáza: `tis`
 --
-DROP DATABASE `tis`;
+-- DROP DATABASE `tis`;
 CREATE DATABASE `tis` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `tis`;
 
