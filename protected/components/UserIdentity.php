@@ -17,8 +17,8 @@ class UserIdentity extends CUserIdentity
     {
         $criteria = new CDbCriteria();
         $criteria->select = 'password';
-        $criteria->addCondition('login_name = :login_name');
-        $criteria->params = array(':login_name' => $this->username);
+        $criteria->addCondition('username = :username');
+        $criteria->params = array(':username' => $this->username);
 
         $user = Users::model()->find($criteria);
 
