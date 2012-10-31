@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * With love from
+ * M. Oravec 
+ */
 class Tests extends CActiveRecord {
 
 	static public function model($className = __CLASS__)
