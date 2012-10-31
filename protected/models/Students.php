@@ -1,9 +1,5 @@
 <?php
-/**
- * User: M. Blascak
- * Date: 30.10.2012
- * Time: 16:03
- */
+
 class Students extends CActiveRecord
 {
 
@@ -31,3 +27,4 @@ class Students extends CActiveRecord
     }
 
 }
+?>
