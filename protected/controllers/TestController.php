@@ -12,11 +12,11 @@ class TestController extends Controller
 
 
     public function actionView() {
-
+        $this->render('view', array());
     }
 
     public function actionUpdate() {
-
+        $this->render('update', array());
     }
 
     public function actionDelete() {
@@ -28,11 +28,11 @@ class TestController extends Controller
     }
 
     public function actionEmail() {
-
+        $this->render('email', array());
     }
 
     public function actionFind() {
-
+        $this->render('find', array());
     }
 
 
