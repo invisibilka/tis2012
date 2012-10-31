@@ -33,6 +33,9 @@ class TaskController extends Controller
         $this->render('find', array());
     }
 
+public function actionFind() {
+    $this->render('find',array( 'model' => new Tasks() ));
+}
 
     public function filterAccessControl($filterChain)
     {
