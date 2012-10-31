@@ -1,6 +1,6 @@
 <?php
 
-class Invitations extends CActiveRecord
+class TestTasks extends CActiveRecord
 {
 
     static public function model($className = __CLASS__)
