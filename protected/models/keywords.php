@@ -16,7 +16,7 @@ class Keywords extends CActiveRecord
 
     public function tableName()
     {
-        return 'tis_keywordss';
+        return 'tis_keywords';
     }
 
     public function rules()
