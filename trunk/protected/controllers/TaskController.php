@@ -2,7 +2,7 @@
 
 class TaskController extends Controller
 {
-
+    public $defaultAction = 'view';
     public function actionView()
     {
         $this->render('view', array());
