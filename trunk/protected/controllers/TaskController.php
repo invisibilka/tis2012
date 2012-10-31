@@ -3,7 +3,6 @@
 class TaskController extends Controller
 {
 
-
     public function actionView()
     {
         $this->render('view', array());
@@ -41,5 +40,4 @@ class TaskController extends Controller
     }
 
 }
-
 ?>
