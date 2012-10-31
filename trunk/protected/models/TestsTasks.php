@@ -23,8 +23,8 @@ class Invitations extends CActiveRecord
     public function relations()
     {
         return array( 
-         'test'=>array(self::BELONGS_TO, 'Tests', 'test_id'),
-         'task'=>array(self::BELONGS_TO, 'Tasks', 'task_id')
+         'test'=>array(self::HAS_MANY, 'Tests', 'test_id'),
+         'task'=>array(self::HAS_MANY, 'Tasks', 'task_id')
          );
     }
 
