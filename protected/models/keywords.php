@@ -16,7 +16,7 @@ class Keywords extends CActiveRecord
 
     public function tableName()
     {
-        return 'tis_keywords';
+        return 'tis_keywordss';
     }
 
     public function rules()
@@ -29,7 +29,7 @@ class Keywords extends CActiveRecord
     public function relations()
     {
         return array(
-            'taskss' => array(self::MANY_MANY, 'Tasks', 'tis_tasks_keywords(keyword_id,task_id )'),
+            'tasks' => array(self::MANY_MANY, 'Tasks', 'tis_tasks_keywords(keyword_id,task_id )'),
 
         );
     }
