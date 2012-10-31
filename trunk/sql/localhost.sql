@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Hostiteľ: localhost
--- Vygenerované:: 15.Okt, 2012 - 16:23
--- Verzia serveru: 5.1.53
--- Verzia PHP: 5.3.4
+-- Vygenerované: St 31.Okt 2012, 14:19
+-- Verzia serveru: 5.5.24-log
+-- Verzia PHP: 5.3.13
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -34,11 +35,6 @@ CREATE TABLE IF NOT EXISTS `tis_invitations` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Sťahujem dáta pre tabuľku `tis_invitations`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -50,11 +46,6 @@ CREATE TABLE IF NOT EXISTS `tis_keywords` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Sťahujem dáta pre tabuľku `tis_keywords`
---
-
 
 -- --------------------------------------------------------
 
@@ -68,11 +59,6 @@ CREATE TABLE IF NOT EXISTS `tis_student_lists` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Sťahujem dáta pre tabuľku `tis_student_lists`
---
-
 
 -- --------------------------------------------------------
 
@@ -88,11 +74,6 @@ CREATE TABLE IF NOT EXISTS `tis_students` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Sťahujem dáta pre tabuľku `tis_students`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -105,11 +86,6 @@ CREATE TABLE IF NOT EXISTS `tis_students_lists` (
   `list_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Sťahujem dáta pre tabuľku `tis_students_lists`
---
-
 
 -- --------------------------------------------------------
 
@@ -127,11 +103,6 @@ CREATE TABLE IF NOT EXISTS `tis_tasks` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Sťahujem dáta pre tabuľku `tis_tasks`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -147,11 +118,6 @@ CREATE TABLE IF NOT EXISTS `tis_tasks_comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Sťahujem dáta pre tabuľku `tis_tasks_comments`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -164,11 +130,6 @@ CREATE TABLE IF NOT EXISTS `tis_tasks_keywords` (
   `keyword_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Sťahujem dáta pre tabuľku `tis_tasks_keywords`
---
-
 
 -- --------------------------------------------------------
 
@@ -184,11 +145,6 @@ CREATE TABLE IF NOT EXISTS `tis_tasks_rating` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Sťahujem dáta pre tabuľku `tis_tasks_rating`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -202,29 +158,19 @@ CREATE TABLE IF NOT EXISTS `tis_tests` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Sťahujem dáta pre tabuľku `tis_tests`
---
-
-
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `tis_tests_taks`
+-- Štruktúra tabuľky pre tabuľku `tis_tests_tasks`
 --
 
-CREATE TABLE IF NOT EXISTS `tis_tests_taks` (
+CREATE TABLE IF NOT EXISTS `tis_tests_tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `test_id` int(11) NOT NULL,
   `task_id` int(11) NOT NULL,
   `task_index` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Sťahujem dáta pre tabuľku `tis_tests_taks`
---
-
 
 -- --------------------------------------------------------
 
@@ -249,3 +195,7 @@ CREATE TABLE IF NOT EXISTS `tis_users` (
 
 INSERT INTO `tis_users` (`id`, `username`, `full_name`, `password`, `email`, `permissions`, `about`) VALUES
 (1, 'admin', 'admin', '$2a$07$4EFr8dIYFyF77ifcYYsC4uDrFKsaWSDKoZkIaBh3z0coT3AJayCTO', 'admin@jurenka.sk', 1, '');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
