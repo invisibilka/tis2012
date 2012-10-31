@@ -20,7 +20,7 @@ class UserIdentity extends CUserIdentity
         $criteria->addCondition('username = :username');
         $criteria->params = array(':username' => $this->username);
 
-        $user = Users::model()->find($criteria);
+        $user = User::model()->find($criteria);
 
         if ($user == NULL) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
