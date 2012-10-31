@@ -28,7 +28,7 @@ class StudentLists extends CActiveRecord
     {
         return array( 
             'user'=>array(self::BELONGS_TO, 'Users', 'user_id'),
-            'students'=>array(self::MANY_MANY, 'Students', 'students_lists(list_id, student_id)')
+            'students'=>array(self::MANY_MANY, 'Students', 'tis_students_lists(list_id, student_id)')
          );
     }
 
