@@ -27,3 +27,4 @@ class Invitations extends CActiveRecord
     }
 
 }
+?>
