@@ -4,7 +4,7 @@
  * Date: 30.10.2012
  * Time: 16:03
  */
-class Students extends Tasks
+class Students extends CActiveRecord
 {
 
     static public function model($className = __CLASS__)
