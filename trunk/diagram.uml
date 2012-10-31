@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>\Students</OriginalElement>
+  <nodes>
+    <node x="512.9166666666666" y="0.0">\IteratorAggregate</node>
+    <node x="804.0" y="160.0">\TaskController</node>
+    <node x="467.99999999999994" y="260.0">\StudentLists</node>
+    <node x="722.0" y="260.0">\Invitations</node>
+    <node x="374.91666666666663" y="0.0">\ArrayAccess</node>
+    <node x="936.0" y="260.0">\Students</node>
+    <node x="951.0" y="160.0">\UserController</node>
+    <node x="1244.0" y="160.0">\SiteController</node>
+    <node x="178.99999999999994" y="260.0">\TasksRating</node>
+    <node x="604.0" y="260.0">\Keywords</node>
+    <node x="0.0" y="260.0">\Users</node>
+    <node x="611.0" y="160.0">\StudentListController</node>
+    <node x="310.99999999999994" y="260.0">\TasksComments</node>
+    <node x="90.0" y="260.0">\Tests</node>
+    <node x="965.5" y="80.0">\Controller</node>
+    <node x="460.99999999999994" y="160.0">\CActiveRecord</node>
+    <node x="1098.0" y="160.0">\TestController</node>
+    <node x="928.25" y="0.0">\CComponent</node>
+    <node x="846.0" y="260.0">\Tasks</node>
+    <node x="485.99999999999994" y="80.0">\CModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\TaskController" target="\Controller">
+      <point x="0.0" y="-15.0" />
+      <point x="867.5" y="140.0" />
+      <point x="994.8999999999999" y="140.0" />
+      <point x="-19.600000000000023" y="15.0" />
+    </edge>
+    <edge source="\Tests" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="124.5" y="220.0" />
+      <point x="482.6666666666666" y="220.0" />
+      <point x="-43.33333333333337" y="15.0" />
+    </edge>
+    <edge source="\Controller" target="\CComponent">
+      <point x="0.0" y="-15.0" />
+      <point x="28.75" y="15.0" />
+    </edge>
+    <edge source="\UserController" target="\Controller">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="\StudentLists" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="\TestController" target="\Controller">
+      <point x="0.0" y="-15.0" />
+      <point x="1161.0" y="140.0" />
+      <point x="1034.1" y="140.0" />
+      <point x="19.600000000000023" y="15.0" />
+    </edge>
+    <edge source="\TasksRating" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="234.99999999999994" y="230.0" />
+      <point x="497.11111111111103" y="230.0" />
+      <point x="-28.888888888888914" y="15.0" />
+    </edge>
+    <edge source="\TasksComments" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="379.49999999999994" y="240.0" />
+      <point x="511.5555555555555" y="240.0" />
+      <point x="-14.444444444444457" y="15.0" />
+    </edge>
+    <edge source="\SiteController" target="\Controller">
+      <point x="0.0" y="-15.0" />
+      <point x="1305.5" y="130.0" />
+      <point x="1053.6999999999998" y="130.0" />
+      <point x="39.19999999999999" y="15.0" />
+    </edge>
+    <edge source="\CModel" target="\ArrayAccess">
+      <point x="-26.66666666666663" y="-15.0" />
+      <point x="499.3333333333333" y="60.0" />
+      <point x="433.91666666666663" y="60.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="\StudentListController" target="\Controller">
+      <point x="0.0" y="-15.0" />
+      <point x="697.5" y="130.0" />
+      <point x="975.3" y="130.0" />
+      <point x="-39.19999999999999" y="15.0" />
+    </edge>
+    <edge source="\Users" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="35.0" y="210.0" />
+      <point x="468.2222222222221" y="210.0" />
+      <point x="-57.77777777777783" y="15.0" />
+    </edge>
+    <edge source="\Invitations" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="774.0" y="230.0" />
+      <point x="554.8888888888889" y="230.0" />
+      <point x="28.888888888888914" y="15.0" />
+    </edge>
+    <edge source="\CModel" target="\CComponent">
+      <point x="26.66666666666663" y="-15.0" />
+      <point x="552.6666666666665" y="60.0" />
+      <point x="957.0" y="60.0" />
+      <point x="-28.75" y="15.0" />
+    </edge>
+    <edge source="\Keywords" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="653.0" y="240.0" />
+      <point x="540.4444444444443" y="240.0" />
+      <point x="14.444444444444457" y="15.0" />
+    </edge>
+    <edge source="\Students" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="982.5" y="210.0" />
+      <point x="583.7777777777778" y="210.0" />
+      <point x="57.77777777777783" y="15.0" />
+    </edge>
+    <edge source="\Tasks" target="\CActiveRecord">
+      <point x="0.0" y="-15.0" />
+      <point x="881.0" y="220.0" />
+      <point x="569.3333333333333" y="220.0" />
+      <point x="43.33333333333337" y="15.0" />
+    </edge>
+    <edge source="\CActiveRecord" target="\CModel">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="\CModel" target="\IteratorAggregate">
+      <point x="0.0" y="-15.0" />
+      <point x="526.0" y="50.0" />
+      <point x="591.4166666666666" y="50.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1000000000000003" x="816.8181818181816" y="107.09090909090901" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+
