@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * With love from
+ * M. Oravec 
+ */
 class TasksComments extends CActiveRecord {
 
 	static public function model($className = __CLASS__)
