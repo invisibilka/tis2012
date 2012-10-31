@@ -19,15 +19,13 @@ class Students extends CActiveRecord
 
     public function rules()
     {
-        return array( 
-
-        );
+        return array();
     }
 
     public function relations()
     {
-        return array( 
-        'user'=>array(self::BELONGS_TO, 'Users', 'user_id')
+        return array(
+            'user' => array(self::BELONGS_TO, 'Users', 'user_id')
 
         );
     }
