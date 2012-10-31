@@ -28,14 +28,11 @@ class TaskController extends Controller
 
     }
 
+
     public function actionFind()
     {
-        $this->render('find', array());
+        $this->render('find', array('model' => new Tasks()));
     }
-
-public function actionFind() {
-    $this->render('find',array( 'model' => new Tasks() ));
-}
 
     public function filterAccessControl($filterChain)
     {
@@ -43,4 +40,5 @@ public function actionFind() {
     }
 
 }
+
 ?>
