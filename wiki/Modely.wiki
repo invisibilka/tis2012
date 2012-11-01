@@ -107,5 +107,6 @@ Takto mozme pristupovat k pridruzenym polozkam ako ku klasickym poliam, samozrej
 
 Controller + Priklad formularu nabuduce
 
+Kam dalej: [ControlleryCRUD]
 ----
 Autor: Vladimir Jurenka
