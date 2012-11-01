@@ -105,8 +105,6 @@ echo $task->name;
 
 Takto mozme pristupovat k pridruzenym polozkam ako ku klasickym poliam, samozrejme, funguje pre ne aj vestky standartne funkcie na prace s polami napr: count($student->tasks)
 
-Controller + Priklad formularu nabuduce
-
 Kam dalej: [ControlleryCRUD]
 ----
 Autor: Vladimir Jurenka
