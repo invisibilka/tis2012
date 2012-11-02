@@ -6,7 +6,7 @@
  * Time: 15:55
  * To change this template use File | Settings | File Templates.
  */
-class MailSender extends CComponent
+class MailSender extends CApplicationComponent
 {
 
 }
