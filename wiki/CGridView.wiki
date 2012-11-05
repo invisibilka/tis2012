@@ -76,3 +76,6 @@ Celkovy kod k dnesnemu tutorialu je v troch castiach.
   * model-kod: Tasks.php //search
   * controller-kod: SiteController.php //actionTest
   * view-kod: site/test.php
+
+----
+Autor: Vladimir Jurenka
