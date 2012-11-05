@@ -94,4 +94,9 @@ class SiteController extends Controller
         $this->redirect(Yii::app()->homeUrl);
     }
 
+    public function actionTest(){
+        $model = new Tasks();
+        $this->render('test', array('model' => $model));
+    }
+
 }
