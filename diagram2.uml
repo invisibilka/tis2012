@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>\Controller</OriginalElement>
+  <nodes>
+    <node x="462.0650384818346" y="642.1025035034745">\TaskController</node>
+    <node x="802.1096635590902" y="316.3180244549535">\StudentLists</node>
+    <node x="407.28438111757487" y="436.3609191339721">\CController</node>
+    <node x="821.6488133860317" y="272.39427142749076">\Students</node>
+    <node x="562.706968894271" y="588.7491596667792">\UserController</node>
+    <node x="238.55468613478013" y="334.5966603714014">\XLXSImport</node>
+    <node x="810.5067060468334" y="192.63119664865985">\TestTasks</node>
+    <node x="798.8016258030987" y="116.7313140215661">\TasksRating</node>
+    <node x="556.8646638728485" y="14.335900768047694">\UserIdentity</node>
+    <node x="229.0167047040178" y="531.6299925281519">\StudentListController</node>
+    <node x="666.2502192478611" y="114.42268214784099">\TasksComments</node>
+    <node x="215.31847328518887" y="9.163607421330383">\CApplicationComponent</node>
+    <node x="263.40869771292046" y="637.9916533133382">\TestController</node>
+    <node x="406.3351918352076" y="13.095218746300773">\CComponent</node>
+    <node x="241.23432133594468" y="266.7940457906553">\PDFExport</node>
+    <node x="523.9574111028551" y="267.35169969195323">\Invitations</node>
+    <node x="394.10678351343734" y="344.6293585146545">\CBaseController</node>
+    <node x="255.33645192849343" y="69.7852710308688">\MailSender</node>
+    <node x="488.5145730961911" y="529.8591852051908">\SiteController</node>
+    <node x="644.7631682870641" y="323.68051022850267">\Keywords</node>
+    <node x="522.1448103546938" y="206.83785435993218">\Users</node>
+    <node x="592.0120402584461" y="113.13551512035806">\Tests</node>
+    <node x="411.7029347606891" y="591.3253561733129">\Controller</node>
+    <node x="638.5242056604282" y="209.922153372964">\CModel</node>
+    <node x="835.3582664560067" y="152.5513610568417">\Tasks</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\TaskController" target="\Controller">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\UserIdentity" target="\CComponent">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Keywords" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\CBaseController" target="\CComponent">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\StudentLists" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Tasks" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\CApplicationComponent" target="\CComponent">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\TestTasks" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\MailSender" target="\CApplicationComponent">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\UserController" target="\Controller">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Invitations" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\TasksComments" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\TestController" target="\Controller">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Controller" target="\CController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\SiteController" target="\Controller">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Students" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\StudentListController" target="\Controller">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Users" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\CController" target="\CBaseController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\CModel" target="\CComponent">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\Tests" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="\TasksRating" target="\CModel">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8508474576271186" x="773.6932270916335" y="249.6294820717132" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+
