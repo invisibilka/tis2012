@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>\Controller</OriginalElement>
+  <nodes>
+    <node x="24.5" y="0.0">\TaskController</node>
+    <node x="725.0000000000001" y="996.0">\StudentLists</node>
+    <node x="153.0" y="476.0">\CController</node>
+    <node x="1545.0" y="996.0">\Students</node>
+    <node x="649.5000000000001" y="20.0">\UserController</node>
+    <node x="2226.0" y="0.0">\XLXSImport</node>
+    <node x="1709.0" y="996.0">\TasksRating</node>
+    <node x="889.0000000000001" y="996.0">\TestTasks</node>
+    <node x="1498.0" y="2044.0">\UserIdentity</node>
+    <node x="249.5" y="30.0">\StudentListController</node>
+    <node x="1053.0" y="996.0">\TasksComments</node>
+    <node x="0.0" y="2044.0">\CApplicationComponent</node>
+    <node x="424.5000000000001" y="0.0">\TestController</node>
+    <node x="762.1500000000002" y="2502.0">\CComponent</node>
+    <node x="2372.0" y="0.0">\PDFExport</node>
+    <node x="1217.0" y="996.0">\Invitations</node>
+    <node x="206.0" y="1934.0">\CBaseController</node>
+    <node x="36.0" y="1036.0">\MailSender</node>
+    <node x="172.0" y="218.0">\SiteController</node>
+    <node x="2037.0" y="996.0">\Keywords</node>
+    <node x="1381.0" y="996.0">\Users</node>
+    <node x="1873.0" y="996.0">\Tests</node>
+    <node x="382.0000000000001" y="308.0">\Controller</node>
+    <node x="561.0000000000001" y="986.0">\Tasks</node>
+    <node x="1264.0" y="1704.0">\CModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\UserIdentity" target="\CComponent">
+      <point x="99.375" y="-254.0" />
+      <point x="994.0250000000002" y="2482.0" />
+      <point x="1561.5" y="2482.0" />
+      <point x="0.0" y="34.0" />
+    </edge>
+    <edge source="\Keywords" target="\CModel">
+      <point x="96.29999999999995" y="-374.0" />
+      <point x="1467.3000000000002" y="1684.0" />
+      <point x="2109.0" y="1684.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\TaskController" target="\Controller">
+      <point x="-33.75" y="-14.0" />
+      <point x="393.2500000000001" y="198.0" />
+      <point x="127.0" y="198.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="\Tasks" target="\CModel">
+      <point x="-96.30000000000018" y="-374.0" />
+      <point x="1274.6999999999998" y="1684.0" />
+      <point x="633.0000000000001" y="1684.0" />
+      <point x="0.0" y="64.0" />
+    </edge>
+    <edge source="\StudentLists" target="\CModel">
+      <point x="-74.90000000000009" y="-374.0" />
+      <point x="1296.1" y="1674.0" />
+      <point x="797.0000000000001" y="1674.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\CBaseController" target="\CComponent">
+      <point x="-33.125" y="-254.0" />
+      <point x="861.5250000000002" y="2472.0" />
+      <point x="347.0000000000001" y="2472.0" />
+      <point x="0.0" y="144.0" />
+    </edge>
+    <edge source="\SiteController" target="\CController">
+      <point x="-97.0" y="-574.0" />
+      <point x="250.0" y="451.0" />
+      <point x="267.0000000000001" y="451.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="\CApplicationComponent" target="\CComponent">
+      <point x="-99.375" y="-254.0" />
+      <point x="795.2750000000002" y="2482.0" />
+      <point x="84.5" y="2482.0" />
+      <point x="0.0" y="34.0" />
+    </edge>
+    <edge source="\TestTasks" target="\CModel">
+      <point x="-53.5" y="-374.0" />
+      <point x="1317.5" y="1664.0" />
+      <point x="961.0000000000001" y="1664.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\MailSender" target="\CApplicationComponent">
+      <point x="0.0" y="-34.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="\UserController" target="\Controller">
+      <point x="33.75" y="-14.0" />
+      <point x="460.7500000000001" y="198.0" />
+      <point x="714.5000000000001" y="198.0" />
+      <point x="0.0" y="64.0" />
+    </edge>
+    <edge source="\Invitations" target="\CModel">
+      <point x="-10.699999999999818" y="-374.0" />
+      <point x="1360.3000000000002" y="1644.0" />
+      <point x="1289.0" y="1644.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\TasksComments" target="\CModel">
+      <point x="-32.09999999999991" y="-374.0" />
+      <point x="1338.9" y="1654.0" />
+      <point x="1125.0" y="1654.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\TestController" target="\Controller">
+      <point x="11.25" y="-14.0" />
+      <point x="438.2500000000001" y="188.0" />
+      <point x="527.0000000000001" y="188.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="\Controller" target="\CController">
+      <point x="97.0" y="-574.0" />
+      <point x="444.0000000000001" y="451.0" />
+      <point x="427.0000000000001" y="451.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="\Students" target="\CModel">
+      <point x="32.09999999999991" y="-374.0" />
+      <point x="1403.1" y="1654.0" />
+      <point x="1617.0" y="1654.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\StudentListController" target="\Controller">
+      <point x="-11.25" y="-14.0" />
+      <point x="415.7500000000001" y="188.0" />
+      <point x="327.0000000000001" y="188.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\Users" target="\CModel">
+      <point x="10.699999999999818" y="-374.0" />
+      <point x="1381.6999999999998" y="1644.0" />
+      <point x="1453.0" y="1644.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\CController" target="\CBaseController">
+      <point x="0.0" y="-144.0" />
+      <point x="0.0" y="574.0" />
+    </edge>
+    <edge source="\CModel" target="\CComponent">
+      <point x="33.125" y="-254.0" />
+      <point x="927.7750000000002" y="2472.0" />
+      <point x="1371.0" y="2472.0" />
+      <point x="0.0" y="374.0" />
+    </edge>
+    <edge source="\Tests" target="\CModel">
+      <point x="74.90000000000009" y="-374.0" />
+      <point x="1445.9" y="1674.0" />
+      <point x="1945.0" y="1674.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="\TasksRating" target="\CModel">
+      <point x="53.5" y="-374.0" />
+      <point x="1424.5" y="1664.0" />
+      <point x="1781.0" y="1664.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.27887788778877887" x="1232.9940828402368" y="1495.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+
