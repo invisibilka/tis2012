@@ -2,7 +2,7 @@
 
 class TaskController extends Controller
 {
-    public $defaultAction = 'view';
+    public $defaultAction = 'find';
 
     public function actionView()
     {
@@ -20,15 +20,21 @@ class TaskController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
-        if ($model) {
+        $saved = false;
+        if($model){
             //normalna validacia a ulozenie
             if (isset($_POST['Tasks'])) {
                 $model->setAttributes($_POST['Tasks'], false);
                 if ($model->save()) {
-                    $this->redirect($this->createUrl('view', array('id'=>$model->id)));
+            //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
+                    //Yii::app()->end();
+                   // $this->redirect(Yii::app()->request->baseUrl . "/task/");
+                                       $saved = true;
                 }
+                $this->render('find', array('model' => $model), 'saved' => $saved)
+            } else {
+            $this->render('update', array('model'=>$model));
             }
-            $this->render('update', array('model' => $model));
         } else {
             throw new CHttpException(404, 'Zadaná úloha neexistuje. :(');
         }
