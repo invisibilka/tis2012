@@ -99,4 +99,9 @@ class SiteController extends Controller
         $this->render('test', array('model' => $model));
     }
 
+    public function actionEncrypt(){
+        $plain = Yii::app()->request->getParam('heslo');
+        echo UserIdentity::encryptPassword($plain);
+    }
+
 }
