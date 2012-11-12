@@ -6,6 +6,7 @@ class SiteController extends Controller
 {
     /**
      * Deklaracia specialnych akcii
+     * @return array specialne akcie
      */
     public function actions()
     {

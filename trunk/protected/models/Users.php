@@ -6,6 +6,9 @@
  */
 class Users extends CActiveRecord
 {
+    public $new_password;
+
+    public $new_password2;
 
     static public function model($className = __CLASS__)
     {
@@ -28,6 +31,17 @@ class Users extends CActiveRecord
     {
         return array(
 
+        );
+    }
+
+    public function attributeLabels(){
+        return array(
+            'full_name' => 'Meno pouzivatela',
+            'new_password' => 'Nove heslo',
+            'new_password2' => 'Potvrdenie hesla',
+            'email' => 'Email',
+            'permissions' => 'Administrator',
+            'about' => 'O sebe',
         );
     }
 
