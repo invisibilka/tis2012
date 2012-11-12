@@ -19,6 +19,14 @@ class TaskController extends Controller
     { $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
         if($model){
+            //normalna validacia a ulozenie
+            if (isset($_POST['Tasks'])) {
+                $model->setAttributes($_POST['Tasks'], false);
+                if ($model->save()) {
+            //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
+                    Yii::app()->end();
+                }
+            }
             $this->render('update', array('model'=>$model));
         } else {
             throw new CHttpException(404,'Zadaná úloha neexistuje. :(');

@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 );
 ?>
     <div class="form">
-        <?php $form=$this->beginWidget('CActiveForm'); ?>
+        <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Tasks')); ?>
 
         <?php echo $form->errorSummary($model); ?>
 
