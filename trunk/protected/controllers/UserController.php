@@ -21,16 +21,30 @@ class UserController extends Controller
 
     }
 
-    public function actionUpdate(){
+
+    public function actionView() {
+        $this->render('view', array());
+    }
+
+    public function actionUpdate() {
+        $this->render('update', array());
+    }
+
+    public function actionDelete() {
 
     }
 
-    public function actionDelete(){
+    public function actionPrintPdf() {
 
     }
 
-    public function actionList(){
+    public function actionEmail() {
+        $this->render('email', array());
+    }
 
+    public function actionFind()
+    {
+        $this->render('find', array('model' => new Users()));
     }
 
 
