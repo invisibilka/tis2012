@@ -16,13 +16,20 @@ if($saved){
             'value' => '$data->id',
         ),
         array(
+
             'name' => 'name',
             'value' => '$data->name',
+            /*
+                'class'=>'CLinkColumn',
+                'labelExpression'=>'$data->name',
+                'urlExpression'=>'"task/view?id=".$data->id',
+                'header'=>'name',
+             */
         ),
         array(
             'class' => 'CButtonColumn',
             'template' => '{update} {delete}',
-
+            'header' => 'Úpravy',
             'updateButtonLabel' => 'Upraviť',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/task/update?id=".$data->id',
             'deleteButtonLabel' => 'Zmazať',
