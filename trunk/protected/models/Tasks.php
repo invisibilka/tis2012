@@ -28,6 +28,7 @@ class Tasks extends CActiveRecord
 
     public function search(){
         $criteria = new CDbCriteria();
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
             'pagination' => array(
