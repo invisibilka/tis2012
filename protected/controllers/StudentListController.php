@@ -4,9 +4,12 @@
  * M. Oravec 
  */
 class StudentListController extends Controller {
-	
-	public function actionDelete() {
-	}
+
+    public function actionDelete()
+    {
+        $id = Yii::app()->request->getParam('id');
+        Students::model()->deleteByPk($id);
+    }
 	
 	public function actionImport() {
 	}

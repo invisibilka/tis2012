@@ -30,8 +30,10 @@ class UserController extends Controller
         $this->render('update', array());
     }
 
-    public function actionDelete() {
-
+    public function actionDelete()
+    {
+        $id = Yii::app()->request->getParam('id');
+        Users::model()->deleteByPk($id);
     }
 
     public function actionPrintPdf() {
