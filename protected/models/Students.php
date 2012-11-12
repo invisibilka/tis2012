@@ -1,25 +1,41 @@
 <?php
-
+/**
+ * Reprezentuje študentov v databáze.
+ * M. Blascak
+ */
 class Students extends CActiveRecord
 {
 	
 	public $list_id;
-
+    /**
+     * Vrati novu instanciu tejto triedy
+     * @param string $className
+     * @return CActiveRecord - instancia StudentLists
+     */
     static public function model($className = __CLASS__)
     {
         return parent::model($className);
     }
-
+    /**
+     * vrati nazov tabulky v databaze
+     * @return string nazov tabulky
+     */
     public function tableName()
     {
         return 'tis_students';
     }
-
+    /**
+     * Obsahuje pravidla validacie
+     * @return array - pravidla validacie
+     */
     public function rules()
     {
         return array();
     }
-
+    /**
+     * Reprezentuje vztahy medzi modelmi
+     * @return array - vztahy medzi modelmi
+     */
     public function relations()
     {
         return array(
@@ -27,8 +43,12 @@ class Students extends CActiveRecord
 
         );
     }
-	
-	public function search(){
+
+    /**
+     * Vyhladava a triedi studentov z databazy.
+     * @return CActiveDataProvider
+     */
+    public function search(){
         $criteria = new CDbCriteria();
 		$criteria->join='left join tis_students_lists tsl on tsl.student_id=t.id';
 		$criteria->condition='tsl.list_id= :list_id';
