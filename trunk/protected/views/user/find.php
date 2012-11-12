@@ -8,7 +8,11 @@
         ),
         array(
             'name' => 'name',
-            'value' => '$data->name',
+            'value' => '$data->full_name',
+        ),
+        array(
+            'name' => 'login',
+            'value' => '$data->username',
         ),
         array(
             'class' => 'CButtonColumn',
