@@ -5,12 +5,11 @@
  */
 class Students extends CActiveRecord
 {
-	
 	public $list_id;
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
-     * @return CActiveRecord - instancia StudentLists
+     * @return CActiveRecord - instancia Students
      */
     static public function model($className = __CLASS__)
     {
