@@ -31,8 +31,9 @@ class TestController extends Controller
         $this->render('email', array());
     }
 
-    public function actionFind() {
-        $this->render('find', array());
+    public function actionFind()
+    {
+        $this->render('find', array('model' => new Tests()));
     }
 
 
