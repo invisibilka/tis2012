@@ -1,18 +1,13 @@
-<h2>Názov úlohy</h2>
-<p>Text úlohy</p>
-<div class="form">
-<?php /*$form=$this->beginWidget('CActiveForm'); 
-                   
-              
-    echo $form->errorSummary($model); 
- 
+<?php
+$this->breadcrumbs=array(
+    'Úlohy', 'Úloha č.' . $model->id,
+);
+?>
+<div class="task">
 
-       echo $form->label($model,'Vyhľadávanie');
-        echo $form->textField($model,'html'); 
-               
-       echo CHtml::submitButton('Hľadať'); 
-
- 
-$this->endWidget(); */?>
-</div><!-- form -->
+<?php
+echo '<h2>'. $model->name .'</h2>';
+echo '<p>'. $model->html .'</p>';
+?>
+</div>
 

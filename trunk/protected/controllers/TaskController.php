@@ -5,7 +5,14 @@ class TaskController extends Controller
     public $defaultAction = 'view';
     public function actionView()
     {
-        $this->render('view', array());
+        $id = Yii::app()->request->getParam('id');
+        $model = Tasks::model()->findByPk($id);
+        if($model){
+            $this->render('view', array('model'=>$model));
+        } else {
+            throw new CHttpException(404,'Zadaná úloha neexistuje. :(');
+        }
+
     }
 
     public function actionUpdate()
