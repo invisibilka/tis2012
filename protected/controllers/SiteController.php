@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Hlavny kontroller pre stranku, obsahuje zakladne akcie
+ */
 class SiteController extends Controller
 {
     /**
