@@ -1,16 +1,14 @@
 <?php
 
 /**
- * UserIdentity represents the data needed to identity a user.
- * It contains the authentication method that checks if the provided
- * data can identity the user.
+ * Komponent zabezpecuje prihlasovanie pouzivatela a sifrovanie hesiel.
  */
 class UserIdentity extends CUserIdentity
 {
     private static $salt = '$2a$07$';
 
     /**
-     * Authenticates a user.
+     * Prihlasi pouzivatela
      * @return boolean whether authentication succeeds.
      */
     public function authenticate()
@@ -34,11 +32,20 @@ class UserIdentity extends CUserIdentity
         return !$this->errorCode;
     }
 
+    /** Otestuje ci zadane heslo zodpoveda zasifrovanej podobe hesla z databazy
+     * @param $plain - heslo
+     * @param $encrypted - zasiforvana podoba hesla
+     * @return bool - vysledok testu
+     */
     public static function comparePasswords($plain, $encrypted)
     {
         return crypt($plain, $encrypted) == $encrypted;
     }
 
+    /** Zasifruje heslo algoritmom Blowfish
+     * @param $password - heslo
+     * @return string - zasifrovane heslo
+     */
     public static function encryptPassword($password)
     {
         $salt = self::$salt;
