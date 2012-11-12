@@ -1,7 +1,8 @@
 <?php
 $this->breadcrumbs=array(
-    'Úlohy', 'Úloha č.' . $model->id,
-);
+        'Úlohy'=>array('find'),
+        $model->name,
+    );
 ?>
 <div class="task">
 

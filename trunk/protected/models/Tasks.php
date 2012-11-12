@@ -60,4 +60,16 @@ class Tasks extends CActiveRecord
             'tests_tasks' => array(self::HAS_MANY, 'TestsTasks', 'task_id'),
         );
     }
+
+    /** Funkcia definuje text, ktory sa ma zobrazit pri prvkoch formulara.
+     * @return array - pole labelov
+     */
+    public function attributeLabels(){
+        return array(
+            'name' => 'Názov úlohy',
+            'html' => 'Text úlohy',
+            'is_public' => 'Verejná (zobrazuje&nbsp;sa&nbsp;ostatným&nbsp;učiteľom)',
+
+        );
+    }
 }
