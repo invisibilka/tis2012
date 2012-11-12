@@ -16,8 +16,13 @@ class TaskController extends Controller
     }
 
     public function actionUpdate()
-    {
-        $this->render('update', array());
+    { $id = Yii::app()->request->getParam('id');
+        $model = Tasks::model()->findByPk($id);
+        if($model){
+            $this->render('update', array('model'=>$model));
+        } else {
+            throw new CHttpException(404,'Zadaná úloha neexistuje. :(');
+        }
     }
 
     public function actionDelete()
