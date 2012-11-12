@@ -3,7 +3,7 @@
 class SiteController extends Controller
 {
     /**
-     * Declares class-based actions.
+     * Deklaracia specialnych akcii
      */
     public function actions()
     {
@@ -22,8 +22,7 @@ class SiteController extends Controller
     }
 
     /**
-     * This is the default 'index' action that is invoked
-     * when an action is not explicitly requested by users.
+     * index stranka
      */
     public function actionIndex()
     {
@@ -33,7 +32,7 @@ class SiteController extends Controller
     }
 
     /**
-     * This is the action to handle external exceptions.
+     * error stranka
      */
     public function actionError()
     {
@@ -46,7 +45,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays the contact page
+     * kontaktna stranka
      */
     public function actionContact()
     {
@@ -64,7 +63,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays the login page
+     * docasna funkcia na prihlasovanie
      */
     public function actionLogin()
     {
@@ -86,7 +85,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Logs out the current user and redirect to homepage.
+     * docasna funkcia na odhlasovanie
      */
     public function actionLogout()
     {
@@ -94,11 +93,17 @@ class SiteController extends Controller
         $this->redirect(Yii::app()->homeUrl);
     }
 
+    /**
+     * docasna funkcia na rozne testy
+     */
     public function actionTest(){
         $model = new Tasks();
         $this->render('test', array('model' => $model));
     }
 
+    /**
+     * docasna funkcia na kryptovanie hesiel
+     */
     public function actionEncrypt(){
         $plain = Yii::app()->request->getParam('heslo');
         echo UserIdentity::encryptPassword($plain);
