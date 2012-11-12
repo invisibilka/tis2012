@@ -3,39 +3,42 @@
 class TaskController extends Controller
 {
     public $defaultAction = 'view';
+
     public function actionView()
     {
         $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
-        if($model){
-            $this->render('view', array('model'=>$model));
+        if ($model) {
+            $this->render('view', array('model' => $model));
         } else {
-            throw new CHttpException(404,'Zadaná úloha neexistuje. :(');
+            throw new CHttpException(404, 'Zadaná úloha neexistuje. :(');
         }
 
     }
 
     public function actionUpdate()
-    { $id = Yii::app()->request->getParam('id');
+    {
+        $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
-        if($model){
+        if ($model) {
             //normalna validacia a ulozenie
             if (isset($_POST['Tasks'])) {
                 $model->setAttributes($_POST['Tasks'], false);
                 if ($model->save()) {
-            //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
+                    //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
                     Yii::app()->end();
                 }
             }
-            $this->render('update', array('model'=>$model));
+            $this->render('update', array('model' => $model));
         } else {
-            throw new CHttpException(404,'Zadaná úloha neexistuje. :(');
+            throw new CHttpException(404, 'Zadaná úloha neexistuje. :(');
         }
     }
 
     public function actionDelete()
     {
-
+        $id = Yii::app()->request->getParam('id');
+        Tasks::model()->deleteByPk($id);
     }
 
     public function actionAddComment()

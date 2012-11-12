@@ -1,5 +1,5 @@
 <?php
-  public class StudentController extends Controller
+class StudentController extends Controller
 {
 
     public function actionView()
@@ -14,7 +14,8 @@
 
     public function actionDelete()
     {
-
+        $id = Yii::app()->request->getParam('id');
+        Students::model()->deleteByPk($id);
     }
 
      public function filterAccessControl($filterChain)

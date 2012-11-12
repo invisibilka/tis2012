@@ -19,8 +19,10 @@ class TestController extends Controller
         $this->render('update', array());
     }
 
-    public function actionDelete() {
-
+    public function actionDelete()
+    {
+        $id = Yii::app()->request->getParam('id');
+        Tests::model()->deleteByPk($id);
     }
 
     public function actionPrintPdf() {
