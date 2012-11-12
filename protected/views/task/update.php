@@ -1,6 +1,8 @@
 <?php
-$this->breadcrumbs=array(
-    'Úlohy', 'Upraviť úlohu č.' . $model->id,
+    $this->breadcrumbs=array(
+    'Úlohy'=>array('find'),
+    $model->name=>array('view', 'id'=>$model->id),
+    'Upraviť'
 );
 ?>
     <div class="form">
@@ -9,18 +11,18 @@ $this->breadcrumbs=array(
         <?php echo $form->errorSummary($model); ?>
 
         <div class="row">
-            <?php echo $form->label($model,'Názov úlohy'); ?>
+            <?php echo $form->label($model,'name'); ?>
             <?php echo $form->textField($model,'name') ?>
         </div>
 
         <div class="row">
-            <?php echo $form->label($model,'Text úlohy'); ?>
+            <?php echo $form->label($model,'html'); ?>
             <?php echo $form->textArea($model,'html',array('rows' => 12, 'cols' => 50)) ?>
         </div>
 
         <div class="row rememberMe">
             <?php echo $form->checkBox($model,'is_public'); ?>
-            <?php echo $form->label($model,'Verejná (zobrazuje&nbsp;sa&nbsp;ostatným&nbsp;učiteľom)'); ?>
+            <?php echo $form->label($model,'is_public'); ?>
         </div>
 
         <div class="row submit">

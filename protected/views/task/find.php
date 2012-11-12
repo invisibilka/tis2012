@@ -1,4 +1,8 @@
 <?php
+$this->breadcrumbs=array(
+    'Úlohy'
+);
+
 if($saved){
     echo 'Úloha bola úspešne uložená.';
 }
