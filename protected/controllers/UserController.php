@@ -1,32 +1,35 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
  * User: Vladimir
  * Date: 31.10.2012
  * Time: 14:42
- * To change this template use File | Settings | File Templates.
+ * Controller obsahuje akcie na manipulaciu s pouzivatelmi systemu.
  */
 class UserController extends Controller
 {
+    public $defaultAction = 'find';
 
     /**
      * prihlasi pouzivatela
      */
-    public function actionLogin(){
+    public function actionLogin()
+    {
 
     }
 
     /**
      * odhlasi pouzivatela
      */
-    public function actionLogout(){
+    public function actionLogout()
+    {
 
     }
 
     /**
      * pozve pouzivatela do systemu
      */
-    public function actionInvite(){
+    public function actionInvite()
+    {
 
     }
 
@@ -34,15 +37,30 @@ class UserController extends Controller
     /**
      * zobrazi profil pouzivatela
      */
-    public function actionView() {
+    public function actionView()
+    {
         $this->render('view', array());
     }
 
     /**
      * zmeni profil pouzivatela
      */
-    public function actionUpdate() {
-        $this->render('update', array());
+    public function actionUpdate()
+    {
+        $id = Yii::app()->request->getParam('id');
+        $model = Users::model()->findByPk($id);
+        if ($model) {
+            if (isset($_POST['Users'])) {
+                $model->setAttributes($_POST['Users'], false);
+                if ($model->save()) {
+                    $this->redirect($this->createUrl('view',array('id' => $model->id)));
+                }
+            }
+            $this->render('update', array('model' => $model));
+        }
+        else {
+            throw new CHttpException(404, 'Zadany pouzivatel neexistuje');
+        }
     }
 
     /*
@@ -54,12 +72,9 @@ class UserController extends Controller
         Users::model()->deleteByPk($id);
     }
 
-
-
-    public function actionEmail() {
-        $this->render('email', array());
-    }
-
+    /*
+     * zobrazi zoznam pouzivatelov
+     */
     public function actionFind()
     {
         $this->render('find', array('model' => new Users()));

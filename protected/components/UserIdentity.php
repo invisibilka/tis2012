@@ -5,6 +5,7 @@
  */
 class UserIdentity extends CUserIdentity
 {
+
     private static $salt = '$2a$07$';
 
     /**
@@ -27,6 +28,7 @@ class UserIdentity extends CUserIdentity
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         }
         else {
+           // $this->_id = $user->id;
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;
@@ -54,4 +56,5 @@ class UserIdentity extends CUserIdentity
         }
         return crypt($password, $salt);
     }
+
 }
