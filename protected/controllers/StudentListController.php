@@ -15,7 +15,11 @@ class StudentListController extends Controller {
 	}
 	
 	public function actionView() {
-		$this->render('view', array());
+		$id = Yii::app()->request->getParam('id');
+        $model = StudentLists::model()->findByPk($id);
+		$student = new Students;
+		$student->list_id=$model->id;
+		$this->render('view', array('model' => $model, 'student' => $student));
 	}
 	
 	public function actionUpdate() {
