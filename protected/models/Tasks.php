@@ -1,31 +1,41 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: Vladimir
- * Date: 31.10.2012
- * Time: 13:49
- * To change this template use File | Settings | File Templates.
+ * Reprezentuje ulohy v databaze.
+ * V. Jurenka
  */
 class Tasks extends CActiveRecord
 {
-
+    /**
+     * Vrati novu instanciu tejto triedy
+     * @param string $className
+     * @return CActiveRecord - instancia StudentLists
+     */
     static public function model($className = __CLASS__)
     {
         return parent::model($className);
     }
-
+    /**
+     * vrati nazov tabulky v databaze
+     * @return string nazov tabulky
+     */
     public function tableName()
     {
         return 'tis_tasks';
     }
-
+    /**
+     * Obsahuje pravidla validacie
+     * @return array - pravidla validacie
+     */
     public function rules()
     {
         return array(
 
         );
     }
-
+    /**
+     * Vyhladava a triedi ulohy z databazy.
+     * @return CActiveDataProvider
+     */
     public function search(){
         $criteria = new CDbCriteria();
 
@@ -36,7 +46,10 @@ class Tasks extends CActiveRecord
             ),
         ));
     }
-
+    /**
+     * Reprezentuje vztahy medzi modelmi
+     * @return array - vztahy medzi modelmi
+     */
     public function relations()
     {
         return array(
