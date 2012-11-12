@@ -25,8 +25,7 @@ class TaskController extends Controller
             if (isset($_POST['Tasks'])) {
                 $model->setAttributes($_POST['Tasks'], false);
                 if ($model->save()) {
-                    //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
-                    Yii::app()->end();
+                    $this->redirect($this->createUrl('view', array('id'=>$model->id)));
                 }
             }
             $this->render('update', array('model' => $model));
