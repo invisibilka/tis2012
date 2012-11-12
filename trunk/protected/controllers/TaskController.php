@@ -20,7 +20,6 @@ class TaskController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
-        $saved = false;
         if($model){
             //normalna validacia a ulozenie
             if (isset($_POST['Tasks'])) {
@@ -29,12 +28,12 @@ class TaskController extends Controller
             //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
                     //Yii::app()->end();
                    // $this->redirect(Yii::app()->request->baseUrl . "/task/");
-                                       $saved = true;
+                  $this->redirect($this->createUrl('find',array('saved' => true)));
                 }
-                $this->render('find', array('model' => $model), 'saved' => $saved)
-            } else {
-            $this->render('update', array('model'=>$model));
             }
+            $this->render('update', array('model'=>$model));
+
+
         } else {
             throw new CHttpException(404, 'Zadaná úloha neexistuje. :(');
         }
@@ -58,7 +57,8 @@ class TaskController extends Controller
 
     public function actionFind()
     {
-        $this->render('find', array('model' => new Tasks()));
+        $saved = Yii::app()->request->getParam('saved');
+        $this->render('find', array('model' => new Tasks(), 'saved' => $saved));
     }
 
     public function filterAccessControl($filterChain)
