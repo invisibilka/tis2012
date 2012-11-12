@@ -29,7 +29,6 @@ class TasksComments extends CActiveRecord {
     public function rules()
     {
         return array( 
-
         );
     }
     /**
@@ -43,5 +42,4 @@ class TasksComments extends CActiveRecord {
             'task'=>array(self::BELONGS_TO, 'Tasks', 'task_id')
          );
     }
-
 }
