@@ -1,9 +1,15 @@
 <?php
-
+/**
+ * Komponent zabezpečuje manipuláciu s úlohami.
+ */
 class TaskController extends Controller
 {
     public $defaultAction = 'find';
 
+    /**
+     * Zobrazí úlohu so zadaným id, ak úloha s daným id neexistuje vráti chybu 404.
+     * @throws CHttpException
+     */
     public function actionView()
     {
         $id = Yii::app()->request->getParam('id');
@@ -16,6 +22,10 @@ class TaskController extends Controller
 
     }
 
+    /**
+     * Zobrazí formulár na úpravu úlohy so zadaným id, spracuje zadané údaje z formulára a presmeruje späť na zoznam úloh.
+     * @throws CHttpException
+     */
     public function actionUpdate()
     {
         $id = Yii::app()->request->getParam('id');
@@ -39,28 +49,44 @@ class TaskController extends Controller
         }
     }
 
+    /**
+     * Zmaže úlohu s daným id.
+     */
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id');
         Tasks::model()->deleteByPk($id);
     }
 
+    /**
+     * Pridá komentár k danej úlohe.
+     */
     public function actionAddComment()
     {
 
     }
 
+    /**
+     * Pridá hodnotenie k danej úlohe.
+     */
     public function actionRating()
     {
 
     }
 
+    /**
+     * Zobrazí zoznam úloh, umožňuje ich filtrovanie.
+     */
     public function actionFind()
     {
         $saved = Yii::app()->request->getParam('saved');
         $this->render('find', array('model' => new Tasks(), 'saved' => $saved));
     }
 
+    /**
+     * Zabezpečuje kontrolu oprávnení používateľa.
+     * @param CFilterChain $filterChain
+     */
     public function filterAccessControl($filterChain)
     {
         // call $filterChain->run() to continue filter and action execution
