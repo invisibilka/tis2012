@@ -29,7 +29,6 @@ class Tasks extends CActiveRecord
     public function rules()
     {
         return array(
-
         );
     }
     /**
