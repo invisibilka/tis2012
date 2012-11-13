@@ -41,7 +41,8 @@ class Students extends CActiveRecord
     public function relations()
     {
         return array(
-            'user' => array(self::BELONGS_TO, 'Users', 'user_id')
+            'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+            'studentList'=>array(self::MANY_MANY, 'StudentLists', 'tis_students_lists(list_id, student_id)')
 
         );
     }

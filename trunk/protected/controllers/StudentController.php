@@ -7,17 +7,41 @@
 {
       /**
        * Zobrazí študenta s daným id.
+       * @throws CHttpException - chyba ak je zadane neplatne id
        */
       public function actionView()
     {
-        $this->render('view', array());
+        $id = Yii::app()->request->getParam('id');
+        $model = Students::model()->findByPk($id);
+        if ($model) {
+            $this->render('view', array('model' => $model));
+        } else {
+            throw new CHttpException(404, 'Zadaný študent neexistuje. :(');
+        }
     }
+
       /**
        * Zobrazí formulár na úpravu študenta s daným id, spracuje zadané dáta.
+       * @throws CHttpException - chyba ak je zadane neplatne id
        */
-    public function actionUpdate()
+      public function actionUpdate()
     {
-        $this->render('update', array());
+        $id = Yii::app()->request->getParam('id');
+        $model = Students::model()->findByPk($id);
+        if($model){
+            //normalna validacia a ulozenie
+            if (isset($_POST['Students'])) {
+                $model->setAttributes($_POST['Students'], false);
+                if ($model->save()) {
+                    Yii::app()->end();
+                }
+            }
+            $this->render('update', array('model'=>$model));
+
+
+        } else {
+            throw new CHttpException(404, 'Zadaný študent neexistuje. :(');
+        }
     }
       /**
        * Zmaže študenta s daným id.
