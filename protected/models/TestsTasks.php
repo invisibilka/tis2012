@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Marek Oravec
  * Reprezentuje v databáze, ktoré úlohy prislúchajú ku ktorému testu.
+ *@author Marek Oravec
  */
 class TestTasks extends CActiveRecord
 {
