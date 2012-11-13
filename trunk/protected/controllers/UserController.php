@@ -1,8 +1,6 @@
 <?php
 /**
- * User: Vladimir
- * Date: 31.10.2012
- * Time: 14:42
+ * @author Vladimir Jurenka
  * Controller obsahuje akcie na manipulaciu s pouzivatelmi systemu.
  */
 class UserController extends Controller
