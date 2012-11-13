@@ -1,5 +1,6 @@
 <?php
 /**
+ * Zoznam študentov v danej skupine. 
  *@author Marek Oravec
  */
 
