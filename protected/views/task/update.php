@@ -1,5 +1,9 @@
 <?php
-    $this->breadcrumbs=array(
+/**
+ *@author Eva Libantova
+ */
+
+$this->breadcrumbs=array(
     'Úlohy'=>array('find'),
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
