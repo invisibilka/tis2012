@@ -3,6 +3,7 @@
  * User: V. Jurenka
  * Date: 1.10.2012
  * Time: 16:49
+ * @author V. Jurenka
  */
 class Users extends CActiveRecord
 {
