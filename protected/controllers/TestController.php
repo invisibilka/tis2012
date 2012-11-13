@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: Katka
- * Date: 31.10.2012
- * Time: 15:00
+ * @author Katka Ivanyiova
 * Toto je kontroler, ktorý zabezpečuje prácu s jednotlivými úlohami.
  */
 

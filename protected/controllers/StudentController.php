@@ -1,6 +1,6 @@
 <?php
 /**
-  *@author Eva Libantova
+  * @author Milos Blascak
   * Komponent zabezpečuje manipuláciu so študentami.
 */
   class StudentController extends Controller
