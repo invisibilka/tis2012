@@ -1,4 +1,8 @@
-<?php 
+<?php
+/**
+ *@author Marek Oravec
+ */
+
 echo '<h2>'. $model->name .'</h2>';
 
 $this->widget('zii.widgets.grid.CGridView', array(

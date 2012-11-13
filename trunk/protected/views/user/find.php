@@ -1,4 +1,10 @@
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php
+/**
+ *@author  Vladimir Jurenka
+ */
+
+
+$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
     'columns' => array(

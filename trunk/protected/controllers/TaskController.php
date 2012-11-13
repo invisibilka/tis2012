@@ -1,5 +1,6 @@
 <?php
 /**
+ *@author Eva Libantova
  * Komponent zabezpečuje manipuláciu s úlohami.
  */
 class TaskController extends Controller

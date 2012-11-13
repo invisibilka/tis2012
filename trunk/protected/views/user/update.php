@@ -1,5 +1,11 @@
 <div class="form">
-    <?php $form = $this->beginWidget('CActiveForm', array('id' => 'Users')); ?>
+    <?php
+    /**
+     *@author  Vladimir Jurenka
+     */
+
+
+    $form = $this->beginWidget('CActiveForm', array('id' => 'Users')); ?>
 
     <div class="row">
         <?php echo $form->label($model, 'full_name'); ?>

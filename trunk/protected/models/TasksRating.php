@@ -1,10 +1,9 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: Katka
+ * @author Katka
  * Date: 31.10.2012
  * Time: 14:09
- * To change this template use File | Settings | File Templates.
+ * Reprezentuje hodnotenie ulohy.
  */
 class TasksRating extends CActiveRecord
 {
