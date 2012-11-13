@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Vladimir Jurenka
  * Controller obsahuje akcie na manipulaciu s pouzivatelmi systemu.
+ * @author Vladimir Jurenka
  */
 class UserController extends Controller
 {

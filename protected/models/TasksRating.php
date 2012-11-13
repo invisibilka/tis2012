@@ -1,9 +1,9 @@
 <?php
 /**
+ * Reprezentuje hodnotenie ulohy.
  * @author Katka
  * Date: 31.10.2012
  * Time: 14:09
- * Reprezentuje hodnotenie ulohy.
  */
 class TasksRating extends CActiveRecord
 {

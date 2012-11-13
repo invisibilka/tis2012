@@ -1,7 +1,7 @@
 <?php
 /**
-  * @author Milos Blascak
   * Komponent zabezpečuje manipuláciu so študentami.
+  * @author Milos Blascak
 */
   class StudentController extends Controller
 {

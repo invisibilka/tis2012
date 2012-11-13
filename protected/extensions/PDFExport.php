@@ -1,9 +1,7 @@
 <?php
 /**
- * User: V. Jurenka
- * Date: 2.11.2012
- * Time: 11:30
  * Komponent zabezpecuje exportovanie do PDF suborou
+ * @author V.Jurenka
  */
 class PDFExport
 {

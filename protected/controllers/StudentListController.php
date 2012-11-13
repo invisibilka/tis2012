@@ -1,7 +1,7 @@
 <?php
 /**
  * Komponent zabezpečuje manipuláciu so zoznamami študentov.
-  *@author Marek Oravec
+ * @author Marek Oravec
  */
 class StudentListController extends Controller {
 
