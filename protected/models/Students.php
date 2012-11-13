@@ -5,7 +5,10 @@
  */
 class Students extends CActiveRecord
 {
-	public $list_id;
+    /**
+     * pomocna premenna pri vyhladavani v zozname studentov
+     */
+    public $list_id;
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
