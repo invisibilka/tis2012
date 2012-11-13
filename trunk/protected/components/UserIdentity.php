@@ -2,6 +2,7 @@
 
 /**
  * Komponent zabezpecuje prihlasovanie pouzivatela a sifrovanie hesiel.
+ * @author V.Jurenka
  */
 class UserIdentity extends CUserIdentity
 {

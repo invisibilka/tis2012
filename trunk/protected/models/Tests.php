@@ -1,7 +1,7 @@
 <?php
 /**
  * Reprezentuje zoznam vytvorenych pisomiek v databaze.
- *@author Marek Oravec
+ * @author Marek Oravec
  */
 class Tests extends CActiveRecord {
     /**

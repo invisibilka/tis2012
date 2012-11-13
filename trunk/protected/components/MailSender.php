@@ -1,10 +1,7 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: Vladimir
- * Date: 31.10.2012
- * Time: 15:55
  * Komponent zabezpecuje posielanie emailov
+ * @author V.Jurenka
  */
 class MailSender extends CApplicationComponent
 {

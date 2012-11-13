@@ -1,9 +1,7 @@
 <?php
 /**
- * User: V. Jurenka
- * Date: 2.11.2012
- * Time: 11:31
  * Komponent zabezpecuje import mien a mailovych adries z xlxs suboru
+ * @author V.Jurenka
  */
 class XLXSImport
 {

@@ -1,7 +1,7 @@
 <?php
 /**
+ * Toto je kontroler, ktorý zabezpečuje prácu s jednotlivými úlohami.
  * @author Katka Ivanyiova
-* Toto je kontroler, ktorý zabezpečuje prácu s jednotlivými úlohami.
  */
 
 class TestController extends Controller{

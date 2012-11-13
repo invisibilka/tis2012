@@ -1,8 +1,8 @@
 <?php
 /**
- * @author Katka
  * Date: 31.10.2012
  * Time: 13:49
+ * @author Katka
  */
 class Keywords extends CActiveRecord
 {
