@@ -1,14 +1,14 @@
 <?php
 /**
  * Reprezentuje ulohy v databaze.
- * V. Jurenka
+ * @author Eva Libantova
  */
 class Tasks extends CActiveRecord
 {
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
-     * @return CActiveRecord - instancia StudentLists
+     * @return CActiveRecord - instancia Tasks
      */
     static public function model($className = __CLASS__)
     {

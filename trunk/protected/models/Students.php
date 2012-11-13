@@ -1,7 +1,7 @@
 <?php
 /**
  * Reprezentuje študentov v databáze.
- * M. Blascak
+ * @author Milos Blascak
  */
 class Students extends CActiveRecord
 {

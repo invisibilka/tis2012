@@ -1,14 +1,13 @@
 <?php
 /**
  * Reprezentuje komentare k uloham v databaze.
- * With love from
- * M. Oravec 
+ * @author Eva Libantova
  */
 class TasksComments extends CActiveRecord {
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
-     * @return CActiveRecord - instancia StudentLists
+     * @return CActiveRecord - instancia TasksComments
      */
 	static public function model($className = __CLASS__)
     {
