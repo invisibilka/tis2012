@@ -1,5 +1,6 @@
 <?php
 /**
+ * @author Marek Oravec
  * Reprezentuje zoznam vytvorenych pisomiek v databaze.
  */
 class Tests extends CActiveRecord {
