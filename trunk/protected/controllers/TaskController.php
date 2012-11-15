@@ -31,18 +31,18 @@ class TaskController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
-        if($model){
+        if ($model) {
             //normalna validacia a ulozenie
             if (isset($_POST['Tasks'])) {
                 $model->setAttributes($_POST['Tasks'], false);
                 if ($model->save()) {
-            //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
+                    //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
                     //Yii::app()->end();
-                   // $this->redirect(Yii::app()->request->baseUrl . "/task/");
-                  $this->redirect($this->createUrl('find',array('saved' => true)));
+                    // $this->redirect(Yii::app()->request->baseUrl . "/task/");
+                    $this->redirect($this->createUrl('find', array('saved' => true)));
                 }
             }
-            $this->render('update', array('model'=>$model));
+            $this->render('update', array('model' => $model));
 
 
         } else {
