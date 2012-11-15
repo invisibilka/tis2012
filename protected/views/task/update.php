@@ -3,11 +3,18 @@
  * @author Eva Libantova
  */
 
+if($model->id == ''){
+    $this->breadcrumbs=array(
+        'Úlohy'=>array('find'),
+        'Vytvoriť novú úlohu'
+    );
+} else {
 $this->breadcrumbs=array(
     'Úlohy'=>array('find'),
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
 );
+}
 ?>
     <div class="form">
         <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Tasks')); ?>

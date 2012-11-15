@@ -6,7 +6,7 @@
 $this->breadcrumbs=array(
     'Úlohy'
 );
-
+echo '<a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a><br />';
 if($saved){
     echo 'Úloha bola úspešne uložená.';
 }
@@ -29,6 +29,10 @@ if($saved){
                 'urlExpression'=>'"task/view?id=".$data->id',
                 'header'=>'name',
              */
+        ),
+        array(
+            'name' => 'is_public',
+            'value' => '$data->is_public',
         ),
         array(
             'class' => 'CButtonColumn',
