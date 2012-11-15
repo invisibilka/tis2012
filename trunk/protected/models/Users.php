@@ -29,7 +29,7 @@ class Users extends CActiveRecord
     public function relations()
     {
         return array(
-
+            'students' => array(self::HAS_MANY, 'Students', 'user_id'),
         );
     }
 
