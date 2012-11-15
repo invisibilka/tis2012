@@ -99,7 +99,8 @@ class SiteController extends Controller
     /**
      * docasna funkcia na rozne testy
      */
-    public function actionTest(){
+    public function actionTest()
+    {
         $model = new Tasks();
         $this->render('test', array('model' => $model));
     }
@@ -107,7 +108,8 @@ class SiteController extends Controller
     /**
      * docasna funkcia na kryptovanie hesiel
      */
-    public function actionEncrypt(){
+    public function actionEncrypt()
+    {
         $plain = Yii::app()->request->getParam('heslo');
         echo UserIdentity::encryptPassword($plain);
     }

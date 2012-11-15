@@ -4,20 +4,23 @@
  * @author Katka Ivanyiova
  */
 
-class TestController extends Controller{
+class TestController extends Controller
+{
 
 
     /**
      * Funkcia na zobrazenie danej úlohy
      */
-    public function actionView() {
+    public function actionView()
+    {
         $this->render('view', array());
     }
 
     /**
      * Funkcia pre aktualizáciu už existujúcej úlohy alebo vytvorenie novej.
      */
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         $this->render('update', array());
     }
 
@@ -34,14 +37,16 @@ class TestController extends Controller{
     /**
      * Funkcia, ktorá zabezpečí export do formátu PDF a jeho tlač.
      */
-    public function actionPrintPdf() {
+    public function actionPrintPdf()
+    {
 
     }
 
     /**
      * Funkcia zabezpečí vloženie úloh do príloh a odošle email konkrétnym osobám
      */
-    public function actionEmail() {
+    public function actionEmail()
+    {
         $this->render('email', array());
     }
 
@@ -63,4 +68,5 @@ class TestController extends Controller{
     }
 
 }
+
 ?>

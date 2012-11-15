@@ -51,12 +51,11 @@ class UserController extends Controller
             if (isset($_POST['Users'])) {
                 $model->setAttributes($_POST['Users'], false);
                 if ($model->save()) {
-                    $this->redirect($this->createUrl('view',array('id' => $model->id)));
+                    $this->redirect($this->createUrl('view', array('id' => $model->id)));
                 }
             }
             $this->render('update', array('model' => $model));
-        }
-        else {
+        } else {
             throw new CHttpException(404, 'Zadany pouzivatel neexistuje');
         }
     }
