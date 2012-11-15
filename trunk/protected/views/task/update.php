@@ -5,12 +5,12 @@
 
 if($model->id == ''){
     $this->breadcrumbs=array(
-        'Úlohy'=>array('find'),
+        'Moje úlohy'=>array('my'),
         'Vytvoriť novú úlohu'
     );
 } else {
 $this->breadcrumbs=array(
-    'Úlohy'=>array('find'),
+    'Moje úlohy'=>array('my'),
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
 );

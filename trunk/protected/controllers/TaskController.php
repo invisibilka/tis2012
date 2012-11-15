@@ -5,7 +5,7 @@
  */
 class TaskController extends Controller
 {
-    public $defaultAction = 'find';
+    public $defaultAction = 'my';
 
     /**
      * Zobrazí úlohu so zadaným id, ak úloha s daným id neexistuje vráti chybu 404.
@@ -76,10 +76,15 @@ class TaskController extends Controller
     /**
      * Zobrazí zoznam úloh, umožňuje ich filtrovanie.
      */
-    public function actionFind()
+    public function actionMy()
     {
         $saved = Yii::app()->request->getParam('saved');
-        $this->render('find', array('model' => new Tasks(), 'saved' => $saved));
+        $this->render('my', array('model' => new Tasks(), 'saved' => $saved));
+    }
+
+    public function actionPublic()
+    {
+         $this->render('public', array('model' => new Tasks()));
     }
 
     /**

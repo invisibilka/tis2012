@@ -1,10 +1,11 @@
 <?php
 /**
+ * Zoznam úloh prihláseného učiteľa.
  * @author Eva Libantova
  */
 
 $this->breadcrumbs=array(
-    'Úlohy'
+    'Moje úlohy'
 );
 echo '<a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a><br />';
 if($saved){
