@@ -10,7 +10,7 @@ class PDFExport
      * @param $test - test
      * @return vracia PDF dokument
      */
-    public function  createPDF($test){
+    public function createPDF($test){
         return null;
     }
 }
