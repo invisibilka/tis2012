@@ -30,6 +30,8 @@ class Users extends CActiveRecord
     {
         return array(
             'students' => array(self::HAS_MANY, 'Students', 'user_id'),
+            'tasks' => array(self::HAS_MANY, 'Tasks', 'user_id'),
+            'tests' => array(self::HAS_MANY, 'Tests', 'user_id'),
         );
     }
 
