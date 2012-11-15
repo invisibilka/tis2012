@@ -4,7 +4,7 @@
  */
 
 $this->breadcrumbs=array(
-        'Úlohy'=>array('find'),
+        'Moje úlohy'=>array('my'),
         $model->name,
     );
 ?>

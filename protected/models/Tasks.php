@@ -69,6 +69,7 @@ class Tasks extends CActiveRecord
             'name' => 'Názov úlohy',
             'html' => 'Text úlohy',
             'is_public' => 'Verejná (zobrazuje&nbsp;sa&nbsp;ostatným&nbsp;učiteľom)',
+            'rating' => 'Hodnotenie',
 
         );
     }
