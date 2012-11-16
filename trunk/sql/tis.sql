@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Hostiteľ: localhost
--- Vygenerované:: 12.Nov, 2012 - 11:00
+-- Vygenerované:: 16.Nov, 2012 - 13:19
 -- Verzia serveru: 5.1.53
 -- Verzia PHP: 5.3.4
 
@@ -28,21 +28,41 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Sťahujem dáta pre tabuľku `tis_keywords`
 --
 
+INSERT INTO `tis_keywords` (`id`, `name`) VALUES
+(1, 'verejna'),
+(2, 'sucet');
 
 --
 -- Sťahujem dáta pre tabuľku `tis_students`
 --
 
+INSERT INTO `tis_students` (`id`, `user_id`, `name`, `email`) VALUES
+(1, 1, 'jurko', 'jurko@gmail.com'),
+(2, 1, 'janka', 'janka@gmail.com'),
+(3, 2, 'michal', 'michal@gmail.com'),
+(4, 2, 'jano', 'jano@gmail.com'),
+(5, 1, 'vlado', 'jurenka@jurenka.sk'),
+(6, 1, 'katka', 'invisibilka@gmail.com');
 
 --
 -- Sťahujem dáta pre tabuľku `tis_students_lists`
 --
 
+INSERT INTO `tis_students_lists` (`id`, `student_id`, `list_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 5, 1),
+(4, 6, 1),
+(5, 3, 2),
+(6, 4, 2);
 
 --
 -- Sťahujem dáta pre tabuľku `tis_student_lists`
 --
 
+INSERT INTO `tis_student_lists` (`id`, `user_id`, `name`) VALUES
+(1, 1, 'prvaci'),
+(2, 2, 'informatici');
 
 --
 -- Sťahujem dáta pre tabuľku `tis_tasks`
@@ -70,16 +90,31 @@ INSERT INTO `tis_tasks` (`id`, `user_id`, `name`, `is_public`, `html`, `rating`)
 -- Sťahujem dáta pre tabuľku `tis_tasks_comments`
 --
 
+INSERT INTO `tis_tasks_comments` (`id`, `task_id`, `user_id`, `date`, `text`) VALUES
+(1, 1, 1, '2012-11-16', 'no toto:D'),
+(2, 1, 2, '2012-11-16', 'jej :)');
 
 --
 -- Sťahujem dáta pre tabuľku `tis_tasks_keywords`
 --
 
+INSERT INTO `tis_tasks_keywords` (`id`, `task_id`, `keyword_id`) VALUES
+(1, 2, 1),
+(2, 6, 1),
+(3, 8, 1),
+(4, 10, 1),
+(5, 12, 1),
+(6, 15, 1),
+(7, 5, 2),
+(8, 8, 2);
 
 --
 -- Sťahujem dáta pre tabuľku `tis_tasks_rating`
 --
 
+INSERT INTO `tis_tasks_rating` (`id`, `task_id`, `user_id`, `rating`) VALUES
+(1, 13, 2, 2),
+(2, 13, 3, 1);
 
 --
 -- Sťahujem dáta pre tabuľku `tis_tests`
