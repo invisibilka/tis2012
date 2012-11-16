@@ -107,7 +107,11 @@ class UserController extends Controller
      */
     public function actionFind()
     {
-        $this->render('find', array('model' => new Users()));
+        $model = new Users();
+        if (isset($_GET['Users'])) {
+            $model->setAttributes($_GET['Users'], false);
+        }
+        $this->render('find', array('model' => $model));
     }
 
 
