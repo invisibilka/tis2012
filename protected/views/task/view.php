@@ -2,6 +2,8 @@
 /**
  * @author Eva Libantova
  */
+ 
+$this->renderPartial("subnavigation", array());
 
 $this->breadcrumbs=array(
         'Moje úlohy'=>array('my'),

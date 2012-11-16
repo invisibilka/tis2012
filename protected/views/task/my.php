@@ -3,6 +3,7 @@
  * Zoznam úloh prihláseného učiteľa.
  * @author Eva Libantova
  */
+$this->renderPartial("subnavigation", array());
 
 $this->breadcrumbs=array(
     'Moje úlohy'
