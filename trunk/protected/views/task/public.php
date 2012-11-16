@@ -19,11 +19,15 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => '$data->id',
         ),
         array(
-
-            'class'=>'CLinkColumn',
-            'labelExpression'=>'$data->name',
-            'urlExpression'=>'"view/id/".$data->id',
-            'header'=>'name',
+            'type' => 'raw',
+            'name' => 'name',
+            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
+            /*
+                'class'=>'CLinkColumn',
+                'labelExpression'=>'$data->name',
+                'urlExpression'=>'"task/view?id=".$data->id',
+                'header'=>'name',
+             */
         ),
         array(
             'name' => 'rating',
