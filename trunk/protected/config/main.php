@@ -34,9 +34,27 @@ return array(
 
     // application components
     'components' => array(
+
+        'clientScript' => array(
+            'packages' => array(
+                'tiny_mce' => array(
+                    'basePath' => 'application.assets.tiny_mce',
+                    'depends' => array('jquery'),
+                    'js' => array(
+                        'jquery.tinymce.js',
+                        'tiny_mce.js',
+                      //  'jquery.mousewheel-3.0.4.pack.js',
+                    ),
+                    'css' => array(
+                      //  'jquery.fancybox-1.3.4.css'
+                    )
+                ),
+            ),
+        ),
+
         'user' => array(
             // enable cookie-based authentication
-             'allowAutoLogin' => true,
+            'allowAutoLogin' => true,
         ),
 
         // uncomment the following to enable URLs in path-format
@@ -86,4 +104,5 @@ return array(
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
     ),
+
 );
