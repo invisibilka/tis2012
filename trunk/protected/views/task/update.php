@@ -2,8 +2,6 @@
 /**
  * @author Eva Libantova
  */
- 
-$this->renderPartial("subnavigation", array());
 
 if($model->id == ''){
     $this->breadcrumbs=array(

@@ -3,8 +3,6 @@
  * Zoznam verejných úloh ostatných učiteľov.
  * @author Eva Libantova
  */
- 
-$this->renderPartial("subnavigation", array());
 
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/rating.js', CClientScript::POS_HEAD);
