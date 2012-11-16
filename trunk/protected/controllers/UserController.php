@@ -54,7 +54,17 @@ class UserController extends Controller
      */
     public function actionView()
     {
-        $this->render('view', array());
+        $id = Yii::app()->request->getParam('id');
+        if (!$id) {
+            $id = Yii::app()->user->id;
+        }
+        $model = Users::model()->findByPk($id);
+        if ($model) {
+            $this->render('view', array('model' => $model));
+        }
+        else {
+            throw new CHttpException(404, 'Zadany pouzivatel neexistuje');
+        }
     }
 
     /**
