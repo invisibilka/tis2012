@@ -40,10 +40,10 @@
     
     <?php 
 	if (Yii::app()->user->isGuest) {
-		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/login">Prihlásiť sa</a><?php
+		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/login">Prihlásiť sa</a><?php
 	}
 	else {
-		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
+		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
 	}
 	?>
 
