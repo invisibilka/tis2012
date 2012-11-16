@@ -29,6 +29,7 @@ class Tasks extends CActiveRecord
     public function rules()
     {
         return array(
+            array('user_id, name, html', 'required'),
         );
     }
     /**
@@ -69,6 +70,7 @@ class Tasks extends CActiveRecord
             'html' => 'Text úlohy',
             'is_public' => 'Verejná (zobrazuje&nbsp;sa&nbsp;ostatným&nbsp;učiteľom)',
             'rating' => 'Hodnotenie',
+            'user' => 'Autor úlohy'
 
         );
     }

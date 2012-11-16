@@ -20,14 +20,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
 
-            'name' => 'name',
-            'value' => '$data->name',
-            /*
-                'class'=>'CLinkColumn',
-                'labelExpression'=>'$data->name',
-                'urlExpression'=>'"task/view?id=".$data->id',
-                'header'=>'name',
-             */
+            'class'=>'CLinkColumn',
+            'labelExpression'=>'$data->name',
+            'urlExpression'=>'"view/id/".$data->id',
+            'header'=>'name',
         ),
         array(
             'name' => 'rating',
@@ -50,27 +46,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
                 'CHtml::Link(\'5\', \'javascript:rate(5,\' . $data->id . \')\', array(\'title\' => \'5 z 5 hviezdičiek\', \'class\' => \'five-stars\'))' .
                           ", true)" .
                        ", true)"
-             /*
-<ul class="star-rating">
-    <li><a href="javascript:rateImg(1,' . $taskId . ')" title="1 star out of 5" class="one-star">1</a></li>
-    <li><a href="javascript:rateImg(2,' . $taskId . ')" title="2 stars out of 5" class="two-stars">2</a></li>
-    <li><a href="javascript:rateImg(3,' . $taskId . ')" title="3 stars out of 5" class="three-stars">3</a></li>
-    <li><a href="javascript:rateImg(4,' . $taskId . ')" title="4 stars out of 5" class="four-stars">4</a></li>
-    <li><a href="javascript:rateImg(5,' . $taskId . ')" title="5 stars out of 5" class="five-stars">5</a></li>
-</ul>
-    */
-            //'$data->rating',
         ),
-       /* array(
-            'class' => 'CButtonColumn',
-            'template' => '{update} {delete}',
-            'header' => 'Úpravy',
-            'updateButtonLabel' => 'Upraviť',
-            'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/task/update?id=".$data->id',
-            'deleteButtonLabel' => 'Zmazať',
-            'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/task/delete?id=".$data->id',
-
+        array(
+            'name' => 'user',
+            'value' => '$data->user->full_name'
         )
-       */
-    )
-)); ?>
+))); ?>

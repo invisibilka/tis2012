@@ -22,15 +22,15 @@ if($saved){
             'value' => '$data->id',
         ),
         array(
-
+        /*
             'name' => 'name',
-            'value' => '$data->name',
-            /*
+            'value' => '$data->name',  */
+
                 'class'=>'CLinkColumn',
                 'labelExpression'=>'$data->name',
-                'urlExpression'=>'"task/view?id=".$data->id',
+                'urlExpression'=>'"view/id/".$data->id',
                 'header'=>'name',
-             */
+
         ),
         array(
             'name' => 'is_public',
