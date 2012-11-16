@@ -1,7 +1,7 @@
 <div class="form">
     <?php
     /**
-     *@author  Vladimir Jurenka
+     * @author  Vladimir Jurenka
      */
 
 
@@ -20,9 +20,9 @@
     </div>
 
     <div class="row">
-        <?php echo $form->label($model, 'email'); ?>
-        <?php echo $form->textField($model, 'email') ?>
-        <?php echo $form->error($model, 'email') ?>
+        <?php echo $form->label($model, 'about'); ?>
+        <?php echo $form->textArea($model, 'about') ?>
+        <?php echo $form->error($model, 'about') ?>
     </div>
 
     <div class="row">
@@ -37,7 +37,7 @@
         <?php echo $form->error($model, 'new_password2') ?>
     </div>
 
-    <?php if (false && Users::model()->findByPk(Yii::app()->user->id)->permissions) { ?>
+    <?php if (Users::model()->findByPk(Yii::app()->user->id)->permissions) { ?>
     <div class="row">
         <?php echo $form->label($model, 'permissions'); ?>
         <?php echo $form->checkBox($model, 'permissions'); ?>
