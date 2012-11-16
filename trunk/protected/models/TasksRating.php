@@ -31,6 +31,7 @@ class TasksRating extends CActiveRecord
     public function rules()
     {
         return array(
+            array('task_id, user_id, rating', 'required'),
 
         );
     }

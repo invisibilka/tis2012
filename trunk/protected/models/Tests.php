@@ -27,8 +27,8 @@ class Tests extends CActiveRecord {
      */
     public function rules()
     {
-        return array( 
-
+        return array(
+            array('user_id, name', 'required'),
         );
     }
     /**
