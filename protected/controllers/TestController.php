@@ -7,6 +7,7 @@
 class TestController extends Controller
 {
 
+    public $defaultAction = 'find';
 
     /**
      * Funkcia na zobrazenie danej úlohy
