@@ -22,7 +22,10 @@ class Users extends CActiveRecord
     public function rules()
     {
         return array(
-
+            array('new_password', 'compare', 'compareAttribute'=>'new_password2'),
+            array('email', 'unique'),
+            array('email', 'email'),
+            array('about', 'length', 'max' => 3000),
         );
     }
 
@@ -32,6 +35,7 @@ class Users extends CActiveRecord
             'students' => array(self::HAS_MANY, 'Students', 'user_id'),
             'tasks' => array(self::HAS_MANY, 'Tasks', 'user_id'),
             'tests' => array(self::HAS_MANY, 'Tests', 'user_id'),
+            'studentLists' => array(self::HAS_MANY, 'StudentLists', 'user_id'),
         );
     }
 
@@ -58,3 +62,4 @@ class Users extends CActiveRecord
     }
 
 }
+

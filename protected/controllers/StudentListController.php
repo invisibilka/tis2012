@@ -56,7 +56,7 @@ class StudentListController extends Controller
      */
     public function actionFind()
     {
-
+        $this->render('find', array('model' => new StudentLists()));
     }
 
 }

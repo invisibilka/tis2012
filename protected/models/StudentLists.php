@@ -44,6 +44,23 @@ class StudentLists extends CActiveRecord
          );
     }
 
+
+    /**
+     * Pomocna funkcia na vyhladavanie v zoznamoch studentov
+     * pridal V. Jurenka
+     * @return CActiveDataProvider
+     */
+    public function search(){
+        $criteria = new CDbCriteria();
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 50,
+            ),
+        ));
+    }
+
 }
 
 ?>

@@ -74,6 +74,9 @@ class UserController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Users::model()->findByPk($id);
+        if(!$model){
+            $model = Users::model()->findByPk(Yii::app()->user->id);
+        }
         if ($model) {
             if (isset($_POST['Users'])) {
                 $model->setAttributes($_POST['Users'], false);
@@ -82,7 +85,7 @@ class UserController extends Controller
                 }
             }
             $this->render('update', array('model' => $model));
-        } else {
+        } else{
             throw new CHttpException(404, 'Zadany pouzivatel neexistuje');
         }
     }
