@@ -70,7 +70,11 @@ class TaskController extends Controller
      */
     public function actionRating()
     {
-
+        $model = new TasksRating();
+        if (isset($_GET['task_id']) && isset($_GET['rating'])) {
+            $model->setAttributes(array('task_id' => $_GET['task_id'], 'rating' => $_GET['rating'], 'user_id' => Yii::app()->user->id), false);
+            $model->save();
+        }
     }
 
     /**

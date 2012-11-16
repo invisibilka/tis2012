@@ -56,11 +56,12 @@ datosServidor.prototype.enviar = function(urlget,datos) {
 	return false;
 }
 
+ 
 
-function rateImg(rating,imgId )  {
+function rate(rating,id )  {
 		remotos = new datosServidor;
-		nt = remotos.enviar('update.php?rating='+rating+'&imgId ='+imgId );
+		nt = remotos.enviar('http://localhost/tis2012/task/rating/?task_id='+id + '&rating='+rating);
 		rating = (rating * 25) - 8;
-		document.getElementById('current-rating').style.width = rating+'px';
+		document.getElementById('current-rating' + id).style.width = rating+'px';
 		//document.getElementById('ratingtext').innerHTML = 'Thank you for your rating!';
 }
