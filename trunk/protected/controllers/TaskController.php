@@ -41,7 +41,7 @@ class TaskController extends Controller
                     //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
                     //Yii::app()->end();
                     // $this->redirect(Yii::app()->request->baseUrl . "/task/");
-                    $this->redirect($this->createUrl('find', array('saved' => true)));
+                    $this->redirect($this->createUrl('my', array('saved' => true)));
                 }
             }
             $this->render('update', array('model' => $model));
@@ -79,7 +79,11 @@ class TaskController extends Controller
     public function actionMy()
     {
         $saved = Yii::app()->request->getParam('saved');
-        $this->render('my', array('model' => new Tasks(), 'saved' => $saved));
+        $model = new Tasks(); //Tasks::model()->findAllByPk(Yii::app()->user->id);
+        if (!$model) {
+            $model = new Tasks();
+        }
+        $this->render('my', array('model' => $model, 'saved' => $saved));
     }
 
     public function actionPublic()

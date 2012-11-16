@@ -4,6 +4,7 @@
  */
 
 $this->breadcrumbs=array(
+       'Správa úloh' => Yii::app()->request->baseUrl . '/task',
         'Moje úlohy'=>array('my'),
         $model->name,
     );
