@@ -7,8 +7,10 @@
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/rating.js', CClientScript::POS_HEAD);
 $this->breadcrumbs=array(
+    'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Verejné úlohy'
 );
+$taskId = '$data->id';
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
@@ -34,7 +36,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => "CHtml::tag('ul', array('class' => 'star-rating' ), " .
                           "CHtml::tag('li', array('class' => 'current-rating', 'id' => 'current-rating', 'style' => 'width: " . '$data->$rating*25' . "px'), 'Currently " . '$data->rating' . "/5 Stars.' , true) . " .
                           "CHtml::tag('li', array(), " .
-                             "CHtml::Link('1', 'javascript:rateImg(1," . '$data->id' . ")', array('title' => '1 star out of 5', 'class' => 'one-star'))" .
+                             "CHtml::Link('1', 'javascript:rateImg(1,$taskId)', array('title' => '1 star out of 5', 'class' => 'one-star'))" .
                           ", true) . " .
                           "CHtml::tag('li', array(), " .
                              "CHtml::Link('2', 'javascript:rateImg(2," . '$data->id' . ")', array('title' => '2 star out of 5', 'class' => 'two-stars'))" .

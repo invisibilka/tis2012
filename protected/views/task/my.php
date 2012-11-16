@@ -5,6 +5,7 @@
  */
 
 $this->breadcrumbs=array(
+    'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Moje úlohy'
 );
 echo '<a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a><br />';

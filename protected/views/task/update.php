@@ -19,6 +19,7 @@ Yii::app()->clientScript->registerPackage('tiny_mce');
 <?php
 if($model->id == ''){
     $this->breadcrumbs=array(
+        'Správa úloh' => Yii::app()->request->baseUrl . '/task',
         'Moje úlohy'=>array('my'),
         'Vytvoriť novú úlohu'
     );
