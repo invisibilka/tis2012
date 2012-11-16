@@ -10,7 +10,6 @@ $this->breadcrumbs=array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Verejné úlohy'
 );
-$taskId = '$data->id';
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
@@ -34,21 +33,21 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'name' => 'rating',
             'type' => 'raw',
             'value' => "CHtml::tag('ul', array('class' => 'star-rating' ), " .
-                          "CHtml::tag('li', array('class' => 'current-rating', 'id' => 'current-rating', 'style' => 'width: " . '$data->$rating*25' . "px'), 'Currently " . '$data->rating' . "/5 Stars.' , true) . " .
+                          'CHtml::tag(\'li\', array(\'class\' => \'current-rating\', \'id\' => \'current-rating\', \'style\' => \'width: \' . $data->rating*25 . \'px\'), \'Currently \' . $data->rating . \'/5 Stars.\' , true) . ' .
                           "CHtml::tag('li', array(), " .
-                             "CHtml::Link('1', 'javascript:rateImg(1,$taskId)', array('title' => '1 star out of 5', 'class' => 'one-star'))" .
+                             'CHtml::Link(\'1\', \'javascript:rateImg(1,\' . $data->id . \')\', array(\'title\' => \'1 z 5 hviezdičiek\', \'class\' => \'one-star\'))' .
                           ", true) . " .
                           "CHtml::tag('li', array(), " .
-                             "CHtml::Link('2', 'javascript:rateImg(2," . '$data->id' . ")', array('title' => '2 star out of 5', 'class' => 'two-stars'))" .
+                'CHtml::Link(\'2\', \'javascript:rateImg(2,\' . $data->id . \')\', array(\'title\' => \'2 z 5 hviezdičiek\', \'class\' => \'two-stars\'))' .
                           ", true) . " .
                           "CHtml::tag('li', array(), " .
-                             "CHtml::Link('3', 'javascript:rateImg(3," . '$data->id' . ")', array('title' => '3 star out of 5', 'class' => 'three-stars'))" .
+                'CHtml::Link(\'3\', \'javascript:rateImg(3,\' . $data->id . \')\', array(\'title\' => \'3 z 5 hviezdičiek\', \'class\' => \'three-stars\'))' .
                           ", true) . " .
                           "CHtml::tag('li', array(), " .
-                             "CHtml::Link('4', 'javascript:rateImg(4," . '$data->id' . ")', array('title' => '4 star out of 5', 'class' => 'four-stars'))" .
+                'CHtml::Link(\'4\', \'javascript:rateImg(4,\' . $data->id . \')\', array(\'title\' => \'4 z 5 hviezdičiek\', \'class\' => \'four-stars\'))' .
                           ", true) . " .
                           "CHtml::tag('li', array(), " .
-                             "CHtml::Link('5', 'javascript:rateImg(5," . '$data->id' . ")', array('title' => '5 star out of 5', 'class' => 'five-stars'))" .
+                'CHtml::Link(\'5\', \'javascript:rateImg(5,\' . $data->id . \')\', array(\'title\' => \'5 z 5 hviezdičiek\', \'class\' => \'five-stars\'))' .
                           ", true)" .
                        ", true)"
              /*
