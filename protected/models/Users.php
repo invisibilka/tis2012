@@ -27,6 +27,7 @@ class Users extends CActiveRecord
             array('email', 'email'),
             array('about', 'length', 'max' => 3000),
             array('new_password, new_password2', 'length', 'max' => 64),
+            array('permissions', 'boolean'),
         );
     }
 
@@ -42,7 +43,7 @@ class Users extends CActiveRecord
 
     public function attributeLabels(){
         return array(
-            'full_name' => 'Meno pouzivatela',
+            'full_name' => 'Meno ucitela',
             'new_password' => 'Nove heslo',
             'new_password2' => 'Potvrdenie hesla',
             'email' => 'Email',
