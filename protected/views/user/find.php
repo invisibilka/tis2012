@@ -7,18 +7,23 @@
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
+    'filter' => $model,
     'columns' => array(
         array(
             'name' => 'id',
             'value' => '$data->id',
         ),
         array(
-            'name' => 'name',
+            'name' => 'username',
+            'value' => '$data->username',
+        ),
+        array(
+            'name' => 'full_name',
             'value' => '$data->full_name',
         ),
         array(
-            'name' => 'login',
-            'value' => '$data->username',
+            'name' => 'email',
+            'value' => '$data->email',
         ),
         array(
             'class' => 'CButtonColumn',

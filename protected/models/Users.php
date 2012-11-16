@@ -55,6 +55,11 @@ class Users extends CActiveRecord
     public function search(){
         $criteria = new CDbCriteria();
 
+        $criteria->compare('id', $this->id);
+        $criteria->compare('username', $this->username, true);
+        $criteria->compare('full_name', $this->full_name, true);
+        $criteria->compare('email', $this->email, true);
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
             'pagination' => array(
