@@ -38,6 +38,8 @@
     
     <div id="content">
     
+    <?php if (!Yii::app()->user->isGuest) $this->renderPartial("subnavigation", array()); ?>
+    
     <?php 
 	if (Yii::app()->user->isGuest) {
 		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/login">Prihlásiť sa</a><?php
@@ -46,8 +48,6 @@
 		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
 	}
 	?>
-    
-    <?php if (!Yii::app()->user->isGuest) $this->renderPartial("subnavigation", array()); ?>
 
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
