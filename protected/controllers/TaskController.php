@@ -36,7 +36,7 @@ class TaskController extends Controller
         }
             //normalna validacia a ulozenie
             if (isset($_POST['Tasks'])) {
-                $model->setAttributes($_POST['Tasks'], false);
+                $model->setAttributes($_POST['Tasks']);
                 if ($model->save()) {
                     //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
                     //Yii::app()->end();
@@ -83,7 +83,8 @@ class TaskController extends Controller
     public function actionMy()
     {
         $saved = Yii::app()->request->getParam('saved');
-        $model = new Tasks(); //Tasks::model()->findAllByPk(Yii::app()->user->id);
+        $model = new Tasks();
+        $model->getDbCriteria()->compare('user_id',Yii::app()->user->id);
         if (!$model) {
             $model = new Tasks();
         }
@@ -92,7 +93,9 @@ class TaskController extends Controller
 
     public function actionPublic()
     {
-         $this->render('public', array('model' => new Tasks()));
+        $model = new Tasks();
+        $model->getDbCriteria()->compare('is_public',true);
+         $this->render('public', array('model' => $model));
     }
 
     /**

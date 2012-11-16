@@ -34,6 +34,8 @@ $this->breadcrumbs=array(
     <div class="form">
         <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Tasks')); ?>
 
+        <?php echo $form->hiddenField($model, 'user_id', array('value' => Yii::app()->user->id)); ?>
+
         <?php echo $form->errorSummary($model); ?>
 
         <div class="row">

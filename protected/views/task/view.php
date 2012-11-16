@@ -14,6 +14,7 @@ $this->breadcrumbs=array(
 <?php
 echo '<h2>'. $model->name .'</h2>';
 echo '<p>'. $model->html .'</p>';
+echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $model->id) . '">Upraviť</a>';
 ?>
 </div>
 
