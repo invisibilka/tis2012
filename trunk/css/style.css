@@ -93,3 +93,14 @@ h1 {
 	width: 960px;
 	margin: 20px auto 0 auto;
 }
+
+/**
+custom styles
+*/
+.clear{
+    clear: both;
+}
+
+.mceEditor > table {
+    width: 920px !important;
+}
