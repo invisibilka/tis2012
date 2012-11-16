@@ -9,6 +9,8 @@ class UserIdentity extends CUserIdentity
 
     private static $salt = '$2a$07$';
 
+    private $_id = NULL;
+
     /**
      * Prihlasi pouzivatela
      * @return boolean whether authentication succeeds.
@@ -16,7 +18,7 @@ class UserIdentity extends CUserIdentity
     public function authenticate()
     {
         $criteria = new CDbCriteria();
-        $criteria->select = 'password';
+        $criteria->select = 'id, password';
         $criteria->addCondition('username = :username');
         $criteria->params = array(':username' => $this->username);
 
@@ -29,7 +31,7 @@ class UserIdentity extends CUserIdentity
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         }
         else {
-           // $this->_id = $user->id;
+            $this->_id = $user->id;
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;
@@ -56,6 +58,10 @@ class UserIdentity extends CUserIdentity
             $salt .= substr("./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", mt_rand(0, 63), 1);
         }
         return crypt($password, $salt);
+    }
+
+    public function getId() {
+        return $this->_id;
     }
 
 }
