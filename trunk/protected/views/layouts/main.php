@@ -29,7 +29,7 @@
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/test"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-test.png" alt="Ikonka - Správa písomiek" /><br />Správa písomiek</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/studentList"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-student-list.png" alt="Ikonka - Správa skupín" /><br />Správa skupín</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-user.png" alt="Ikonka - Upraviť profil" /><br />Upraviť profil</a></li>
-            <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/invite"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-invite.png" alt="Ikonka - Odoslať pozvánku" /><br />Odoslať pozvánku</a></li>
+            <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/invite"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-invite.png" alt="Ikonka - Odoslať pozvánku" /><br />Odoslať pozvánku</a></li>
 		</ul>
 		<?php
 			} ?>
