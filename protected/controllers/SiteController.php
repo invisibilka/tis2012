@@ -65,23 +65,7 @@ class SiteController extends Controller
         $this->render('contact', array('model' => $model));
     }
 
-    /**
-     * docasna funkcia na prihlasovanie
-     */
-    public function actionLogin()
-    {
-        $this->redirect(Yii::app()->baseUrl.'/user/login');
-    }
-
-    /**
-     * docasna funkcia na odhlasovanie
-     */
-    public function actionLogout()
-    {
-        $this->redirect(Yii::app()->baseUrl.'/user/logout');
-    }
-
-    /**
+   /**
      * docasna funkcia na rozne testy
      */
     public function actionTest()
