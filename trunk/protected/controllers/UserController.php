@@ -5,7 +5,7 @@
  */
 class UserController extends Controller
 {
-    public $defaultAction = 'view';
+    public $defaultAction = 'update';
 
     /**
      * prihlasi pouzivatela
