@@ -26,6 +26,7 @@ class Users extends CActiveRecord
             array('email', 'unique'),
             array('email', 'email'),
             array('about', 'length', 'max' => 3000),
+            array('new_password, new_password2', 'length', 'max' => 64),
         );
     }
 

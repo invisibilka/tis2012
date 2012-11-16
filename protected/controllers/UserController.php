@@ -79,7 +79,10 @@ class UserController extends Controller
         }
         if ($model) {
             if (isset($_POST['Users'])) {
-                $model->setAttributes($_POST['Users'], false);
+                $model->setAttributes($_POST['Users']);
+                if($model->new_password && $model->new_password == $model->new_password2){
+                    $model->password = UserIdentity::encryptPassword($model->new_password);
+                }
                 if ($model->save()) {
                     $this->redirect($this->createUrl('view', array('id' => $model->id)));
                 }
