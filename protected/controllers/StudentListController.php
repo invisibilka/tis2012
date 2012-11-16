@@ -6,6 +6,8 @@
 class StudentListController extends Controller
 {
 
+    public $defaultAction = 'find';
+
     /**
      * Vymaže zoznam študentov so zadaným id.
      */
@@ -46,6 +48,15 @@ class StudentListController extends Controller
     public function actionUpdate()
     {
         $this->render('update', array());
+    }
+
+    /**
+     * Zobrazi vsetky zoznamy studentov pre daneho pouzivtatela
+     * pridal V.Jurenka
+     */
+    public function actionFind()
+    {
+
     }
 
 }
