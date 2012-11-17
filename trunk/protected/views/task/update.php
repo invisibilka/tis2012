@@ -87,7 +87,8 @@ $this->breadcrumbs=array(
             theme_advanced_statusbar_location : "bottom",
             theme_advanced_resizing : true,
             height:"250",
-            width: "900"
+            width: "900",
+            language : "sk"
 
         });
     });
