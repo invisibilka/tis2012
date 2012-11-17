@@ -83,4 +83,25 @@ class SiteController extends Controller
         echo UserIdentity::encryptPassword($plain);
     }
 
+    /**
+     * Zabezpečuje kontrolu oprávnení používateľa.
+     * @return array
+     */
+    public function accessRules()
+    {
+        return array(
+
+        );
+    }
+
+    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
+     * @return array
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
 }

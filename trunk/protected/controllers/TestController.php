@@ -6,7 +6,9 @@
 
 class TestController extends Controller
 {
-
+    /**
+     * @var string predvolena akcia pri zadani adresy /user/
+     */
     public $defaultAction = 'find';
 
     /**
@@ -60,12 +62,24 @@ class TestController extends Controller
     }
 
     /**
-     * funkcie kontrolueje pristupove prava k akciam
-     * @param CFilterChain $filterChain
+     * Zabezpečuje kontrolu oprávnení používateľa.
+     * @return array
      */
-    public function filterAccessControl($filterChain)
+    public function accessRules()
     {
-        // call $filterChain->run() to continue filter and action execution
+        return array(
+
+        );
+    }
+
+    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
+     * @return array
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
     }
 
 }
