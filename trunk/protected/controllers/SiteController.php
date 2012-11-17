@@ -39,6 +39,10 @@ class SiteController extends Controller
      */
     public function actionError()
     {
+        if(Yii::app()->request->getParam('id') == 911){
+            $this->redirect(Yii::app()->baseUrl.'/user/login');
+            Yii::app()->end();
+        }
         if ($error = Yii::app()->errorHandler->error) {
             if (Yii::app()->request->isAjaxRequest)
                 echo $error['message'];
@@ -90,17 +94,7 @@ class SiteController extends Controller
     public function accessRules()
     {
         return array(
-
-        );
-    }
-
-    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
-     * @return array
-     */
-    public function filters()
-    {
-        return array(
-            'accessControl',
+            array('allow', 'actions' => array('error' , 'index'), 'users'=>array('*'))
         );
     }
 

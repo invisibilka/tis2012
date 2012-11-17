@@ -61,26 +61,6 @@ class TestController extends Controller
         $this->render('find', array('model' => new Tests()));
     }
 
-    /**
-     * Zabezpečuje kontrolu oprávnení používateľa.
-     * @return array
-     */
-    public function accessRules()
-    {
-        return array(
-
-        );
-    }
-
-    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
-     * @return array
-     */
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
 
 }
 
