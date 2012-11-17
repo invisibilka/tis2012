@@ -22,15 +22,14 @@ if($saved){
             'value' => '$data->id',
         ),
         array(
-        /*
+            'type' => 'raw',
             'name' => 'name',
-            'value' => '$data->name',  */
-
-                'class'=>'CLinkColumn',
-                'labelExpression'=>'$data->name',
-                'urlExpression'=>'Yii::app()->request->baseUrl ."/task/view/id/".$data->id',
-                'header'=>'name',
-
+            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
+          /*       'class'=>'CLinkColumn',
+                   'labelExpression'=>'$data->name',
+                   'urlExpression'=>'Yii::app()->request->baseUrl ."/task/view/id/".$data->id',
+                   'header'=>'name',
+            */
         ),
         array(
             'name' => 'is_public',

@@ -74,10 +74,25 @@ class TaskController extends Controller
      */
     public function actionRating()
     {
-        $model = new TasksRating();
         if (isset($_GET['task_id']) && isset($_GET['rating'])) {
+            $model = TasksRating::model()->findByAttributes(array('task_id' => $_GET['task_id'], 'user_id' => Yii::app()->user->id));
+            if (!$model) {
+                $model = new TasksRating();
+            }
             $model->setAttributes(array('task_id' => $_GET['task_id'], 'rating' => $_GET['rating'], 'user_id' => Yii::app()->user->id), false);
             $model->save();
+            //prepocitanie priemerov v tabulke tis_tasks
+            $ratings = TasksRating::model()->findAllByAttributes(array('task_id' => $_GET['task_id']));
+            $tasks = Tasks::model()->findByPk($_GET['task_id']);
+            $sum = 0;
+            $count = 0;
+            foreach ($ratings as $rating){
+                $sum += $rating->rating;
+                $count++;
+            }
+            $average = $sum/$count;
+            $tasks->setAttribute('rating', $average);
+            $tasks->save();
         }
     }
 
