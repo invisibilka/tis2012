@@ -37,6 +37,7 @@ class TaskController extends Controller
             //normalna validacia a ulozenie
             if (isset($_POST['Tasks'])) {
                 $model->setAttributes($_POST['Tasks']);
+                $model->html = preg_replace('@.\.\/\.\./\.\./assets/[^/]*/plugins/emotions/img/@','/images/emotions/',$model->html);
                 if ($model->save()) {
                     //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
                     //Yii::app()->end();
