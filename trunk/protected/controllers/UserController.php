@@ -48,17 +48,21 @@ class UserController extends Controller
      */
     public function actionInvite()
     {
-        $saved = false;
+        $message = '';
         $model = new Invitations();
         if (isset($_POST['Invitations'])) {
+            if ($model->countByAttributes(array('email' => $_POST['Invitations']['email'])) == 0) {
             $model->setAttributes($_POST['Invitations'], false);
-            if ($model->save()) {
-             //posli mail
-                MailSender::sendInvitation($_POST['Invitations']['email'], $_POST['Invitations']['hash']);
-               $saved = true;
+                //posli mail
+            MailSender::sendInvitation($_POST['Invitations']['email'], $_POST['Invitations']['hash']);
+            $model->save();
+            $message = 'Pozvánka odoslaná';
+
+            } else {
+                $message = 'Na tento email už bola poslaná pozvánka.';
             }
         }
-        $this->render('invite', array('model' => $model, 'saved' => $saved));
+        $this->render('invite', array('model' => $model, 'message' => $message));
     }
 
 

@@ -7,9 +7,7 @@
 $this->breadcrumbs= array(
        'Odoslať pozvánku'
 );
-if($saved) {
-    echo 'Pozvánka odoslaná';
-}
+    echo $message;
 ?>
 <div class="form">
         <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Invitations')); ?>
