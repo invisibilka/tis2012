@@ -34,18 +34,21 @@ class TaskController extends Controller
         if (!$model) {
             $model = new Tasks();
         }
-            //normalna validacia a ulozenie
-            if (isset($_POST['Tasks'])) {
-                $model->setAttributes($_POST['Tasks']);
-                $model->html = preg_replace('@.\.\/\.\./\.\./assets/[^/]*/plugins/emotions/img/@','/images/emotions/',$model->html);
-                if ($model->save()) {
-                    //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
-                    //Yii::app()->end();
-                    // $this->redirect(Yii::app()->request->baseUrl . "/task/");
-                    $this->redirect($this->createUrl('my', array('saved' => true)));
-                }
+        //normalna validacia a ulozenie
+        if (isset($_POST['Tasks'])) {
+            $model->setAttributes($_POST['Tasks']);
+
+            //fix smiley path, by V.Jurenka
+            $model->html = preg_replace('@.\.\/\.\./\.\./assets/[^/]*/plugins/emotions/img/@', Yii::app()->baseUrl . '/images/emotions/', $model->html);
+
+            if ($model->save()) {
+                //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
+                //Yii::app()->end();
+                // $this->redirect(Yii::app()->request->baseUrl . "/task/");
+                $this->redirect($this->createUrl('my', array('saved' => true)));
             }
-            $this->render('update', array('model' => $model));
+        }
+        $this->render('update', array('model' => $model));
 
     }
 
@@ -85,7 +88,7 @@ class TaskController extends Controller
     {
         $saved = Yii::app()->request->getParam('saved');
         $model = new Tasks();
-        $model->getDbCriteria()->compare('user_id',Yii::app()->user->id);
+        $model->getDbCriteria()->compare('user_id', Yii::app()->user->id);
         if (!$model) {
             $model = new Tasks();
         }
@@ -95,8 +98,8 @@ class TaskController extends Controller
     public function actionPublic()
     {
         $model = new Tasks();
-        $model->getDbCriteria()->compare('is_public',true);
-         $this->render('public', array('model' => $model));
+        $model->getDbCriteria()->compare('is_public', true);
+        $this->render('public', array('model' => $model));
     }
 
     /**
