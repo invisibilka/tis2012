@@ -93,7 +93,7 @@ class TaskController extends Controller
                 $sum += $rating->rating;
                 $count++;
             }
-            //pozor na count == 0 ;)
+            //pozor na count == 0 pri deleni ;)
             $average = 0;
             if($count > 0){
                 $average = $sum / $count;
