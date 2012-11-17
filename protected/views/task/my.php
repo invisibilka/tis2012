@@ -28,7 +28,7 @@ if($saved){
 
                 'class'=>'CLinkColumn',
                 'labelExpression'=>'$data->name',
-                'urlExpression'=>'"view/id/".$data->id',
+                'urlExpression'=>'Yii::app()->request->baseUrl ."/task/view/id/".$data->id',
                 'header'=>'name',
 
         ),
