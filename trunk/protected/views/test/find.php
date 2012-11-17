@@ -20,8 +20,8 @@
         array(
             'class' => 'CButtonColumn',
             'template' => '{update} {delete}',
-            'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/edit?id=".$data->id',
-            'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/delete?id=".$data->id',
+            'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/test/update?id=".$data->id',
+            'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/test/delete?id=".$data->id',
 
         )
     )
