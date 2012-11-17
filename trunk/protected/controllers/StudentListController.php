@@ -18,13 +18,6 @@ class StudentListController extends Controller
     }
 
     /**
-     * Naimportuje študentov zo zdrojového súboru.
-     */
-    public function actionImport()
-    {
-    }
-
-    /**
      * Zobrazí zoznam študentov so zadaným id. Ak zoznam s daným id neexistuje, vráti chybu 404.
      * @throws CHttpException
      */
@@ -47,7 +40,24 @@ class StudentListController extends Controller
      */
     public function actionUpdate()
     {
-        $this->render('update', array());
+        $id = Yii::app()->request->getParam('id');
+        $model = StudentLists::model()->findByPk($id);
+        if (!$model) {
+            $model = new StudentLists();
+            $model->user_id = Yii::app()->user->id;
+        }
+        if (isset($_POST['StudentLists'])) {
+            $model->setAttributes($_POST['StudentLists'], false);
+            $model->_file = CUploadedFile::getInstance($model, '_file');
+            if ($model->save()) {
+                //handle xlsx import, VJ
+                $xlsx = new XLXSImport();
+                $xlsx->import(Yii::app()->user->id, $model, $model->_file->tempName);
+
+                $this->redirect($this->createUrl('view', array('id' => $model->id )));
+            }
+        }
+        $this->render('update', array('model' => $model));
     }
 
     /**
@@ -56,7 +66,9 @@ class StudentListController extends Controller
      */
     public function actionFind()
     {
-        $this->render('find', array('model' => new StudentLists()));
+        $model = new StudentLists();
+        $model->user_id = Yii::app()->user->id;
+        $this->render('find', array('model' => $model));
     }
 
 }

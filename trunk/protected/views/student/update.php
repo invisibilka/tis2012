@@ -9,7 +9,14 @@ $this->breadcrumbs=array(
 );
 ?>
 <div class="form">
-    <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Students')); ?>
+    <?php
+    $form=$this->beginWidget(
+        'CActiveForm',
+        array(
+            'id' => 'Students',
+        )
+    );
+    ?>
 
     <?php echo $form->errorSummary($model); ?>
 
