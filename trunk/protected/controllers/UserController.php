@@ -48,7 +48,15 @@ class UserController extends Controller
      */
     public function actionInvite()
     {
-
+        $saved = false;
+        $model = new Invitations();
+        if (isset($_POST['Invitations'])) {
+            $model->setAttributes($_POST['Invitations'], false);
+            if ($model->save()) {
+               $saved = true;
+            }
+        }
+        $this->render('invite', array('model' => $model, 'saved' => $saved));
     }
 
 
