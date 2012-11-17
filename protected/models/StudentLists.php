@@ -20,6 +20,7 @@ class StudentLists extends CActiveRecord
     {
         return parent::model($className);
     }
+
     /**
      * vrati nazov tabulky v databaze
      * @return string nazov tabulky
@@ -28,6 +29,7 @@ class StudentLists extends CActiveRecord
     {
         return 'tis_student_lists';
     }
+
     /**
      * Obsahuje pravidla validacie
      * @return array - pravidla validacie
@@ -35,19 +37,20 @@ class StudentLists extends CActiveRecord
     public function rules()
     {
         return array(
-            array('_file', 'file'),
+            array('_file', 'file', 'types' => 'xlsx'),
         );
     }
+
     /**
      * Reprezentuje vztahy medzi modelmi
      * @return array - vztahy medzi modelmi
      */
     public function relations()
     {
-        return array( 
-            'user'=>array(self::BELONGS_TO, 'Users', 'user_id'),
-            'students'=>array(self::MANY_MANY, 'Students', 'tis_students_lists(list_id, student_id)')
-         );
+        return array(
+            'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+            'students' => array(self::MANY_MANY, 'Students', 'tis_students_lists(list_id, student_id)')
+        );
     }
 
 
@@ -56,8 +59,11 @@ class StudentLists extends CActiveRecord
      * pridal V. Jurenka
      * @return CActiveDataProvider
      */
-    public function search(){
+    public function search()
+    {
         $criteria = new CDbCriteria();
+
+        $criteria->compare('user_id', $this->user_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -72,11 +78,9 @@ class StudentLists extends CActiveRecord
      * @author V.Jurenka
      * @param $student - zoznam do ktoreho sa pridava
      */
-    public function addStudent($student){
-        $sql = 'INSERT INTO `students_lists` VALUES( NULL, :student_id , :list_id )';
-        $command = Yii::app()->db->createCommand($sql);
-        $command->params = array(':student_id' => $student->id, ':list_id' => $this->id);
-        $command->execute();
+    public function addStudent($student)
+    {
+        Yii::app()->db->createCommand()->insert('tis_students_lists', array('student_id' => $student->id, 'list_id' => $this->id));
     }
 }
 
