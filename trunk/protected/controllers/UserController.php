@@ -53,6 +53,8 @@ class UserController extends Controller
         if (isset($_POST['Invitations'])) {
             $model->setAttributes($_POST['Invitations'], false);
             if ($model->save()) {
+             //posli mail
+
                $saved = true;
             }
         }
