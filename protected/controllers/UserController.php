@@ -27,7 +27,7 @@ class UserController extends Controller
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm']; // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login()) {
-                $this->redirect(Yii::app()->user->returnUrl);
+                $this->redirect(Yii::app()->baseUrl);
             }
         }
         // display the login form
@@ -126,19 +126,11 @@ class UserController extends Controller
     public function accessRules()
     {
         return array(
-
+            array('allow', 'actions' => array('login'), 'users'=>array('*'))
         );
     }
 
-    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
-     * @return array
-     */
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+
 
 
 

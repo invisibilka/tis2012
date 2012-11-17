@@ -74,25 +74,5 @@ class StudentListController extends Controller
         $this->render('find', array('model' => $model));
     }
 
-    /**
-     * Zabezpečuje kontrolu oprávnení používateľa.
-     * @return array
-     */
-    public function accessRules()
-    {
-        return array(
-
-        );
-    }
-
-    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
-     * @return array
-     */
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
 
 }
