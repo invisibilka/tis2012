@@ -54,7 +54,7 @@ class UserController extends Controller
             $model->setAttributes($_POST['Invitations'], false);
             if ($model->save()) {
              //posli mail
-
+                MailSender::sendInvitation($_POST['Invitations']['email'], $_POST['Invitations']['hash']);
                $saved = true;
             }
         }
