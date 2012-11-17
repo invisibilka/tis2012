@@ -6,6 +6,9 @@
 class StudentListController extends Controller
 {
 
+    /**
+     * @var string predvolena akcia pri zadani adresy /user/
+     */
     public $defaultAction = 'find';
 
     /**
@@ -69,6 +72,27 @@ class StudentListController extends Controller
         $model = new StudentLists();
         $model->user_id = Yii::app()->user->id;
         $this->render('find', array('model' => $model));
+    }
+
+    /**
+     * Zabezpečuje kontrolu oprávnení používateľa.
+     * @return array
+     */
+    public function accessRules()
+    {
+        return array(
+
+        );
+    }
+
+    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
+     * @return array
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
     }
 
 }

@@ -5,6 +5,9 @@
  */
 class TaskController extends Controller
 {
+    /**
+     * @var string predvolena akcia pri zadani adresy /user/
+     */
     public $defaultAction = 'my';
 
     /**
@@ -119,11 +122,23 @@ class TaskController extends Controller
 
     /**
      * Zabezpečuje kontrolu oprávnení používateľa.
-     * @param CFilterChain $filterChain
+     * @return array
      */
-    public function filterAccessControl($filterChain)
+    public function accessRules()
     {
-        // call $filterChain->run() to continue filter and action execution
+        return array(
+
+        );
+    }
+
+    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
+     * @return array
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
     }
 
 }

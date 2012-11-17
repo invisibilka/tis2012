@@ -5,6 +5,9 @@
  */
 class UserController extends Controller
 {
+    /**
+     * @var string predvolena akcia pri zadani adresy /user/
+     */
     public $defaultAction = 'update';
 
     /**
@@ -51,6 +54,7 @@ class UserController extends Controller
 
     /**
      * zobrazi profil pouzivatela
+     * @throws CHttpException - neexistujuce id
      */
     public function actionView()
     {
@@ -69,6 +73,7 @@ class UserController extends Controller
 
     /**
      * zmeni profil pouzivatela
+     * @throws CHttpException
      */
     public function actionUpdate()
     {
@@ -113,6 +118,28 @@ class UserController extends Controller
         }
         $this->render('find', array('model' => $model));
     }
+
+    /**
+     * Zabezpečuje kontrolu oprávnení používateľa.
+     * @return array
+     */
+    public function accessRules()
+    {
+        return array(
+
+        );
+    }
+
+    /** Filtrovanie akcii, pouzite pre zapnutie kontroly pristupu k akciam
+     * @return array
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
 
 
 }
