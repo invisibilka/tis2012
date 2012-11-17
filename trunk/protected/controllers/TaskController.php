@@ -89,11 +89,16 @@ class TaskController extends Controller
             $tasks = Tasks::model()->findByPk($_GET['task_id']);
             $sum = 0;
             $count = 0;
-            foreach ($ratings as $rating){
+            foreach ($ratings as $rating) {
                 $sum += $rating->rating;
                 $count++;
             }
-            $average = $sum/$count;
+            //pozor na count == 0 ;)
+            $average = 0;
+            if($count > 0){
+                $average = $sum / $count;
+            }
+            //
             $tasks->setAttribute('rating', $average);
             $tasks->save();
         }
