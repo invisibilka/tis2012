@@ -6,6 +6,12 @@
 class StudentLists extends CActiveRecord
 {
     /**
+     * Referencia na docasny subor pri uploadovani zoznamu studentov z xslx
+     * @author V.Jurenka
+     */
+    public $_file;
+
+    /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
      * @return CActiveRecord - instancia StudentLists
@@ -28,8 +34,8 @@ class StudentLists extends CActiveRecord
      */
     public function rules()
     {
-        return array( 
-
+        return array(
+            array('_file', 'file'),
         );
     }
     /**
@@ -61,6 +67,17 @@ class StudentLists extends CActiveRecord
         ));
     }
 
+    /**
+     * prida studenta do daneho zoznamu
+     * @author V.Jurenka
+     * @param $student - zoznam do ktoreho sa pridava
+     */
+    public function addStudent($student){
+        $sql = 'INSERT INTO `students_lists` VALUES( NULL, :student_id , :list_id )';
+        $command = Yii::app()->db->createCommand($sql);
+        $command->params = array(':student_id' => $student->id, ':list_id' => $this->id);
+        $command->execute();
+    }
 }
 
 ?>
