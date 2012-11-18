@@ -38,6 +38,10 @@ class SiteController extends Controller
             $this->redirect(Yii::app()->baseUrl.'/user/login');
             Yii::app()->end();
         }
+        if(Yii::app()->request->getParam('id') == 123){
+            echo 'Nepovoleny pristup!';
+            Yii::app()->end();
+        }
         if ($error = Yii::app()->errorHandler->error) {
             if (Yii::app()->request->isAjaxRequest)
                 echo $error['message'];

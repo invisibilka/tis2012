@@ -38,7 +38,7 @@
     
     <div id="content">
     
-    <?php if (!Yii::app()->user->isGuest && $this->showSubmenu) $this->renderPartial("subnavigation", array()); ?>
+    <?php if (!Yii::app()->user->isGuest && $this->showSubmenu) { $this->renderPartial("subnavigation", array()); } ?>
     
     <?php 
 	if (Yii::app()->user->isGuest) {
