@@ -4,22 +4,22 @@
  */
 
 ?>
-
+<?php
+    echo CHtml::link('Pridat studenta', $this->createUrl('/update/'));
+?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
+    'filter' => $model,
     'columns' => array(
         array(
-            'name' => 'id',
-            'value' => '$data->id',
-        ),
-        array(
+            'type' => 'raw',
             'name' => 'name',
-            'value' => '$data->name',
+            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl("/studentList/update", array("id" => $data->id)), array())'
         ),
         array(
             'class' => 'CButtonColumn',
-            'template' => '{update} {delete}',
+            'template' => '{delete}',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/studentList/update?id=".$data->id',
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/studentList/delete?id=".$data->id',
 

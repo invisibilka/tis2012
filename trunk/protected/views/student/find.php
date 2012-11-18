@@ -5,13 +5,15 @@
  */
 ?>
 <?php
+echo CHtml::link('Pridat studenta', $this->createUrl('/student/update/'));
+?>
+<?php
 $this->pageTitle = "Zoznam studentov";
 
-$models = StudentLists::model()->findAll();
 $empty = new StudentLists();
 $empty->name = 'Nezaradeni studenti';
 $empty->id = -1;
-array_splice($models, 0, 0, array($empty));
+array_splice($lists, 0, 0, array($empty));
 
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
@@ -19,8 +21,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'filter' => $model,
     'columns' => array(
         array(
+            'type' => 'raw',
             'name' => 'name',
-            'value' => '$data->name',
+            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl("/student/update", array("id" => $data->id)), array())'
         ),
         array(
             'name' => 'email',
@@ -29,11 +32,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'name' => 'list_id',
             'value' => '$data->numLists',
-            'filter' => CHtml::listData($models, 'id', 'name')
+            'filter' => CHtml::listData($lists, 'id', 'name')
         ),
         array(
             'class' => 'CButtonColumn',
-            'template' => '{update} {delete}',
+            'template' => '{delete}',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/student/update?id=".$data->id',
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/student/delete?id=".$data->id',
 

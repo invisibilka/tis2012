@@ -82,6 +82,18 @@ class StudentLists extends CActiveRecord
     {
         Yii::app()->db->createCommand()->insert('tis_students_lists', array('student_id' => $student->id, 'list_id' => $this->id));
     }
+
+    /**
+     * Nazvy premennych vo formularoch
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'name' => 'Meno',
+        );
+    }
+
 }
 
 ?>
