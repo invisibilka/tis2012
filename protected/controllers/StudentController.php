@@ -53,6 +53,23 @@ class StudentController extends Controller
         Students::model()->deleteByPk($id);
     }
 
+    /**
+     * Zo
+     * @author V.Jurenka
+     */
+    public function actionFind()
+    {
+        $model = new Students();
+        $model->user_id = Yii::app()->user->id;
+        if (isset($_GET['Students'])) {
+            $model->setAttributes($_GET['Students'], false);
+            if(isset($_GET['Students']['list_id'])){
+                $model->list_id = $_GET['Students']['list_id'];
+            }
+        }
+        $this->render('find', array('model' => $model));
+    }
+
 }
 
 ?>
