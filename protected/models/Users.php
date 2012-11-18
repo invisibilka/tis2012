@@ -22,7 +22,7 @@ class Users extends CActiveRecord
     public function rules()
     {
         return array(
-            array('new_password', 'compare', 'compareAttribute'=>'new_password2'),
+            array('new_password', 'compare', 'compareAttribute' => 'new_password2'),
             array('email', 'unique'),
             array('email', 'email'),
             array('about', 'length', 'max' => 3000),
@@ -41,7 +41,8 @@ class Users extends CActiveRecord
         );
     }
 
-    public function attributeLabels(){
+    public function attributeLabels()
+    {
         return array(
             'full_name' => 'Meno ucitela',
             'new_password' => 'Nove heslo',
@@ -52,7 +53,8 @@ class Users extends CActiveRecord
         );
     }
 
-    public function search(){
+    public function search()
+    {
         $criteria = new CDbCriteria();
 
         $criteria->compare('id', $this->id);

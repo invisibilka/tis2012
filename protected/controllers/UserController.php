@@ -51,20 +51,18 @@ class UserController extends Controller
         $message = '';
         $model = new Invitations();
         if (isset($_POST['Invitations'])) {
-            if ($model->countByAttributes(array('email' => $_POST['Invitations']['email'])) == 0) {
-            $model->setAttributes($_POST['Invitations'], false);
+            $model->setAttributes($_POST['Invitations']);
+            if ($model->validate()) {
                 //posli mail
-            MailSender::sendInvitation($_POST['Invitations']['email'], $_POST['Invitations']['hash']);
-            $model->save();
-            $message = 'Pozvánka odoslaná';
-
-            } else {
-                $message = 'Na tento email už bola poslaná pozvánka.';
+                $hash_gen = new CPSHash();
+                $model->hash = $hash_gen->hash();
+//                MailSender::sendInvitation($model->email, $model->hash);
+                $model->save();
+                $message = 'Pozvánka odoslaná';
             }
         }
         $this->render('invite', array('model' => $model, 'message' => $message));
     }
-
 
     /**
      * zobrazi profil pouzivatela
@@ -93,13 +91,13 @@ class UserController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Users::model()->findByPk($id);
-        if(!$model){
+        if (!$model) {
             $model = Users::model()->findByPk(Yii::app()->user->id);
         }
         if ($model) {
             if (isset($_POST['Users'])) {
                 $model->setAttributes($_POST['Users']);
-                if($model->new_password && $model->new_password == $model->new_password2){
+                if ($model->new_password && $model->new_password == $model->new_password2) {
                     $model->password = UserIdentity::encryptPassword($model->new_password);
                 }
                 if ($model->save()) {
@@ -107,7 +105,7 @@ class UserController extends Controller
                 }
             }
             $this->render('update', array('model' => $model));
-        } else{
+        } else {
             throw new CHttpException(404, 'Zadany pouzivatel neexistuje');
         }
     }
@@ -117,7 +115,7 @@ class UserController extends Controller
      */
     public function actionDelete()
     {
-        $id = Yii::app()->request->getParam('id');
+        $id = Yii::app()->request->getParam('id', Yii::app()->user->id);
         Users::model()->deleteByPk($id);
     }
 
@@ -140,12 +138,9 @@ class UserController extends Controller
     public function accessRules()
     {
         return array(
-            array('allow', 'actions' => array('login'), 'users'=>array('*'))
+            array('allow', 'actions' => array('login'), 'users' => array('*'))
         );
     }
-
-
-
 
 
 }

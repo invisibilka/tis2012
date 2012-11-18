@@ -31,8 +31,10 @@ class Invitations extends CActiveRecord
      */
     public function rules()
     {
-        return array( 
-
+        return array(
+            array('email', 'required' ),
+            array('email', 'unique' ,'message' => 'Na tento email už bola poslaná pozvánka.'),
+            array('email', 'email' ),
         );
     }
 
