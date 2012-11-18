@@ -4,6 +4,8 @@
  * @author Milos Blascak
  */
 
+$this->pageTitle = "Pozvat noveho pouzivatela";
+
 $this->breadcrumbs= array(
        'Odoslať pozvánku'
 );
