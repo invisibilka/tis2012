@@ -55,7 +55,7 @@ class UserController extends Controller
                 //posli mail
                 $hash_gen = new CPSHash();
                 $model->hash = $hash_gen->hash();
-//                MailSender::sendInvitation($model->email, $model->hash);
+                MailSender::sendInvitation($model->email, $model->hash);
                 $model->save();
                 $message = 'Pozvánka odoslaná';
             }
