@@ -29,7 +29,7 @@ class Tasks extends CActiveRecord
     public function rules()
     {
         return array(
-            array('user_id, name, html', 'required'),
+            array('name, html', 'required'),
         );
     }
     /**
