@@ -42,6 +42,10 @@ class Students extends CActiveRecord
         );
     }
 
+    /**
+     * Nazvy premennych vo formularoch
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
