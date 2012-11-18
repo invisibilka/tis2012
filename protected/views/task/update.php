@@ -56,9 +56,9 @@ $this->breadcrumbs=array(
             <?php echo $form->error($model, 'html'); ?>
         </div>
 
-        <div class="row rememberMe">
-            <?php echo $form->checkBox($model,'is_public'); ?>
+        <div class="row">
             <?php echo $form->label($model,'is_public'); ?>
+            <?php echo $form->checkBox($model,'is_public'); ?>
         </div>
 
         <div class="row submit">
