@@ -12,9 +12,7 @@ $this->breadcrumbs= array(
 <div class="form">
         <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Invitations')); ?>
 
-        <?php echo $form->errorSummary($model); ?>
-
-        <?php echo $form->hiddenField($model, 'hash', array('value' => md5( Yii::app()->user->id.microtime()))); ?>
+        <?php echo $form->errorSummary($model, 'Chyba:'); ?>
 
         <div class="row">
             <?php echo $form->label($model,'email'); ?>
