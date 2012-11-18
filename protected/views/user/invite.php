@@ -11,7 +11,12 @@ $this->breadcrumbs= array(
 );
     echo $message;
 ?>
-<div class="form">
+<div id="invite-form">
+
+<h2>Pozvať nového používateľa</h2>
+
+<p>Nikto bez pozvánky sa nedostane do systému. Pre pridanie nového používateľa stačí vyplniť pole s <strong>emailovou adresou</strong>, ktorú vaša <strong>kolegyňa/kolega</strong> používa.</p>
+
         <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Invitations')); ?>
 
         <?php echo $form->errorSummary($model, 'Chyba:'); ?>
