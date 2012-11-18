@@ -7,6 +7,7 @@
 
     $form = $this->beginWidget('CActiveForm', array('id' => 'Users')); ?>
 
+    <h4>Vseobecne informacie</h4>
     <div class="row">
         <?php echo $form->label($model, 'full_name'); ?>
         <?php echo $form->textField($model, 'full_name') ?>
@@ -23,6 +24,13 @@
         <?php echo $form->label($model, 'about'); ?>
         <?php echo $form->textArea($model, 'about') ?>
         <?php echo $form->error($model, 'about') ?>
+    </div>
+
+    <h4>Prihlasovacie udaje</h4>
+    <div class="row">
+        <?php echo $form->label($model, 'username'); ?>
+        <?php echo $form->textField($model, 'username') ?>
+        <?php echo $form->error($model, 'username') ?>
     </div>
 
     <div class="row">
