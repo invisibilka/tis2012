@@ -36,6 +36,7 @@
 </div>
 
 <?php if($model->id){
+    echo CHtml::link('Pridaj studenta', Yii::app()->createUrl('student/update', array('list_id' => $model->id)));
     $student = new Students();
     $student->list_id = $model->id;
     $this->widget('zii.widgets.grid.CGridView', array(

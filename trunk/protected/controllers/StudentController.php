@@ -29,6 +29,7 @@ class StudentController extends Controller
     public function actionUpdate()
     {
         $id = Yii::app()->request->getParam('id');
+        $list_id = Yii::app()->request->getParam('list_id');
         $model = Students::model()->findByPk($id);
         if (!$model) {
             $model = new Students();
@@ -43,6 +44,14 @@ class StudentController extends Controller
             $model->setAttributes($_POST['Students'], false);
             $model->user_id = Yii::app()->user->id;
             if ($model->save()) {
+                //pridavanie noveho do zoznamu, VJ
+                if($list_id){
+                    $list = StudentLists::model()->findByPk($list_id);
+                    if($list && $list->user_id == Yii::app()->user->id){
+                        $list->addStudent($model);
+                        $this->redirect(Yii::app()->createUrl('studentList/view',array('id' => $list_id)));
+                    }
+                }
                 $this->redirect($this->createUrl('find'));
             }
         }
