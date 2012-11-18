@@ -19,8 +19,6 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Polia označené <span class="required">*</span> sú povinné</p>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->textField($model,'username'); ?>
@@ -42,6 +40,8 @@ $this->breadcrumbs=array(
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Prihlasit'); ?>
 	</div>
+    
+    <p class="note">Polia označené <span class="required">*</span> sú povinné</p>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
