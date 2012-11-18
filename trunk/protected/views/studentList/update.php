@@ -34,3 +34,19 @@
 
     <?php $this->endWidget(); ?>
 </div>
+
+<?php if($model->id){
+    $student = new Students();
+    $student->list_id = $model->id;
+    $this->widget('zii.widgets.grid.CGridView', array(
+        'dataProvider' => $student->search(),
+        'id' => 'studentList',
+        'columns' => array(
+            array(
+                'name' => 'name',
+                'value' => '$data->name',
+            )
+        )
+    ));
+
+} ?>

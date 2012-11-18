@@ -5,7 +5,7 @@
 
 ?>
 <?php
-    echo CHtml::link('Pridat studenta', $this->createUrl('/update/'));
+    echo CHtml::link('Vytvorit novy zoznam', $this->createUrl('studentList/update/'));
 ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),

@@ -80,6 +80,11 @@ class StudentLists extends CActiveRecord
      */
     public function addStudent($student)
     {
+        foreach($this->students as $s){
+            if($s->id == $student->id){
+                return;
+            }
+        }
         Yii::app()->db->createCommand()->insert('tis_students_lists', array('student_id' => $student->id, 'list_id' => $this->id));
     }
 
