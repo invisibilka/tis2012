@@ -14,6 +14,12 @@ class MailSender extends CApplicationComponent
     public static function sendEmails($studentList, $user, $test){
 
     }
+
+    /**
+     * @author M Blascak, V.Jurenka
+     * @param $email - komu poslat pozvanku
+     * @param $hash - jedinecny hash pre kazdu pozvnaku
+     */
     public static function sendInvitation($email, $hash){
         $to      = $email;
         $subject = 'Gumkacik pozvanka';
