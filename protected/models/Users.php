@@ -103,5 +103,18 @@ class Users extends CActiveRecord
         ));
     }
 
+    /**
+     * vycisti databazu od vsetkych studentov a zoznamov studentov daneho pouzivatela pri mazani profilu
+     * ulohy a testy zostavaju
+     */
+    public function afterDelete(){
+        foreach($this->studentLists as $studentLists){
+            $studentLists->delete();
+        }
+        foreach($this->students as $student){
+            $student->delete();
+        }
+    }
+
 }
 

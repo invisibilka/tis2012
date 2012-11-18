@@ -16,7 +16,7 @@ class StudentListController extends Controller
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id');
-        $model = Students::model()->findByPk($id);
+        $model = StudentLists::model()->findByPk($id);
         if ($model) {
             if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
                 $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
