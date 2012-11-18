@@ -64,7 +64,7 @@ class UserController extends Controller
     }
 
     /**
-     * registracia z povnaky
+     * registracia z pozvanky
      */
     public function actionRegister(){
         $this->showSubmenu = false;

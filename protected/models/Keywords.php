@@ -1,6 +1,6 @@
 <?php
 /**
- *Reprezentuje vyhladavanie v ulohach podla klucovych slov.
+ * Reprezentuje vyhladavanie v ulohach podla klucovych slov.
  * @author Katka
  */
 class Keywords extends CActiveRecord
@@ -14,6 +14,7 @@ class Keywords extends CActiveRecord
     {
         return parent::model($className);
     }
+
     /**
      * vrati nazov tabulky v databaze
      * @return string nazov tabulky
@@ -22,16 +23,18 @@ class Keywords extends CActiveRecord
     {
         return 'tis_keywords';
     }
-/**
- * Obsahuje pravidla validacie
-* @return array - pravidla validacie
-**/
+
+    /**
+     * Obsahuje pravidla validacie
+     * @return array - pravidla validacie
+     **/
     public function rules()
     {
         return array(
 
         );
     }
+
     /**
      * Reprezentuje vztahy medzi modelmi
      * @return array - vztahy medzi modelmi
