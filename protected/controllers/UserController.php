@@ -83,6 +83,7 @@ class UserController extends Controller
             $identify->authenticate();
             Yii::app()->user->login($identify, 0);
 
+            $invitation->delete();
             $this->redirect($this->createUrl('update'));
         }
     }
