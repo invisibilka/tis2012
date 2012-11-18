@@ -101,8 +101,44 @@ custom styles
     clear: both;
 }
 
-#invite-div {
-	width: 700px;
-	height: 400px;
+#invite-form {
+	width: 640px;
 	margin: 0 auto 0 auto;
+	padding: 30px;
+	background-color: #FFFFFF;
+	border: thin #DDD solid;
+}
+
+h2 {
+	color: #ff1727;
+	margin-bottom: 20px;
+}
+
+p, form label {
+	margin: 10px 0 10px 0;
+	line-height: 22px;
+	font-size: 14px;
+	color: #666;
+}
+
+p strong {
+	color: #313131;
+}
+
+form label {
+	text-transform: uppercase;
+}
+
+#Invitations_email {
+	background-color: #FFFFFF;
+	border: thin #cecece solid;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	padding: 5px;
+	width: 200px;
+}
+
+.submit input {
+	margin: 20px 0 0 0;
 }
