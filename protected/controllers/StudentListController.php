@@ -5,7 +5,6 @@
  */
 class StudentListController extends Controller
 {
-
     /**
      * @var string predvolena akcia pri zadani adresy /user/
      */
@@ -17,7 +16,13 @@ class StudentListController extends Controller
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id');
-        Students::model()->deleteByPk($id);
+        $model = Students::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+            $model->delete();
+        }
     }
 
     /**
@@ -29,6 +34,9 @@ class StudentListController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = StudentLists::model()->findByPk($id);
         if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
             $student = new Students;
             $student->list_id = $model->id;
             $this->render('view', array('model' => $model, 'student' => $student));
@@ -49,6 +57,11 @@ class StudentListController extends Controller
             $model = new StudentLists();
             $model->user_id = Yii::app()->user->id;
         }
+        else{
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+        }
         if (isset($_POST['StudentLists'])) {
             $model->setAttributes($_POST['StudentLists'], false);
             $model->_file = CUploadedFile::getInstance($model, '_file');
@@ -57,7 +70,7 @@ class StudentListController extends Controller
                 $xlsx = new XLXSImport();
                 $xlsx->import(Yii::app()->user->id, $model, $model->_file->tempName);
 
-                $this->redirect($this->createUrl('view', array('id' => $model->id )));
+                $this->redirect($this->createUrl('view', array('id' => $model->id)));
             }
         }
         $this->render('update', array('model' => $model));

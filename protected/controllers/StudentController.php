@@ -14,6 +14,9 @@ class StudentController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Students::model()->findByPk($id);
         if ($model) {
+            if($model->user_id != Yii::app()->user->id && $this->isAdminRequest()){
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
             $this->render('view', array('model' => $model));
         } else {
             throw new CHttpException(404, 'Zadaný študent neexistuje. :(');
@@ -29,6 +32,11 @@ class StudentController extends Controller
         $model = Students::model()->findByPk($id);
         if (!$model) {
             $model = new Students();
+        }
+        else{
+            if($model->user_id != Yii::app()->user->id && $this->isAdminRequest()){
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
         }
         //normalna validacia a ulozenie
         if (isset($_POST['Students'])) {

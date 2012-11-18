@@ -15,10 +15,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'studentList',
     'columns' => array(
         array(
-            'name' => 'id',
-            'value' => '$data->id',
-        ),
-        array(
             'name' => 'name',
             'value' => '$data->name',
         ),
