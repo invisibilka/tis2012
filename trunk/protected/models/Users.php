@@ -5,20 +5,39 @@
  */
 class Users extends CActiveRecord
 {
+    /**
+     * @var nove heslo v plaintexte, ak si ho chce pouzivatel zmenit
+     */
     public $new_password;
 
+    /**
+     * @var kontrola noveho heslo v plaintexte, ak si ho chce pouzivatel zmenit
+     */
     public $new_password2;
 
+    /**
+     * Vrati novu instanciu tejto triedy
+     * @param string $className
+     * @return CActiveRecord - instancia Tasks
+     */
     static public function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
+    /**
+     * vrati nazov tabulky v databaze
+     * @return string nazov tabulky
+     */
     public function tableName()
     {
         return 'tis_users';
     }
 
+    /**
+     * Obsahuje pravidla validacie
+     * @return array - pravidla validacie
+     **/
     public function rules()
     {
         return array(
@@ -32,6 +51,10 @@ class Users extends CActiveRecord
         );
     }
 
+    /**
+     * Reprezentuje vztahy medzi modelmi
+     * @return array - vztahy medzi modelmi
+     */
     public function relations()
     {
         return array(
@@ -42,6 +65,10 @@ class Users extends CActiveRecord
         );
     }
 
+    /**
+     * Slovenske nazvy premennych pre labely
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
@@ -55,6 +82,10 @@ class Users extends CActiveRecord
         );
     }
 
+    /**
+     * Vyhladava a triedi pouzivatelov
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         $criteria = new CDbCriteria();
