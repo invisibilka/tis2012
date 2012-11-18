@@ -1,4 +1,7 @@
 <?php
+/**
+ *@author  Vladimir Jurenka
+ */
 $this->pageTitle = "Prihlasenie pouzivatela";
 $this->breadcrumbs=array(
 	'Login',
