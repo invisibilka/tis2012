@@ -13,6 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
+    <link rel="shortcut icon" href="<?php echo Yii::app()->baseUrl.'/images/favicon.ico'; ?>" />
+
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
