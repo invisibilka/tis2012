@@ -77,16 +77,31 @@ class StudentLists extends CActiveRecord
     /**
      * prida studenta do daneho zoznamu
      * @author V.Jurenka
-     * @param $student - zoznam do ktoreho sa pridava
+     * @param $student - student ktory sa pridava
      */
     public function addStudent($student)
     {
-        foreach($this->students as $s){
-            if($s->id == $student->id){
+        foreach ($this->students as $s) {
+            if ($s->id == $student->id) {
                 return;
             }
         }
         Yii::app()->db->createCommand()->insert('tis_students_lists', array('student_id' => $student->id, 'list_id' => $this->id));
+    }
+
+    /**
+     * vyhodi studenta do daneho zoznamu
+     * @author V.Jurenka
+     * @param $student - student ktory sa odobera
+     */
+    public function removeStudent($student)
+    {
+        Yii::app()->db->createCommand()->delete('tis_students_lists', 'student_id = :student_id AND list_id = :list_id', array(':student_id' => $student->id, ':list_id' => $this->id));
+    }
+
+    public function afterDelete()
+    {
+        Yii::app()->db->createCommand()->delete('tis_students_lists', 'list_id = :list_id', array('list_id' => $this->id));
     }
 
     /**

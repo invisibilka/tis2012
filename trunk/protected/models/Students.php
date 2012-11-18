@@ -110,6 +110,10 @@ class Students extends CActiveRecord
         }
         return $result;
     }
+
+    public function afterDelete(){
+        Yii::app()->db->createCommand()->delete('tis_students_lists', array('student_id' => $this->id));
+    }
 }
 
 ?>

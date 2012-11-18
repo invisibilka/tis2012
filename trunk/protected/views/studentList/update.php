@@ -45,6 +45,14 @@
             array(
                 'name' => 'name',
                 'value' => '$data->name',
+            ),
+            array(
+                'class' => 'CButtonColumn',
+                'template' => '{update} {delete}',
+                'updateButtonLabel' => 'Upraviť',
+                'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/student/update?id=".$data->id',
+                'deleteButtonLabel' => 'Vymazať',
+                'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/studentList/removeStudent?id='.$model->id.'&student_id=".$data->id'
             )
         )
     ));

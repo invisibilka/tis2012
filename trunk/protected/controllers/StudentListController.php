@@ -90,4 +90,16 @@ class StudentListController extends Controller
         $this->render('find', array('model' => $model));
     }
 
+    /**
+     * Odstrani studenta zo zoznamu
+     * pridal V.Jurenka
+     */
+    public function actionRemoveStudent(){
+        $id = Yii::app()->request->getParam('id');
+        $student_id = Yii::app()->request->getParam('student_id');
+        $model = StudentLists::model()->findByPk($id);
+        $student = Students::model()->findByPk($student_id);
+        $model->removeStudent($student);
+    }
+
 }
