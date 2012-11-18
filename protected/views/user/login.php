@@ -2,15 +2,15 @@
 /**
  *@author  Vladimir Jurenka
  */
-$this->pageTitle = "Prihlasenie pouzivatela";
+$this->pageTitle = "Prihlásenie do systému";
 $this->breadcrumbs=array(
 	'Login',
 );
 ?>
 
-<h2>Prihlasenie</h2>
+<h2>Prihlásenie do systému</h2>
 
-<div class="form">
+<div class="form login">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
@@ -19,7 +19,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Polia oznacene <span class="required">*</span> su povinne..</p>
+	<p class="note">Polia označené <span class="required">*</span> sú povinné</p>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
@@ -45,3 +45,7 @@ $this->breadcrumbs=array(
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+
+<div id="info">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget orci massa. Duis venenatis justo quis diam bibendum vulputate. Phasellus sit amet dui vitae massa mattis ultricies. Sed ante felis, viverra nec ultricies placerat, eleifend volutpat tellus. Quisque vel felis id neque tristique egestas. Morbi eu lectus mi, eu lacinia dui. Mauris dapibus nisl vitae erat mattis imperdiet. Nulla facilisi. Nullam nec suscipit augue. Sed eget massa eget magna aliquet rhoncus nec vel tellus. Nulla cursus dapibus nisi, a fringilla sem tincidunt sit amet. Sed auctor rutrum risus, ac venenatis nulla imperdiet non. Nam posuere, ipsum sit amet dictum viverra, justo justo cursus nunc, eget mattis tortor dolor non dolor. Vestibulum lobortis venenatis odio vitae malesuada.</p>
+</div>
