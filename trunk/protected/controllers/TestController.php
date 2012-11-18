@@ -42,7 +42,11 @@ class TestController extends Controller
      */
     public function actionPrintPdf()
     {
-
+        $model = Tests::model()->find();
+        $html = $this->renderPartial('_testpdf.php', array('model'=>$model), true);
+        $pdf = new TCPDF();
+        $pdf->writeHtmlCell( 0, 10, 10, 10, $html);
+        $pdf->output('example.pdf', 'I');
     }
 
     /**
