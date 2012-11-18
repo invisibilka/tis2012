@@ -84,6 +84,9 @@ class StudentListController extends Controller
     {
         $model = new StudentLists();
         $model->user_id = Yii::app()->user->id;
+        if (isset($_GET['StudentLists'])) {
+            $model->setAttributes($_GET['StudentLists'], false);
+        }
         $this->render('find', array('model' => $model));
     }
 
