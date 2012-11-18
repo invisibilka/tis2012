@@ -48,6 +48,7 @@ class UserController extends Controller
      */
     public function actionInvite()
     {
+        $this->showSubmenu = false;
         $message = '';
         $model = new Invitations();
         if (isset($_POST['Invitations'])) {

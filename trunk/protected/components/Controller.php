@@ -21,6 +21,7 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+    public $showSubmenu = true;
     /**
      * Default deny rule
      * @param \CFilterChain $filterChain
