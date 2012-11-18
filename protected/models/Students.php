@@ -42,6 +42,15 @@ class Students extends CActiveRecord
         );
     }
 
+    public function attributeLabels()
+    {
+        return array(
+            'name' => 'Meno',
+            'list_id' => 'Zoznam',
+        );
+    }
+
+
     /**
      * Reprezentuje vztahy medzi modelmi
      * @return array - vztahy medzi modelmi
@@ -76,6 +85,7 @@ class Students extends CActiveRecord
         $criteria->compare('id', $this->id);
         $criteria->compare('user_id', $this->user_id);
         $criteria->compare('name', $this->name, true);
+        $criteria->compare('email', $this->email, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
