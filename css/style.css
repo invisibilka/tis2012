@@ -101,3 +101,8 @@ custom styles
     clear: both;
 }
 
+#invite-div {
+	width: 700px;
+	height: 400px;
+	margin: 0 auto 0 auto;
+}
