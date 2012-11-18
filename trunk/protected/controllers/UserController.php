@@ -15,22 +15,20 @@ class UserController extends Controller
      */
     public function actionLogin()
     {
+        $this->showSubmenu = false;
         $model = new LoginForm;
 
-        // if it is ajax validation request
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
 
-        // collect user input data
         if (isset($_POST['LoginForm'])) {
-            $model->attributes = $_POST['LoginForm']; // validate user input and redirect to the previous page if valid
+            $model->attributes = $_POST['LoginForm'];
             if ($model->validate() && $model->login()) {
                 $this->redirect(Yii::app()->baseUrl);
             }
         }
-        // display the login form
         $this->render('login', array('model' => $model));
     }
 
@@ -66,6 +64,30 @@ class UserController extends Controller
     }
 
     /**
+     * registracia z povnaky
+     */
+    public function actionRegister(){
+        $this->showSubmenu = false;
+        $hash = Yii::app()->request->getParam('hash');
+        $invitation = Invitations::model()->find('hash = :hash', array(':hash' => $hash));
+        if($invitation){
+            $user = new Users();
+            $user->email = $invitation->email;
+            $user->full_name = $invitation->email;
+            $user->username = $invitation->email;
+
+            $user->password = UserIdentity::encryptPassword('');
+            $user->save();
+
+            $identify = new UserIdentity($user->username, '');
+            $identify->authenticate();
+            Yii::app()->user->login($identify, 0);
+
+            $this->redirect($this->createUrl('update'));
+        }
+    }
+
+    /**
      * zobrazi profil pouzivatela
      * @throws CHttpException - neexistujuce id
      */
@@ -95,8 +117,8 @@ class UserController extends Controller
         if (!$model) {
             $model = Users::model()->findByPk(Yii::app()->user->id);
         }
-        if($model->id != Yii::app()->user->id && !$this->isAdminRequest()){
-            $this->redirect(Yii::app()->baseUrl.'/site/error/id/123');
+        if ($model->id != Yii::app()->user->id && !$this->isAdminRequest()) {
+            $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
         }
         if ($model) {
             if (isset($_POST['Users'])) {
@@ -105,10 +127,10 @@ class UserController extends Controller
                     $model->password = UserIdentity::encryptPassword($model->new_password);
                 }
                 if ($model->save()) {
-                    if($model->id == Yii::app()->user->id){
+                    if ($model->id == Yii::app()->user->id) {
                         $this->redirect($this->createUrl('view'));
                     }
-                    else{
+                    else {
                         $this->redirect($this->createUrl('find'));
                     }
                 }
@@ -125,6 +147,9 @@ class UserController extends Controller
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id', Yii::app()->user->id);
+        if ($id != Yii::app()->user->id && !$this->isAdminRequest()) {
+            $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+        }
         Users::model()->deleteByPk($id);
     }
 
@@ -133,6 +158,9 @@ class UserController extends Controller
      */
     public function actionFind()
     {
+        if (!$this->isAdminRequest()) {
+            $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+        }
         $model = new Users();
         if (isset($_GET['Users'])) {
             $model->setAttributes($_GET['Users'], false);
@@ -147,7 +175,7 @@ class UserController extends Controller
     public function accessRules()
     {
         return array(
-            array('allow', 'actions' => array('login'), 'users' => array('*'))
+            array('allow', 'actions' => array('login' ,'register'), 'users' => array('*'))
         );
     }
 

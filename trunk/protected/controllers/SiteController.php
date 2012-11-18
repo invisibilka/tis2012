@@ -1,6 +1,7 @@
 <?php
 /**
  * Hlavny kontroller pre stranku, obsahuje zakladne akcie
+ * @author V.Jurenka, ale z velkej casti povodny kod frameworku
  */
 class SiteController extends Controller
 {
@@ -66,24 +67,6 @@ class SiteController extends Controller
             }
         }
         $this->render('contact', array('model' => $model));
-    }
-
-   /**
-     * docasna funkcia na rozne testy
-     */
-    public function actionTest()
-    {
-        $model = new Tasks();
-        $this->render('test', array('model' => $model));
-    }
-
-    /**
-     * docasna funkcia na kryptovanie hesiel
-     */
-    public function actionEncrypt()
-    {
-        $plain = Yii::app()->request->getParam('heslo');
-        echo UserIdentity::encryptPassword($plain);
     }
 
     /**

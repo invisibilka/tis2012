@@ -18,7 +18,7 @@ class MailSender extends CApplicationComponent
         $to      = $email;
         $subject = 'Gumkacik pozvanka';
         $message = 'Boli ste pozvaný do systému Gumkáčik. Pomocou nasledujúceho odkazu sa môžete zaregistrovať: <br />' .
-                   '<a href="localhost/tis2012/user/invite/hash/' . $hash . '">localhost/tis2012/user/invite/hash/' . $hash .  '</a>';
+                   '<a href="'.Yii::app()->baseUrl.'/user/register/hash/' . $hash . '">'.Yii::app()->baseUrl.'/user/register/hash/' . $hash .  '</a>';
         $headers="From: ".Yii::app()->params['adminEmail']."\r\nReply-To:".Yii::app()->params['adminEmail']."\r\nContent-Type: text/html; charset=utf-8";
 
         mail($to, $subject, $message, $headers);

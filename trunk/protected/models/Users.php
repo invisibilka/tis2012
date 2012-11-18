@@ -23,7 +23,8 @@ class Users extends CActiveRecord
     {
         return array(
             array('new_password', 'compare', 'compareAttribute' => 'new_password2'),
-            array('email', 'unique'),
+            array('email, username', 'unique'),
+            array('email, username, full_name', 'required'),
             array('email', 'email'),
             array('about', 'length', 'max' => 3000),
             array('new_password, new_password2', 'length', 'max' => 64),
@@ -45,6 +46,7 @@ class Users extends CActiveRecord
     {
         return array(
             'full_name' => 'Meno ucitela',
+            'username' => 'Prihlasovacie meno',
             'new_password' => 'Nove heslo',
             'new_password2' => 'Potvrdenie hesla',
             'email' => 'Email',
