@@ -38,15 +38,12 @@
 
 	</div>
     
-    <div id="content">
+    <div id="main">
     
     <?php if (!Yii::app()->user->isGuest && $this->showSubmenu) { $this->renderPartial("subnavigation", array()); } ?>
     
     <?php 
-	if (Yii::app()->user->isGuest) {
-		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/login">Prihlásiť sa</a><?php
-	}
-	else {
+	if (!Yii::app()->user->isGuest) {
 		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
 	}
 	?>
