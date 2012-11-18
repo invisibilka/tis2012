@@ -64,11 +64,17 @@ class StudentController extends Controller
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id');
-        Students::model()->deleteByPk($id);
+        $model = Students::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+            $model->delete();
+        }
     }
 
     /**
-     * Zo
+     * Zobrazi vsetkych studentov patriacich danemu pouzivatelovi
      * @author V.Jurenka
      */
     public function actionFind()

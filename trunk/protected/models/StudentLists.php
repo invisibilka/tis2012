@@ -37,7 +37,7 @@ class StudentLists extends CActiveRecord
     public function rules()
     {
         return array(
-            array('_file', 'file', 'types' => 'xlsx'),
+            array('_file', 'file', 'types' => 'xlsx', 'message' => 'Podporovany je len format xlsx'),
         );
     }
 
@@ -112,9 +112,9 @@ class StudentLists extends CActiveRecord
     {
         return array(
             'name' => 'Meno',
+            '_file' => 'XLSX subor'
         );
     }
-
 }
 
 ?>
