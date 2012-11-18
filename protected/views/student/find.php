@@ -8,6 +8,10 @@
 $this->pageTitle = "Zoznam studentov";
 
 $models = StudentLists::model()->findAll();
+$empty = new StudentLists();
+$empty->name = 'Ziaden zoznam';
+$empty->id = -1;
+array_splice( $models, 0, 0, array($empty ));
 
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
