@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Prihlasenie</h1>
+<h2>Prihlasenie</h2>
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
