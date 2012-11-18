@@ -2,7 +2,7 @@
 /**
  *@author  Vladimir Jurenka
  */
-
+$this->pageTitle = "Zoznam pouzivatelov";
 
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),

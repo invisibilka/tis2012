@@ -1,10 +1,12 @@
+<?php
+/**
+ * @author  Vladimir Jurenka
+ */
+
+$this->pageTitle = "Pouzivatel - Uprava profilu";
+?>
 <div class="form">
     <?php
-    /**
-     * @author  Vladimir Jurenka
-     */
-
-
     $form = $this->beginWidget('CActiveForm', array('id' => 'Users')); ?>
 
     <h4>Vseobecne informacie</h4>

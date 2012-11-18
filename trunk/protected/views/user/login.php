@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Login';
+$this->pageTitle = "Prihlasenie pouzivatela";
 $this->breadcrumbs=array(
 	'Login',
 );

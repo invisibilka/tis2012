@@ -2,6 +2,7 @@
 /**
  * @author  Vladimir Jurenka
  */
+$this->pageTitle = $model->full_name . " profil";
 ?>
 <div class="">
     <h2><?php echo $model->full_name;?></h2>
