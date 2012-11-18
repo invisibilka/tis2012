@@ -129,7 +129,7 @@ form label {
 	text-transform: uppercase;
 }
 
-#Invitations_email {
+#Invitations_email, #LoginForm_username, #LoginForm_password {
 	background-color: #FFFFFF;
 	border: thin #cecece solid;
 	-webkit-border-radius: 1px;
@@ -141,4 +141,15 @@ form label {
 
 .submit input {
 	margin: 20px 0 0 0;
+}
+
+.form {
+	padding: 30px;
+	background-color: #FFFFFF;
+	border: thin #DDD solid;
+}
+
+.login {
+	width: auto;
+	display: inline-block;
 }
