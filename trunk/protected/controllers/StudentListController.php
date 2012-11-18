@@ -74,5 +74,4 @@ class StudentListController extends Controller
         $this->render('find', array('model' => $model));
     }
 
-
 }
