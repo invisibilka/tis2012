@@ -23,11 +23,16 @@ class SiteController extends Controller
     }
 
     /**
-     * index stranka
+     * index stranka, presmruva na login
      */
     public function actionIndex()
     {
-        $this->render('index');
+        if(Yii::app()->user->isGuest){
+            $this->redirect(Yii::app()->baseUrl.'/user/login');
+        }
+        else{
+            $this->redirect(Yii::app()->baseUrl.'/task/');
+        }
     }
 
     /**
