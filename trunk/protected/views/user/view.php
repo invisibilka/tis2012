@@ -1,13 +1,22 @@
 <?php
 /**
- *@author  Vladimir Jurenka
+ * @author  Vladimir Jurenka
  */
 ?>
-<div class="task">
+<div class="">
+    <h2><?php echo $model->full_name;?></h2>
+    <br/>
 
-    <?php
-    echo '<h2>'. $model->username .'</h2>';
-    echo '<p>'. 'celé meno: ' . $model->full_name .'</p>';
+    <h3>Kontakt</h3>
 
-    ?>
+    <p>
+        <?php echo $model->email; ?>
+    </p>
+    <br/>
+
+    <h3>O mne</h3>
+
+    <p>
+        <?php echo $model->about;?>
+    </p>
 </div>

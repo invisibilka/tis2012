@@ -95,6 +95,9 @@ class UserController extends Controller
         if (!$model) {
             $model = Users::model()->findByPk(Yii::app()->user->id);
         }
+        if($model->id != Yii::app()->user->id && !$this->isAdminRequest()){
+            $this->redirect(Yii::app()->baseUrl.'/site/error/id/123');
+        }
         if ($model) {
             if (isset($_POST['Users'])) {
                 $model->setAttributes($_POST['Users']);
@@ -102,7 +105,12 @@ class UserController extends Controller
                     $model->password = UserIdentity::encryptPassword($model->new_password);
                 }
                 if ($model->save()) {
-                    $this->redirect($this->createUrl('view', array('id' => $model->id)));
+                    if($model->id == Yii::app()->user->id){
+                        $this->redirect($this->createUrl('view'));
+                    }
+                    else{
+                        $this->redirect($this->createUrl('find'));
+                    }
                 }
             }
             $this->render('update', array('model' => $model));
