@@ -61,10 +61,16 @@ class Students extends CActiveRecord
     public function search()
     {
         $criteria = new CDbCriteria();
-        if ($this->list_id) {
+        if ($this->list_id > 0) {
             $criteria->join = 'left join tis_students_lists tsl on tsl.student_id=t.id';
             $criteria->condition = 'tsl.list_id= :list_id';
             $criteria->params = array(':list_id' => $this->list_id);
+        }
+        if( (int)$this->list_id < 0 ){
+            $criteria->condition = 'not exists (SELECT * '
+                . 'FROM tis_students_lists tsl '
+                . 'WHERE tsl.student_id = t.id '
+                . ')';
         }
 
         $criteria->compare('id', $this->id);
