@@ -1,9 +1,9 @@
 <?php
 /**
+ * Zobrazuje formular a rich text editor na upravu uloh.
  * @author Eva Libantova
  */
-?>
-<?php
+
 Yii::app()->clientScript->registerPackage('jquery.ui');
 Yii::app()->clientScript->registerPackage('fancybox');
 Yii::app()->clientScript->registerCssFile(
@@ -23,12 +23,14 @@ if($model->id == ''){
         'Moje úlohy'=>array('my'),
         'Vytvoriť novú úlohu'
     );
+    $this->pageTitle = "Vytvoriť novú úlohu";
 } else {
 $this->breadcrumbs=array(
     'Moje úlohy'=>array('my'),
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
 );
+    $this->pageTitle = $model->name . " - Upraviť";
 }
 ?>
     <div class="form">
