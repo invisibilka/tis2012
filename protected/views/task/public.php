@@ -4,6 +4,8 @@
  * @author Eva Libantova
  */
 
+$this->pageTitle = "Verejné úlohy";
+
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/rating.js', CClientScript::POS_HEAD);
 $this->breadcrumbs=array(

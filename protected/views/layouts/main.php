@@ -54,9 +54,9 @@
             'homeLink' => CHtml::link('Domov', Yii::app()->baseUrl),
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
-
+    <div id="content">
 	<?php echo $content; ?>
-
+    </div>
     </div>
 
 	<div id="footer" class="clear">
