@@ -85,9 +85,9 @@ class Students extends CActiveRecord
             $listNames[] = $list->name;
         }
         $result = implode(', ', $listNames);
-       /* if(strlen($result) == 0){
-            $result = 'student nie je v ziadnom zozname';
-        }*/
+        if(strlen($result) == 0){
+            $result = 'Student nie je v ziadnom zozname';
+        }
         return $result;
     }
 }
