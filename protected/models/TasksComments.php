@@ -27,7 +27,8 @@ class TasksComments extends CActiveRecord {
      */
     public function rules()
     {
-        return array( 
+        return array(
+            array('text, user_id, task_id, date', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
         );
     }
     /**
