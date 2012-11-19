@@ -26,12 +26,30 @@ body {
 	max-height: 180px;
 } 
 
-h1 {
+#header-content {
+	position: relative;
 	width: 960px;
 	margin: 0 auto 0 auto;
-	
-	height: 70px;
 }
+
+h1 {
+	max-height: 70px;
+	height: 70px;
+	line-height: 70px;
+	position: relative;
+	font-size: 20px;
+}
+
+/*
+h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: ;
+	height: 70px;
+	background: transparent url('.....') top left no-repeat;
+}
+*/
 
 #navigation {
 	width: 960px;
@@ -131,7 +149,7 @@ form label {
 	text-transform: uppercase;
 }
 
-#Invitations_email, #LoginForm_username, #LoginForm_password {
+#Invitations_email, #LoginForm_username, #LoginForm_password, #Users_full_name, #Users_email, #Users_username, #Users_new_password, #Users_new_password2 {
 	background-color: #FFFFFF;
 	border: thin #cecece solid;
 	-webkit-border-radius: 2px;
@@ -174,4 +192,12 @@ form label {
     font-size: 75%;
     text-align: center;
     border-top: solid silver thin;
+}
+
+#logout {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: medium;
+	line-height: 70px;
 }
