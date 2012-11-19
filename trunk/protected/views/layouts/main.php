@@ -62,7 +62,7 @@
 	</div><!-- footer -->
 
     <script type="text/javascript">
-        $('#subnavigation li:eq(<?php echo $this->submenuIndex; ?>) a').addClass('selected');
+        $('#subnavigation').find('li:eq(<?php echo $this->submenuIndex; ?>) a').addClass('selected');
     </script>
 </body>
 </html>
