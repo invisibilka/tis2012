@@ -23,6 +23,8 @@ class Controller extends CController
 
     public $showSubmenu = true;
 
+    public $submenuIndex = 0;
+
     /**
      * Default deny rule
      * @param \CFilterChain $filterChain

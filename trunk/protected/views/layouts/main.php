@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="<?php echo Yii::app()->baseUrl.'/images/favicon.ico'; ?>" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 </head>
 
 <body>
@@ -23,9 +24,9 @@
 	<div id="<?php if (!Yii::app()->user->isGuest) echo "header-user"; else echo"header"; ?>">
     	<div id="header-content">
 			<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
-        
-        	<?php 
-				if (!Yii::app()->user->isGuest) { 
+
+        	<?php
+				if (!Yii::app()->user->isGuest) {
 			?>
         <ul id="navigation">
         	<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/task"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-task.png" alt="Ikonka - Správa úloh" /><br />Správa úloh</a></li>
@@ -34,18 +35,16 @@
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-user.png" alt="Ikonka - Upraviť profil" /><br />Upraviť profil</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/invite"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-invite.png" alt="Ikonka - Odoslať pozvánku" /><br />Odoslať pozvánku</a></li>
 		</ul>
-		
+
         <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout" id="logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
 			}?>
 
 		</div>
 	</div>
-    
+
     <div id="main">
-    
+
     <?php if (!Yii::app()->user->isGuest && $this->showSubmenu) { $this->renderPartial("subnavigation", array()); } ?>
-    
-    
 
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -62,5 +61,8 @@
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 
+    <script type="text/javascript">
+        $('#subnavigation li:eq(<?php echo $this->submenuIndex; ?>) a').addClass('selected');
+    </script>
 </body>
 </html>
