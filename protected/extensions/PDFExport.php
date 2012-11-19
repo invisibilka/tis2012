@@ -1,19 +1,18 @@
 <?php
 /**
  * Komponent zabezpecuje exportovanie do PDF suborou
- * @author V.Jurenka
+ * @author V.Jurenka, K Ivanyiova
  */
 class PDFExport
 {
     /**
      * Vytvori PDF dokument z daneho testu
-     * @param $test - test
-     * @return vracia PDF dokument
+     * @param $html - html
      */
-    public static  function createPDF($test){
+    public static function createPDF($html){
         $pdf = new TCPDF();
         $pdf->AddPage();
-        $pdf->writeHtmlCell( 0, 10, 10, 10, $test);
+        $pdf->writeHtmlCell( 0, 10, 10, 10, $html);
         $pdf->output('example.pdf', 'I');
     }
 }

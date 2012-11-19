@@ -113,9 +113,10 @@ class TaskController extends Controller
     {
         $saved = Yii::app()->request->getParam('saved');
         $model = new Tasks();
-        $model->getDbCriteria()->compare('user_id', Yii::app()->user->id);
-        if (!$model) {
-            $model = new Tasks();
+        $model->is_public = NULL;
+        $model->user_id = Yii::app()->user->id;
+        if (isset($_GET['Tasks'])) {
+            $model->setAttributes($_GET['Tasks'], false);
         }
         $this->render('my', array('model' => $model, 'saved' => $saved));
     }
