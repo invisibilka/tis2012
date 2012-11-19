@@ -94,6 +94,7 @@ class UserController extends Controller
      */
     public function actionView()
     {
+        $this->submenuIndex = 1;
         $id = Yii::app()->request->getParam('id');
         if (!$id) {
             $id = Yii::app()->user->id;
@@ -159,6 +160,7 @@ class UserController extends Controller
      */
     public function actionFind()
     {
+        $this->submenuIndex = 2;
         if (!$this->isAdminRequest()) {
             $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
         }
