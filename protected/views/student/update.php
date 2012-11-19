@@ -2,11 +2,13 @@
 /**
  *@author Milos Blascak
  */
+
+/*
 $this->breadcrumbs=array(
     'Študenti',
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
-);
+);*/
 ?>
 <div class="form">
     <?php

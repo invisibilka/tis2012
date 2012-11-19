@@ -1,8 +1,7 @@
 
-<p>
 
 <h1><?php $model->name;  ?> </h1>
-</p>
+
 <br/>
 <div>
     <b> <?php foreach ($model->tests_tasks as $task) {

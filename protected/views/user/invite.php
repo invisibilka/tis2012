@@ -5,10 +5,6 @@
  */
 
 $this->pageTitle = "Pozvať nového používateľa";
-
-$this->breadcrumbs= array(
-       'Odoslať pozvánku'
-);
     echo $message;
 ?>
 <div id="invite-form">

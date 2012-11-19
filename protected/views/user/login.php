@@ -3,9 +3,6 @@
  *@author  Vladimir Jurenka
  */
 $this->pageTitle = "Prihlásenie do systému";
-$this->breadcrumbs=array(
-	'Login',
-);
 ?>
 
 <h2>Prihlásenie do systému</h2>
