@@ -5,6 +5,9 @@
  */
 class Tasks extends CActiveRecord
 {
+
+    public $username;
+
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
@@ -32,6 +35,7 @@ class Tasks extends CActiveRecord
     {
         return array(
             array('user_id, name, html, is_public', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
+            array('username', 'safe'),
         );
     }
 
@@ -48,6 +52,12 @@ class Tasks extends CActiveRecord
         if ($this->is_public != NULL) {
             $criteria->compare('is_public', $this->is_public);
         }
+
+        $criteria->compare('rating', '>=' . $this->rating);
+
+        $criteria->with = array('user');
+        $criteria->together = true;
+        $criteria->compare('user.full_name', $this->username, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -83,7 +93,8 @@ class Tasks extends CActiveRecord
             'html' => 'Text úlohy',
             'is_public' => 'Verejná (zobrazuje&nbsp;sa&nbsp;ostatným&nbsp;učiteľom)',
             'rating' => 'Hodnotenie',
-            'user' => 'Autor úlohy'
+            'user' => 'Autor úlohy',
+            'username' => 'Autor úlohy'
 
         );
     }
