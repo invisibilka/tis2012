@@ -16,7 +16,10 @@ class TestController extends Controller
      */
     public function actionView()
     {
-        $this->render('view', array());
+        $id = Yii::app()->request->getParam('id');
+        $model = Tests::model()->findByPk($id);
+        $html = $this->renderPartial('_testpdf', array('model' => $model), true);
+        $this->render('view', array('model' => $model, 'html' => $html));
     }
 
     /**
@@ -42,10 +45,11 @@ class TestController extends Controller
      */
     public function actionPrintPdf()
     {
-        $model = Tests::model()->find();
-        $html = $this->renderPartial('_testpdf', array('model'=>$model), true);
-       PDFExport::createPDF($html);
-       //echo $html;
+        $id = Yii::app()->request->getParam('id');
+        $model = Tests::model()->findByPk($id);
+        $html = $this->renderPartial('_testpdf', array('model' => $model), true);
+        PDFExport::createPDF($html);
+        //echo $html;
     }
 
     /**

@@ -1,4 +1,8 @@
 <?php
 /**
- *@author  Katka
+ *@author  Katka, V. Jurenka
  */
+?>
+<?php
+echo $html;
+?>
