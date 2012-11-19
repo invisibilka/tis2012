@@ -1,16 +1,13 @@
+<?php echo "<p><h1>". $model->name."</h1></p>";
 
-
-<h1><?php $model->name;  ?> </h1>
-
-<br/>
-<div>
-    <b> <?php foreach ($model->tests_tasks as $task) {
-        echo  $task->task_index . '.)';
+ foreach ($model->tests_tasks as $task) {
+     echo "<br/> <div>";
+        echo  "<b>".$task->task_index . '.)';
         echo $task->task->name;
-    } ?> </b>
-
-    <p> <?php foreach ($model->tests_tasks as $task) {
+        echo " </b> <br />";
         echo  $task->task->html;
-    }?> </p>
-</div>
-<br/>
+    echo "</p><br/>
+
+</div>" ;}
+?>
+
