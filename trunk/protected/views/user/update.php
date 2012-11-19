@@ -3,13 +3,16 @@
  * @author  Vladimir Jurenka
  */
 
-$this->pageTitle = "Pouzivatel - Uprava profilu";
+$this->pageTitle = "Používateľ - Úprava profilu";
 ?>
 <div class="form">
+
+	<h2>Úprava profilu</h2>
+
     <?php
     $form = $this->beginWidget('CActiveForm', array('id' => 'Users')); ?>
 
-    <h4>Vseobecne informacie</h4>
+    <h3>Všeobecné informácie</h3>
     <div class="row">
         <?php echo $form->label($model, 'full_name'); ?>
         <?php echo $form->textField($model, 'full_name') ?>
@@ -28,7 +31,7 @@ $this->pageTitle = "Pouzivatel - Uprava profilu";
         <?php echo $form->error($model, 'about') ?>
     </div>
 
-    <h4>Prihlasovacie udaje</h4>
+    <h3>Prihlasovacie údaje</h3>
     <div class="row">
         <?php echo $form->label($model, 'username'); ?>
         <?php echo $form->textField($model, 'username') ?>
