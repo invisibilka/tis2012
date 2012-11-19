@@ -87,7 +87,7 @@ class TaskController extends Controller
             //prepocitanie priemerov v tabulke tis_tasks
             $ratings = TasksRating::model()->findAllByAttributes(array('task_id' => $_GET['task_id']));
             $tasks = Tasks::model()->findByPk($_GET['task_id']);
-            $sum = 0;
+            $sum = 0.0;
             $count = 0;
             foreach ($ratings as $rating) {
                 $sum += $rating->rating;
@@ -101,6 +101,8 @@ class TaskController extends Controller
             //
             $tasks->setAttribute('rating', $average);
             $tasks->save();
+            echo $average;
+
         }
     }
 
