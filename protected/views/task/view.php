@@ -31,6 +31,10 @@ if ($isMyTask) echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $mod
 <div class="comments">
     <h3>Komentáre</h3>
     <?php
+    if(count($comments) == 0)
+    {
+        echo 'Túto úlohu ešte nikto neokomentoval.';
+    }
       foreach ($comments as $comment) {
           echo '<div class="comment">' . $comment->user->full_name . '   ' . $comment->date . '<br />' .
               $comment->text . '</div>';
