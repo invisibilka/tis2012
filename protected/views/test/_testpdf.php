@@ -1,13 +1,11 @@
-<?php echo "<p><h1>". $model->name."</h1></p>";
+<?php echo "<p><h1 align='center'>". $model->name."</h1></p>";
 
  foreach ($model->tests_tasks as $task) {
      echo "<br/> <div>";
         echo  "<b>".$task->task_index . '.)';
         echo $task->task->name;
-        echo " </b> <br />";
+        echo " </b> <p>";
         echo  $task->task->html;
-    echo "</p><br/>
-
-</div>" ;}
+    echo "</p> </div>" ;}
 ?>
 
