@@ -29,7 +29,7 @@ class Tasks extends CActiveRecord
     public function rules()
     {
         return array(
-            array('user_id, name, html, is_public', 'required'),
+            array('user_id, name, html, is_public', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
         );
     }
     /**
