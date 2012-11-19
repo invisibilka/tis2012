@@ -44,10 +44,7 @@ class TestController extends Controller
     {
         $model = Tests::model()->find();
         $html = $this->renderPartial('_testpdf', array('model'=>$model), true);
-        $pdf = new TCPDF();
-        $pdf->AddPage();
-        $pdf->writeHtmlCell( 0, 10, 10, 10, $html);
-        $pdf->output('example.pdf', 'I');
+        PDFExport::createPDF($html);
     }
 
     /**

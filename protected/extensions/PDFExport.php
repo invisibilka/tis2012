@@ -10,7 +10,10 @@ class PDFExport
      * @param $test - test
      * @return vracia PDF dokument
      */
-    public function createPDF($test){
-        return null;
+    public static  function createPDF($test){
+        $pdf = new TCPDF();
+        $pdf->AddPage();
+        $pdf->writeHtmlCell( 0, 10, 10, 10, $test);
+        $pdf->output('example.pdf', 'I');
     }
 }
