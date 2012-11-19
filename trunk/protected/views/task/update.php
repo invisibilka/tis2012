@@ -18,18 +18,18 @@ Yii::app()->clientScript->registerPackage('tiny_mce');
 
 <?php
 if($model->id == ''){
-    $this->breadcrumbs=array(
+   /* $this->breadcrumbs=array(
         'Správa úloh' => Yii::app()->request->baseUrl . '/task',
         'Moje úlohy'=>array('my'),
         'Vytvoriť novú úlohu'
-    );
+    );*/
     $this->pageTitle = "Vytvoriť novú úlohu";
 } else {
-$this->breadcrumbs=array(
+/*$this->breadcrumbs=array(
     'Moje úlohy'=>array('my'),
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
-);
+);*/
     $this->pageTitle = $model->name . " - Upraviť";
 }
 ?>
@@ -82,7 +82,7 @@ $this->breadcrumbs=array(
 
 
             theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect",
-            theme_advanced_buttons2 : "cut,copy,paste,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,jbimages,image,|,insertdate,inserttime,|,forecolor,backcolor",
+            theme_advanced_buttons2 : "cut,copy,paste,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,image,|,insertdate,inserttime,|,forecolor,backcolor",
             theme_advanced_buttons3 : "tablecontrols,|,hr,|,sub,sup,|,charmap,emotions,|,fullscreen",
             //theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
             theme_advanced_toolbar_location : "top",

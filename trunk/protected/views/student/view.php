@@ -2,11 +2,11 @@
 /**
  *@author Milos Blascak
  */
-
+/*
 $this->breadcrumbs=array(
     'Študenti',
     $model->name,
-);
+);*/
 ?>
 <div class="task">
 

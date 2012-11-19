@@ -7,11 +7,11 @@
 $this->pageTitle = "Verejné úlohy";
 
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
-
+/*
 $this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Verejné úlohy'
-);
+);*/
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tasks',
@@ -52,7 +52,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'username',
-            'value' => '$data->user->full_name'
+            'value' => '$data->user ? $data->user->full_name : "Neznamy autor"'
         )
     ))); ?>
 

@@ -3,11 +3,11 @@
  * Zoznam študentov v danej skupine. 
  *@author Marek Oravec
  */
-
+/*
 $this->breadcrumbs=array(
     'Študenti',
     $model->name
-);
+);*/
 echo '<h2>'. $model->name .'</h2>';
 
 $this->widget('zii.widgets.grid.CGridView', array(

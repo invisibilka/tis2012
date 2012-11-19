@@ -4,7 +4,7 @@
  */
 
 $isMyTask = $model->user_id == Yii::app()->user->id;
-
+/*
 if($isMyTask){
 $this->breadcrumbs=array(
        'Správa úloh' => Yii::app()->request->baseUrl . '/task',
@@ -17,7 +17,7 @@ $this->breadcrumbs=array(
         'Vrejné úlohy'=>array('public'),
         $model->name,
     );
-}
+}*/
 ?>
 <div class="task">
 
