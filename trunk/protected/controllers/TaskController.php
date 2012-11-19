@@ -18,8 +18,9 @@ class TaskController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
+        $comments = TasksComments::model()->findAllByAttributes(array('task_id' => $id));
         if ($model) {
-            $this->render('view', array('model' => $model));
+            $this->render('view', array('model' => $model, 'comments' => $comments));
         } else {
             throw new CHttpException(404, 'Zadaná úloha neexistuje. :(');
         }

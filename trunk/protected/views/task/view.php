@@ -28,3 +28,13 @@ if ($isMyTask) echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $mod
 ?>
 </div>
 
+<div class="comments">
+    <h3>Komentáre</h3>
+    <?php
+      foreach ($comments as $comment) {
+          echo '<div class="comment">' . $comment->user->full_name . '   ' . $comment->date . '<br />' .
+              $comment->text . '</div>';
+      }
+    ?>
+</div>
+
