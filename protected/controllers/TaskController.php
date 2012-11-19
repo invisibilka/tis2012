@@ -123,6 +123,7 @@ class TaskController extends Controller
 
     public function actionPublic()
     {
+        $this->submenuIndex = 1;
         $model = new Tasks();
         $model->is_public = true;
         $model->rating = NULL;

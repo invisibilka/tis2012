@@ -5,6 +5,7 @@
  */
 class StudentController extends Controller
 {
+    public $submenuIndex = 1;
     /**
      * Zobrazí študenta s daným id.
      * @throws CHttpException - chyba ak je zadane neplatne id
