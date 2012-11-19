@@ -44,7 +44,8 @@ class TestController extends Controller
     {
         $model = Tests::model()->find();
         $html = $this->renderPartial('_testpdf', array('model'=>$model), true);
-        PDFExport::createPDF($html);
+       PDFExport::createPDF($html);
+       //echo $html;
     }
 
     /**
