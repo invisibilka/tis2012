@@ -7,15 +7,12 @@
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
-    'id' => 'taskList',
+    'id' => 'Tests',
     'columns' => array(
         array(
-            'name' => 'id',
-            'value' => '$data->id',
-        ),
-        array(
+            'type' => 'raw',
             'name' => 'name',
-            'value' => '$data->name',
+            'value' => 'CHtml::link($data->name, Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
         ),
         array(
             'class' => 'CButtonColumn',
