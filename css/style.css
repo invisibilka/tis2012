@@ -107,6 +107,10 @@ h1 span {
 	background-color: #1672fd;
 }
 
+#subnavigation li a.selected {
+    background-color: #1672fd;
+}
+
 #main {
 	width: 960px;
 	margin: 20px auto 0 auto;
