@@ -91,7 +91,7 @@ h1 {
 
 #main {
 	width: 960px;
-	margin: 20px auto 20px auto;
+	margin: 20px auto 0 auto;
 }
 
 /**
@@ -147,6 +147,7 @@ form label {
 	padding: 30px;
 	background-color: #FFFFFF;
 	border: thin #DDD solid;
+	margin-bottom: 20px;
 }
 
 #info {
@@ -164,11 +165,8 @@ form label {
 	font-size: small;
 }
 
-#content {
-    padding: 10px;
-}
-
 #footer {
+	margin-top: 20px;
     padding: 10px 0;
     font-size: 75%;
     text-align: center;
