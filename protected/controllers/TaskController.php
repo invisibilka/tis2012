@@ -17,13 +17,19 @@ class TaskController extends Controller
     public function actionView()
     {
         $id = Yii::app()->request->getParam('id');
+        $newComment = new TasksComments();
+        if (isset($_POST['TasksComments'])){
+            $newComment->setAttributes(array('task_id' => $id, 'user_id' => Yii::app()->user->id, 'date' => date(DATE_ATOM),'text' => $_POST['TasksComments']['text']), false);
+            $newComment->save();
+        }
         $model = Tasks::model()->findByPk($id);
         $comments = TasksComments::model()->findAllByAttributes(array('task_id' => $id));
         if ($model) {
-            $this->render('view', array('model' => $model, 'comments' => $comments));
+            $this->render('view', array('model' => $model, 'comments' => $comments, 'newComment' => $newComment));
         } else {
             throw new CHttpException(404, 'Zadaná úloha neexistuje. :(');
         }
+
 
     }
 
