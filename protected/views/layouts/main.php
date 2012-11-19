@@ -21,11 +21,12 @@
 <body>
 
 	<div id="<?php if (!Yii::app()->user->isGuest) echo "header-user"; else echo"header"; ?>">
-		<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
+    	<div id="header-content">
+			<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
         
-        <?php 
-			if (!Yii::app()->user->isGuest) { 
-		?>
+        	<?php 
+				if (!Yii::app()->user->isGuest) { 
+			?>
         <ul id="navigation">
         	<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/task"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-task.png" alt="Ikonka - Správa úloh" /><br />Správa úloh</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/test"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-test.png" alt="Ikonka - Správa písomiek" /><br />Správa písomiek</a></li>
@@ -33,20 +34,18 @@
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-user.png" alt="Ikonka - Upraviť profil" /><br />Upraviť profil</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/invite"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-invite.png" alt="Ikonka - Odoslať pozvánku" /><br />Odoslať pozvánku</a></li>
 		</ul>
-		<?php
-			} ?>
+		
+        <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout" id="logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
+			}?>
 
+		</div>
 	</div>
     
     <div id="main">
     
     <?php if (!Yii::app()->user->isGuest && $this->showSubmenu) { $this->renderPartial("subnavigation", array()); } ?>
     
-    <?php 
-	if (!Yii::app()->user->isGuest) {
-		?><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
-	}
-	?>
+    
 
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
