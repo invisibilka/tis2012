@@ -95,7 +95,7 @@ class TaskController extends Controller
             }
             //pozor na count == 0 pri deleni ;)
             $average = 0;
-            if($count > 0){
+            if ($count > 0) {
                 $average = $sum / $count;
             }
             //
@@ -124,7 +124,14 @@ class TaskController extends Controller
     public function actionPublic()
     {
         $model = new Tasks();
-        $model->getDbCriteria()->compare('is_public', true);
+        $model->is_public = true;
+        $model->rating = NULL;
+        if (isset($_GET['Tasks'])) {
+            $model->setAttributes($_GET['Tasks'], false);
+            if (isset($_GET['Tasks']['username'])) {
+                $model->username = $_GET['Tasks']['username'];
+            }
+        }
         $this->render('public', array('model' => $model));
     }
 

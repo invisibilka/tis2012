@@ -14,12 +14,9 @@ $this->breadcrumbs = array(
 );
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
-    'id' => 'taskList',
+    'id' => 'Tasks',
+    'filter' => $model,
     'columns' => array(
-        array(
-            'name' => 'id',
-            'value' => '$data->id',
-        ),
         array(
             'type' => 'raw',
             'name' => 'name',
@@ -54,7 +51,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
                 ", true)"
         ),
         array(
-            'name' => 'user',
+            'name' => 'username',
             'value' => '$data->user->full_name'
         )
     ))); ?>
