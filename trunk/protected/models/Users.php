@@ -72,12 +72,12 @@ class Users extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'full_name' => 'Meno ucitela',
+            'full_name' => 'Meno učiteľa',
             'username' => 'Prihlasovacie meno',
-            'new_password' => 'Nove heslo',
+            'new_password' => 'Nové heslo',
             'new_password2' => 'Potvrdenie hesla',
             'email' => 'Email',
-            'permissions' => 'Administrator',
+            'permissions' => 'Administrátor',
             'about' => 'O sebe',
         );
     }
