@@ -28,16 +28,36 @@ if ($isMyTask) echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $mod
 ?>
 </div>
 
+<div class="form">
+    <h3>Pridať komentár</h3>
+    <?php
+          $form=$this->beginWidget('CActiveForm', array('id' => 'TasksComments')); ?>
+
+    <?php echo $form->errorSummary($newComment); ?>
+
+    <div class="row">
+        <?php echo $form->labelEx($newComment, 'text'); ?>
+        <?php echo $form->textArea($newComment, 'text', array('rows' => "5")); ?>
+
+     </div>
+
+    <div class="row submit">
+        <?php echo CHtml::submitButton('Odoslať'); ?>
+    </div>
+
+    <?php $this->endWidget(); ?>
+
+</div>
 <div class="comments">
     <h3>Komentáre</h3>
     <?php
     if(count($comments) == 0)
     {
-        echo 'Túto úlohu ešte nikto neokomentoval.';
+        echo '<i>Túto úlohu ešte nikto neokomentoval.</i>';
     }
       foreach ($comments as $comment) {
-          echo '<div class="comment">' . $comment->user->full_name . '   ' . $comment->date . '<br />' .
-              $comment->text . '</div>';
+          echo '<div class="comment"><div class="commentHead"><b>' . $comment->user->full_name . '</b>   ' . $comment->date . '</div>' .
+              '<div class="commentBody">' . $comment->text . '</div></div>';
       }
     ?>
 </div>

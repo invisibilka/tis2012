@@ -167,7 +167,7 @@ form label {
 	margin: 20px 0 0 0;
 }
 
-.form, #info {
+.form, #info, .comment {
 	padding: 30px;
 	background-color: #FFFFFF;
 	border: thin #DDD solid;
@@ -205,3 +205,15 @@ form label {
 	font-size: medium;
 	line-height: 70px;
 }
+.comment {
+    padding: 0;
+}
+.commentHead {
+  padding-left: 10px;
+  background-color: silver;
+}
+
+.commentBody {
+    padding: 10px;
+}
+
