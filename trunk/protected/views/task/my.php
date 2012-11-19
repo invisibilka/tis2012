@@ -6,28 +6,25 @@
 
 $this->pageTitle = "Moje úlohy";
 
-$this->breadcrumbs=array(
+$this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Moje úlohy'
 );
 echo '<a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a><br />';
-if($saved){
+if ($saved) {
     echo 'Úloha bola úspešne uložená.';
 }
 
-    $this->widget('zii.widgets.grid.CGridView', array(
+$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
-    'id' => 'taskList',
+    'filter' => $model,
+    'id' => 'Tasks',
     'columns' => array(
-        array(
-            'name' => 'id',
-            'value' => '$data->id',
-        ),
         array(
             'type' => 'raw',
             'name' => 'name',
             'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
-          /*       'class'=>'CLinkColumn',
+            /*       'class'=>'CLinkColumn',
                    'labelExpression'=>'$data->name',
                    'urlExpression'=>'Yii::app()->request->baseUrl ."/task/view/id/".$data->id',
                    'header'=>'name',
@@ -35,7 +32,8 @@ if($saved){
         ),
         array(
             'name' => 'is_public',
-            'value' => '$data->is_public',
+            'value' => '$data->is_public ? "Verejna" : "Sukromna" ',
+            'filter'=>CHtml::listData(Tasks::model()->getPublicStates(), 'id', 'name'),
         ),
         array(
             'class' => 'CButtonColumn',

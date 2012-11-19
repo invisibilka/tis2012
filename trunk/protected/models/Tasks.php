@@ -14,6 +14,7 @@ class Tasks extends CActiveRecord
     {
         return parent::model($className);
     }
+
     /**
      * vrati nazov tabulky v databaze
      * @return string nazov tabulky
@@ -22,6 +23,7 @@ class Tasks extends CActiveRecord
     {
         return 'tis_tasks';
     }
+
     /**
      * Obsahuje pravidla validacie
      * @return array - pravidla validacie
@@ -32,12 +34,21 @@ class Tasks extends CActiveRecord
             array('user_id, name, html, is_public', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
         );
     }
+
     /**
      * Vyhladava a triedi ulohy z databazy.
      * @return CActiveDataProvider
      */
-    public function search(){
+    public function search()
+    {
         $criteria = new CDbCriteria();
+
+        $criteria->compare('user_id', $this->user_id);
+        $criteria->compare('name', $this->name, true);
+        if ($this->is_public != NULL) {
+            $criteria->compare('is_public', $this->is_public);
+        }
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
             'pagination' => array(
@@ -45,6 +56,7 @@ class Tasks extends CActiveRecord
             ),
         ));
     }
+
     /**
      * Reprezentuje vztahy medzi modelmi
      * @return array - vztahy medzi modelmi
@@ -64,7 +76,8 @@ class Tasks extends CActiveRecord
     /** Funkcia definuje text, ktory sa ma zobrazit pri prvkoch formulara.
      * @return array - pole labelov
      */
-    public function attributeLabels(){
+    public function attributeLabels()
+    {
         return array(
             'name' => 'Názov úlohy',
             'html' => 'Text úlohy',
@@ -72,6 +85,14 @@ class Tasks extends CActiveRecord
             'rating' => 'Hodnotenie',
             'user' => 'Autor úlohy'
 
+        );
+    }
+
+    public function getPublicStates()
+    {
+        return array(
+            array('id' => '0', 'name' => 'Sukromna'),
+            array('id' => '1', 'name' => 'Verejna'),
         );
     }
 }
