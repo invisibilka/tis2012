@@ -155,6 +155,9 @@ class Tasks extends CActiveRecord
         return $result;
     }
 
+    /**
+     * Ulozi klucove slova
+     */
     private function saveKeywords(){
         if(strlen($this->keyword) == 0){
             return;
@@ -188,6 +191,9 @@ class Tasks extends CActiveRecord
         }
     }
 
+    /**
+     * Vola sa po ulozeni modelu
+     */
     protected function afterSave()
     {
         $this->saveKeywords();
