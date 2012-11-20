@@ -8,6 +8,8 @@ class Tasks extends CActiveRecord
 
     public $username;
 
+    public $keyword;
+
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
@@ -35,7 +37,7 @@ class Tasks extends CActiveRecord
     {
         return array(
             array('user_id, name, html, is_public', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
-            array('username', 'safe'),
+            array('username, keyword', 'safe'),
         );
     }
 
@@ -55,9 +57,13 @@ class Tasks extends CActiveRecord
 
         $criteria->compare('rating', '>=' . $this->rating);
 
-        $criteria->with = array('user');
+        $criteria->with = array('user', 'keywords');
         $criteria->together = true;
         $criteria->compare('user.full_name', $this->username, true);
+      //  $criteria->compare('keywords.id', $this->keyword);
+        if(strlen($this->keyword)){
+            $criteria->compare('keywords.name', explode(',', $this->keyword), true);
+        }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -99,11 +105,31 @@ class Tasks extends CActiveRecord
         );
     }
 
+    /**
+     * Vrati pole sukromna/verejna do filtra
+     * @author V. Jurenka
+     * @return array
+     */
     public function getPublicStates()
     {
         return array(
             array('id' => '0', 'name' => 'Sukromna'),
             array('id' => '1', 'name' => 'Verejna'),
         );
+    }
+
+    /**
+     * Vrati pouzite klusove slova
+     * @author V. Jurenka
+     * @return array
+     */
+    public function getKeywordsList()
+    {
+        $keywords = array();
+        foreach($this->keywords as $keyword){
+            $keywords[] = $keyword->name;
+        }
+        $result = implode(', ', $keywords);
+        return $result;
     }
 }

@@ -126,6 +126,9 @@ class TaskController extends Controller
         $model->user_id = Yii::app()->user->id;
         if (isset($_GET['Tasks'])) {
             $model->setAttributes($_GET['Tasks'], false);
+            if (isset($_GET['Tasks']['keyword'])) {
+                $model->keyword = $_GET['Tasks']['keyword'];
+            }
         }
         $this->render('my', array('model' => $model, 'saved' => $saved));
     }
@@ -140,6 +143,9 @@ class TaskController extends Controller
             $model->setAttributes($_GET['Tasks'], false);
             if (isset($_GET['Tasks']['username'])) {
                 $model->username = $_GET['Tasks']['username'];
+            }
+            if (isset($_GET['Tasks']['keyword'])) {
+                $model->keyword = $_GET['Tasks']['keyword'];
             }
         }
         $this->render('public', array('model' => $model));
