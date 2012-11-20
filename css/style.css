@@ -16,7 +16,7 @@ body {
 	min-width: 960px;
 	height: 70px;
 	max-height: 70px;
-	background: transparent url('../images/design/header-background.png') top left repeat-x;
+	background: #FFFFFF;
 	border-bottom: thin solid #dadada;
 	overflow: hidden;
 }
@@ -202,9 +202,34 @@ form label {
 	position: absolute;
 	top: 0;
 	right: 0;
-	font-size: medium;
 	line-height: 70px;
 }
+
+#logout a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #b3b3b3;
+	border: thin solid #ebebeb;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 6px 10px 6px 10px;
+	text-decoration: none;
+}
+
+#logout .name {
+	color: #ff5939;
+	text-decoration: none;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+a:hover .underline {
+	text-decoration: none;
+}
+
 .comment {
     padding: 0;
 }
