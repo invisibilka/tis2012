@@ -25,7 +25,13 @@
     	<div id="header-content">
 			<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
             
-            <div id="logout"><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout"><span class="underline">Odhlásiť sa</span> [ <span class="name"><?php echo Yii::app()->user->name; ?></span> ]</a></div>
+            <?php
+				if (!Yii::app()->user->isGuest) {
+				?>
+                <div id="logout"><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout"><span class="underline">Odhlásiť sa</span> [ <span class="name"><?php echo Yii::app()->user->name; ?></span> ]</a></div>
+                <?php
+				}
+			?>
             
             </div>
 
