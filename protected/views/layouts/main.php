@@ -24,10 +24,15 @@
 	<div id="<?php if (!Yii::app()->user->isGuest) echo "header-user"; else echo"header"; ?>">
     	<div id="header-content">
 			<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
+            
+            <div id="logout"><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout"><span class="underline">Odhlásiť sa</span> [ <span class="name"><?php echo Yii::app()->user->name; ?></span> ]</a></div>
+            
+            </div>
 
         	<?php
 				if (!Yii::app()->user->isGuest) {
 			?>
+        <div id="navigation-div">    
         <ul id="navigation">
         	<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/task"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-task.png" alt="Ikonka - Správa úloh" /><br />Správa úloh</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/test"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-test.png" alt="Ikonka - Správa písomiek" /><br />Správa písomiek</a></li>
@@ -35,11 +40,12 @@
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-user.png" alt="Ikonka - Upraviť profil" /><br />Upraviť profil</a></li>
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/invite"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-invite.png" alt="Ikonka - Odoslať pozvánku" /><br />Odoslať pozvánku</a></li>
 		</ul>
+        </div>
 
-        <div id="logout"><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout"><span class="underline">Odhlásiť sa</span> [ <span class="name"><?php echo Yii::app()->user->name; ?></span> ]</a></div><?php
+        <?php
 			}?>
 
-		</div>
+		
 	</div>
 
     <div id="main">
