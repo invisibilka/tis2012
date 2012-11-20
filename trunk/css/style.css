@@ -17,7 +17,7 @@ body {
 	height: 70px;
 	max-height: 70px;
 	background: #FFFFFF;
-	border-bottom: thin solid #dadada;
+	border-bottom: thin solid #ededed;
 	overflow: hidden;
 }
 
@@ -51,6 +51,11 @@ h1 span {
 }
 */
 
+#navigation-div {
+	width: 100%;
+	border-top: thin solid #f7f7f7;
+}
+
 #navigation {
 	width: 960px;
 	margin: 0 auto 0 auto;
@@ -69,7 +74,7 @@ h1 span {
 	color: #b3b3b3;
 	text-align: center;
 	text-decoration: none;
-	padding: 10px 0 15px 0;
+	padding: 12px 0 15px 0;
 }
 
 #navigation li a img {
@@ -228,6 +233,7 @@ form label {
 
 a:hover .underline {
 	text-decoration: none;
+	color: #313131;
 }
 
 .comment {
