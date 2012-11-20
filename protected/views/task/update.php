@@ -55,12 +55,16 @@ if($model->id == ''){
             )); ?>
             </div>
             <div class="clear"></div>
-            <?php echo $form->error($model, 'html'); ?>
         </div>
 
         <div class="row">
             <?php echo $form->label($model,'is_public'); ?>
             <?php echo $form->checkBox($model,'is_public'); ?>
+        </div>
+
+        <div class="row">
+            <?php echo $form->label($model,'keyword'); ?>
+            <?php echo $form->textField($model,'keyword'); ?>
         </div>
 
         <div class="row submit">

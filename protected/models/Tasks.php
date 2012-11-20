@@ -60,10 +60,30 @@ class Tasks extends CActiveRecord
         $criteria->with = array('user', 'keywords');
         $criteria->together = true;
         $criteria->compare('user.full_name', $this->username, true);
-      //  $criteria->compare('keywords.id', $this->keyword);
+        /*
+         * DROP DOWN COMPARE
+        $criteria->compare('keywords.id', $this->keyword);
+        */
+
+        //OR PARTIAL MATCH
         if(strlen($this->keyword)){
-            $criteria->compare('keywords.name', explode(',', $this->keyword), true);
+            $keywords = explode(',', $this->keyword);
+            foreach($keywords as $i=>&$keyword){
+                $op = 'AND';
+                if($i){
+                    $keyword = 'OR';
+                }
+                $keyword = $keyword.'%';
+                $criteria->compare('keywords.name', $keyword, true ,$op, false);
+            }
+           // $criteria->compare('keywords.name', $keywords, true);
         }
+
+        /* OR FULL MATCH
+        if(strlen($this->keyword)){
+            $criteria->compare('keywords.name', $keywords, true);
+        }
+        */
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -132,4 +152,45 @@ class Tasks extends CActiveRecord
         $result = implode(', ', $keywords);
         return $result;
     }
+
+    private function saveKeywords(){
+        if(strlen($this->keyword) == 0){
+            return;
+        }
+        $keywords = explode(',', $this->keyword);
+        foreach($keywords as $keyword){
+            $keyword = trim($keyword);
+            //najdi keyword
+            $model = Keywords::model()->find('name = :name', array(':name' => $keyword));
+            if($model){
+                //zisti ci uz savenute, zaroven odstrani duplikaty
+                $alreadySaved = false;
+                foreach($this->keywords as $old){
+                    if($old->id == $model->id){
+                        $alreadySaved = true;
+                        break;
+                    }
+                }
+                if($alreadySaved){
+                    continue;
+                }
+            }
+            else{
+                //vyrob keyword
+                $model = new Keywords();
+                $model->name = $keyword;
+                $model->save();
+            }
+            //saveni relaciu
+            Yii::app()->db->createCommand()->insert('tis_tasks_keywords', array('task_id' => $this->id, 'keyword_id' => $model->id));
+        }
+    }
+
+    protected function afterSave()
+    {
+        $this->saveKeywords();
+        parent::afterSave();
+    }
+
+
 }

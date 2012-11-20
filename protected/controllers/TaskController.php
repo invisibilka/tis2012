@@ -46,10 +46,12 @@ class TaskController extends Controller
         if (!$model) {
             $model = new Tasks();
         }
+        else{
+            $model->keyword = $model->getKeywordsList();
+        }
         //normalna validacia a ulozenie
         if (isset($_POST['Tasks'])) {
             $model->setAttributes($_POST['Tasks']);
-
             //fix smiley path, by V.Jurenka
             $model->html = preg_replace('@.\.\/\.\./\.\./assets/[^/]*/plugins/emotions/img/@', Yii::app()->baseUrl . '/images/emotions/', $model->html);
 
