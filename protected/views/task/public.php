@@ -29,6 +29,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
              */
         ),
         array(
+            'name' => 'keyword',
+            'value' => '$data->keywordsList',
+            // 'filter' => CHtml::listData(Keywords::model()->findAll(), 'name', 'name')
+        ),
+        array(
             'name' => 'rating',
             'type' => 'raw',
             'value' => "CHtml::tag('ul', array('class' => 'star-rating' ), " .

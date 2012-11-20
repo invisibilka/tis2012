@@ -36,6 +36,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'filter'=>CHtml::listData(Tasks::model()->getPublicStates(), 'id', 'name'),
         ),
         array(
+            'name' => 'keyword',
+            'value' => '$data->keywordsList',
+           // 'filter' => CHtml::listData(Keywords::model()->findAll(), 'name', 'name')
+        ),
+        array(
             'class' => 'CButtonColumn',
             'template' => '{update} {delete}',
             'header' => 'Úpravy',
