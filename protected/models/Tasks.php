@@ -120,7 +120,9 @@ class Tasks extends CActiveRecord
             'is_public' => 'Verejná (zobrazuje&nbsp;sa&nbsp;ostatným&nbsp;učiteľom)',
             'rating' => 'Hodnotenie',
             'user' => 'Autor úlohy',
-            'username' => 'Autor úlohy'
+            'username' => 'Autor úlohy',
+            'keyword' => 'Klucove slova',
+            'keywords' => 'Klucove slova'
 
         );
     }
