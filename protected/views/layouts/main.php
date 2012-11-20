@@ -36,7 +36,7 @@
             <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/invite"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/design/icon-invite.png" alt="Ikonka - Odoslať pozvánku" /><br />Odoslať pozvánku</a></li>
 		</ul>
 
-        <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout" id="logout">Odhlásiť sa (<?php echo Yii::app()->user->name; ?>)</a><?php
+        <div id="logout"><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/logout"><span class="underline">Odhlásiť sa</span> [ <span class="name"><?php echo Yii::app()->user->name; ?></span> ]</a></div><?php
 			}?>
 
 		</div>
