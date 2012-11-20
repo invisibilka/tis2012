@@ -37,7 +37,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'name' => 'rating',
             'type' => 'raw',
             'value' => "CHtml::tag('ul', array('class' => 'star-rating' ), " .
-                'CHtml::tag(\'li\', array(\'class\' => \'current-rating\', \'id\' => \'current-rating\' . $data->id, \'style\' => \'width: \' . $data->rating*25 . \'px\'), \'Currently \' . $data->rating . \'/5 Stars.\' , true) . ' .
+                'CHtml::tag(\'li\', array(\'class\' => \'current-rating\', \'id\' => \'current-rating\' . $data->id, \'style\' => \'width: \' . $data->rating*25 . \'px\'), \'Currently \' . round($data->rating,1) . \'/5 Stars.\' , true) . ' .
                 "CHtml::tag('li', array(), " .
                 'CHtml::Link(\'1\', \'javascript:rate(1,\' . $data->id . \')\', array(\'title\' => \'1 z 5 hviezdičiek\', \'class\' => \'one-star\'))' .
                 ", true) . " .

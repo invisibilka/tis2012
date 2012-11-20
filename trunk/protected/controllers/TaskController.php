@@ -22,6 +22,7 @@ class TaskController extends Controller
         if (isset($_POST['TasksComments'])){
             $newComment->setAttributes(array('task_id' => $id, 'user_id' => Yii::app()->user->id, 'date' => date(DATE_ATOM),'text' => $_POST['TasksComments']['text']), false);
             $newComment->save();
+            $newComment = new TasksComments();
         }
 
         $model = Tasks::model()->findByPk($id);
@@ -47,6 +48,9 @@ class TaskController extends Controller
             $model = new Tasks();
         }
         else{
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
             $model->keyword = $model->getKeywordsList();
         }
         //normalna validacia a ulozenie
@@ -56,9 +60,6 @@ class TaskController extends Controller
             $model->html = preg_replace('@.\.\/\.\./\.\./assets/[^/]*/plugins/emotions/img/@', Yii::app()->baseUrl . '/images/emotions/', $model->html);
 
             if ($model->save()) {
-                //tu mozeme dat nejaky redirect a nie iba end (biela stranka)
-                //Yii::app()->end();
-                // $this->redirect(Yii::app()->request->baseUrl . "/task/");
                 $this->redirect($this->createUrl('my', array('saved' => true)));
             }
         }
@@ -72,7 +73,13 @@ class TaskController extends Controller
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id');
-        Tasks::model()->deleteByPk($id);
+        $model = Tasks::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+            $model->delete();
+        }
     }
 
     /**

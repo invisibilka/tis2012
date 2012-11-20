@@ -37,7 +37,6 @@ class Students extends CActiveRecord
     {
         return array(
             array('email', 'required' ),
-            array('email', 'unique'),
             array('email', 'email' ),
         );
     }

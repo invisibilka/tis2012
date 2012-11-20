@@ -3,6 +3,8 @@
  * @author Eva Libantova
  */
 
+Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
+
 $isMyTask = $model->user_id == Yii::app()->user->id;
 /*
 if($isMyTask){
@@ -26,6 +28,15 @@ $this->breadcrumbs=array(
     echo '<b>Klucove slova</b>';
     $keywords = $model->keywordsList;
     echo '<p>' . ($keywords ? $keywords : '<i>nezadane</i>') . '</p>';
+    echo '<b>Hodnotenie</b>';
+    echo CHtml::tag('ul', array('class' => 'star-rating'),
+        CHtml::tag('li', array('class' => 'current-rating', 'id' => 'rating', 'style' => 'width: ' . $model->rating * 25 . 'px'), 'Currently ' . round($model->rating,1) . '/5 Stars.', true) .
+            CHtml::tag('li', array(), CHtml::Link('1', 'javascript:rate(1)', array('title' => '1 z 5 hviezdičiek', 'class' => 'one-star')), true).
+            CHtml::tag('li', array(), CHtml::Link('2', 'javascript:rate(2)', array('title' => '2 z 5 hviezdičiek', 'class' => 'two-stars')), true).
+            CHtml::tag('li', array(), CHtml::Link('3', 'javascript:rate(3)', array('title' => '3 z 5 hviezdičiek', 'class' => 'three-stars')), true).
+            CHtml::tag('li', array(), CHtml::Link('4', 'javascript:rate(4)', array('title' => '4 z 5 hviezdičiek', 'class' => 'four-stars')), true).
+            CHtml::tag('li', array(), CHtml::Link('5', 'javascript:rate(5)', array('title' => '5 z 5 hviezdičiek', 'class' => 'five-stars')), true),
+        true);
     if ($isMyTask) echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $model->id) . '">Upraviť</a>';
     ?>
 </div>
@@ -57,9 +68,22 @@ $this->breadcrumbs=array(
         echo '<i>Túto úlohu ešte nikto neokomentoval.</i>';
     }
     foreach ($comments as $comment) {
-        echo '<div class="comment"><div class="commentHead"><b>' . $comment->user->full_name . '</b>   ' . $comment->date . '</div>' .
+        echo '<div class="comment"><div class="commentHead"><b>' . $comment->user->full_name . '</b>   ' . date('j. M Y', strtotime($comment->date)) . '</div>' .
             '<div class="commentBody">' . $comment->text . '</div></div>';
     }
     ?>
 </div>
 
+
+<script type="text/javascript">
+    function rate(rating) {
+        $.ajax({
+            type:"GET",
+            url:"<?php echo Yii::app()->baseUrl . '/task/rating/'; ?>",
+            data:{ task_id: <?php echo $model->id; ?>, rating:rating }
+        }).done(function (msg) {
+                rating = ((parseFloat(msg) * 25)) | 0;
+                $('#rating').width(rating + 'px');
+            });
+    }
+</script>

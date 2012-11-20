@@ -31,14 +31,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
             */
         ),
         array(
+            'name' => 'keyword',
+            'value' => '$data->keywordsList',
+            // 'filter' => CHtml::listData(Keywords::model()->findAll(), 'name', 'name')
+        ),
+        array(
             'name' => 'is_public',
             'value' => '$data->is_public ? "Verejna" : "Sukromna" ',
             'filter'=>CHtml::listData(Tasks::model()->getPublicStates(), 'id', 'name'),
-        ),
-        array(
-            'name' => 'keyword',
-            'value' => '$data->keywordsList',
-           // 'filter' => CHtml::listData(Keywords::model()->findAll(), 'name', 'name')
         ),
         array(
             'class' => 'CButtonColumn',

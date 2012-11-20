@@ -200,5 +200,16 @@ class Tasks extends CActiveRecord
         parent::afterSave();
     }
 
+    /**
+     * vycistenie databazy pri mazani
+     */
+    protected function afterDelete()
+    {
+        TasksComments::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+        TasksRating::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+        TestsTasks::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+        parent::afterDelete();
+    }
+
 
 }
