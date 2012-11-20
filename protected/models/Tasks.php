@@ -50,7 +50,7 @@ class Tasks extends CActiveRecord
         $criteria = new CDbCriteria();
 
         $criteria->compare('user_id', $this->user_id);
-        $criteria->compare('name', $this->name, true);
+        $criteria->compare('t.name', $this->name, true);
         if ($this->is_public != NULL) {
             $criteria->compare('is_public', $this->is_public);
         }
