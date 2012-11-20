@@ -248,3 +248,7 @@ a:hover .underline {
     padding: 10px;
 }
 
+.form textarea{
+    width: 100%;
+}
+
