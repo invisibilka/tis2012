@@ -20,7 +20,7 @@ $this->pageTitle = "Písomka";
 
 <div class="form">
     <div class="row">
-        <?php echo CHtml::label('Nazov testu', 'name'); ?>
+        <?php echo CHtml::label('Názov testu', 'name'); ?>
         <?php echo CHtml::textField('name', $model->name, array('class'=> 'long', 'onBlur' => 'saveName();', 'onChange' => 'saveName();')); ?>
     </div>
 
@@ -30,8 +30,8 @@ $this->pageTitle = "Písomka";
         <tr>
             <th></th>
             <th>Poradie</th>
-            <th>Nazov</th>
-            <th>Presunut
+            <th>Názov</th>
+            <th>Presunúť</th>
         </tr>
         </thead>
         <tbody id="tasks">
@@ -45,10 +45,10 @@ $this->pageTitle = "Písomka";
     </table>
 
     <div id="testControls">
-        <a href="javascript:addToTest();"><img src=""/>&lt;&lt;pridat do testu&lt;&lt;</a>
+        <a href="javascript:addToTest();"><img src=""/>&lt;&lt;pridať do testu&lt;&lt;</a>
         <br/>
         <br/>
-        <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;odobrat z testu&gt;&gt;</a>
+        <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;odobrať z testu&gt;&gt;</a>
     </div>
 
     <div id="taskPool">
@@ -89,7 +89,7 @@ $this->pageTitle = "Písomka";
 
     <div class="clearfix"></div>
 
-    <button onclick="preview();">Preview</button>
+    <button onclick="preview();">Náhľad</button>
 </div>
 
 <script type="text/javascript">

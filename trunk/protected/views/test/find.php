@@ -20,6 +20,8 @@ echo CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/'));
         array(
             'class' => 'CButtonColumn',
             'template' => '{update} {delete}',
+            'updateButtonLabel' => 'Upraviť',
+            'deleteButtonLabel' => 'Vymazať',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/test/update?id=".$data->id',
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/test/delete?id=".$data->id',
 

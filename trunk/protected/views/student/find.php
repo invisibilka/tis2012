@@ -37,6 +37,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'class' => 'CButtonColumn',
             'template' => '{delete}',
+            'updateButtonLabel' => 'Upraviť',
+            'deleteButtonLabel' => 'Vymazať',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/student/update?id=".$data->id',
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/student/delete?id=".$data->id',
 

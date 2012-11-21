@@ -35,7 +35,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'is_public',
-            'value' => '$data->is_public ? "Verejna" : "Sukromna" ',
+            'value' => '$data->is_public ? "Verejná" : "Súkromná" ',
             'filter'=>CHtml::listData(Tasks::model()->getPublicStates(), 'id', 'name'),
         ),
         array(

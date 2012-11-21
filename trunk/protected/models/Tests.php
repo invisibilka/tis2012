@@ -36,6 +36,17 @@ class Tests extends ActiveRecord
     }
 
     /**
+     * Slovenske nazvy premennych pre labely
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'name' => 'Názov',
+        );
+    }
+
+    /**
      * Reprezentuje vztahy medzi modelmi
      * @return array - vztahy medzi modelmi
      */

@@ -149,8 +149,8 @@ class Tasks extends ActiveRecord
             'rating' => 'Hodnotenie',
             'user' => 'Autor úlohy',
             'username' => 'Autor úlohy',
-            'keyword' => 'Klucove slova',
-            'keywords' => 'Klucove slova'
+            'keyword' => 'Kľúčové slová',
+            'keywords' => 'Kľúčové slová'
 
         );
     }
@@ -163,8 +163,8 @@ class Tasks extends ActiveRecord
     public function getPublicStates()
     {
         return array(
-            array('id' => '0', 'name' => 'Sukromna'),
-            array('id' => '1', 'name' => 'Verejna'),
+            array('id' => '0', 'name' => 'Súkromná'),
+            array('id' => '1', 'name' => 'Verejná'),
         );
     }
 
