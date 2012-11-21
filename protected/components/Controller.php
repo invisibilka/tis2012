@@ -10,14 +10,13 @@ class Controller extends CController
      */
     public $layout = '//layouts/column1';
 
-
     /**
      * V sucasnosti nepouzivana premenna, ponechana, keby sa sme rozhodli breacrumbs opat zapnut
      */
     public $breadcrumbs = array();
 
     /**
-     * @var boolurcuje ci sa zobrazi submenu
+     * @var bool urcuje ci sa zobrazi submenu
      */
     public $showSubmenu = true;
 
