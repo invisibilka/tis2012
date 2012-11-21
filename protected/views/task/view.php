@@ -20,12 +20,11 @@ $this->breadcrumbs=array(
         $model->name,
     );
 }*/
-$this->pageTitle = "Úloha";
+$this->pageTitle = CHtml::encode($model->name);
 echo '<h2>' . $this->pageTitle . '</h2>';
 ?>
 <div class="task">
     <?php
-    echo '<h2>' . CHtml::encode($model->name) . '</h2>';
     echo '<p>' . $model->html . '</p>';
     echo '<b>Klucove slova</b>';
     $keywords = $model->keywordsList;
