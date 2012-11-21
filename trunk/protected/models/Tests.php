@@ -47,6 +47,9 @@ class Tests extends CActiveRecord {
     public function search(){
         $criteria = new CDbCriteria();
 
+        $criteria->compare('user_id', $this->user_id);
+        $criteria->compare('name', $this->name, true);
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
             'pagination' => array(

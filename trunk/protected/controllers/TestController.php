@@ -75,7 +75,12 @@ class TestController extends Controller
      */
     public function actionFind()
     {
-        $this->render('find', array('model' => new Tests()));
+        $model = new Tests();
+        $model->user_id = Yii::app()->user->id;
+        if (isset($_GET['Tests'])) {
+            $model->setAttributes($_GET['Tests'], false);
+        }
+        $this->render('find', array('model' => $model));
     }
 
 
