@@ -8,6 +8,7 @@ Yii::app()->clientScript->registerCssFile(
     Yii::app()->clientScript->getCoreScriptUrl() .
         '/jui/css/base/jquery-ui.css'
 );
+Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 ?>
 
 
@@ -69,7 +70,11 @@ Yii::app()->clientScript->registerCssFile(
                 ),
                 array(
                     'name' => 'rating',
-                    'value' => '$data->rating',
+                    'type' => 'raw',
+                    'value' => "CHtml::tag('ul', array('class' => 'star-rating' ), " .
+                        'CHtml::tag(\'li\',
+                        array(\'class\' => \'current-rating\', \'id\' => \'current-rating\' . $data->id, \'style\' => \'width: \' . $data->rating*25 . \'px\'), \'Currently \' . round($data->rating,1) . \'/5 Stars.\' , true)  ' .
+                        ", true)"
                 ),
                 array(
                     'type' => 'raw',
