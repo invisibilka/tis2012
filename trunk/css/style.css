@@ -4,6 +4,7 @@
 *  {
 	margin: 0;
 	padding: 0;
+	border: none;
 }
 
 body {
@@ -14,8 +15,8 @@ body {
 #header, #header-user {
 	width: 100%;
 	min-width: 960px;
-	height: 70px;
-	max-height: 70px;
+	height: 50px;
+	max-height: 50px;
 	background: #FFFFFF;
 	border-bottom: thin solid #ededed;
 	overflow: hidden;
@@ -33,9 +34,9 @@ body {
 }
 
 h1 {
-	max-height: 70px;
-	height: 70px;
-	line-height: 70px;
+	max-height: 50px;
+	height: 50px;
+	line-height: 50px;
 	position: relative;
 	font-size: 20px;
 }
@@ -74,7 +75,7 @@ h1 span {
 	color: #b3b3b3;
 	text-align: center;
 	text-decoration: none;
-	padding: 12px 0 15px 0;
+	padding: 24px 0 24px 0;
 }
 
 #navigation li a img {
@@ -85,22 +86,23 @@ h1 span {
 	color: #313131;
 }
 
-#subnavigation {
-	margin: 30px auto 10px auto;
-	font-size: 0px;
-	text-align: center;
+/* Subnavigation */
+.subnavigation {
+	margin: 24px 0 0 0;
+	text-align: right;
 }
 
-#subnavigation li {
-	display: inline-block; 
-	margin: 0 15px 0 15px; 
+.subnavigation li {
+	list-style: none;
+	margin: 0 9px 12px 0;
 }
 
-#subnavigation li a {
-	background-color: #ff1727;
-	-webkit-border-radius: 15px; 
-	-moz-border-radius: 15px; 
-	border-radius: 15px;
+.subnavigation li a {
+	background-color: #27a0f5;
+	border: thin solid #0d85d9;
+	-webkit-border-radius: 4px; 
+	-moz-border-radius: 4px; 
+	border-radius: 4px;
 	padding: 4px 10px 4px 10px;
 	color: #FFFFFF; 
 	font-size: 12px; 
@@ -108,17 +110,31 @@ h1 span {
 	font-weight: bold;
 }
 
-#subnavigation li a:hover {
-	background-color: #1672fd;
+.subnavigation li a:hover {
+	background-color: #0d85d9;
 }
 
-#subnavigation li a.selected {
+.subnavigation li a.selected {
     background-color: #1672fd;
 }
 
+.functions li a {
+	background-color: #ff5635;
+	border: thin solid #d93e1f;
+}
+
+.functions li a:hover {
+	background-color: #d93e1f;
+}
+
+/* Main div */
 #main {
 	width: 960px;
-	margin: 20px auto 0 auto;
+	margin: 0 auto 0 auto;
+	background: transparent url('../images/design/line-color.png') 192px top repeat-y;
+	overflow: visible;
+	height: auto;
+	min-height: 130px;
 }
 
 /**
@@ -180,7 +196,7 @@ form label {
 }
 
 #info {
-	width: 550px;
+	width: auto;
 	float: right;
 }
 
@@ -196,18 +212,17 @@ form label {
 
 #footer {
 	width: 100%;
-	margin-top: 20px;
     padding: 10px 0;
     font-size: 75%;
     text-align: center;
-    border-top: solid silver thin;
+    border-top: thin solid #ededed;
 }
 
 #logout {
 	position: absolute;
 	top: 0;
 	right: 0;
-	line-height: 70px;
+	line-height: 50px;
 }
 
 #logout a {
@@ -305,6 +320,17 @@ html[xmlns] .clearfix {
 
 #testControls{
     margin-top: 60px;
+}
+
+#panel {
+	width: 20%;
+	min-height: 130px;
+	float: left;
+}
+
+.container {
+	float: right;
+	width: 80%;
 }
 
 input.long{
