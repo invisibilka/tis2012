@@ -1,4 +1,4 @@
-<ul class="subnavigation">
+<ul id="subnavigation">
     <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/update">Upraviť profil</a></li>
     <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/view">Zobraziť profil</a></li>
     <?php
