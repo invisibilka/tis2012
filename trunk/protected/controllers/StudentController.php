@@ -5,6 +5,9 @@
  */
 class StudentController extends Controller
 {
+    /**
+     * @var int index do navigacie
+     */
     public $submenuIndex = 1;
     /**
      * Zobrazí študenta s daným id.

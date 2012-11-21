@@ -98,6 +98,9 @@ class Students extends ActiveRecord
         ));
     }
 
+    /**
+     * @return string vrati string v ktorom su nazvy zoznamov v ktorych je dany student
+     */
     public function getNumLists(){
         $listNames = array();
         foreach($this->studentLists as $list){
@@ -110,6 +113,9 @@ class Students extends ActiveRecord
         return $result;
     }
 
+    /**
+     * zmaze studenta aj so vsetkych zoznamov
+     */
     public function afterDelete(){
         Yii::app()->db->createCommand()->delete('tis_students_lists', 'student_id = :student_id', array(':student_id' => $this->id));
         parent::afterDelete();

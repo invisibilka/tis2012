@@ -1,5 +1,6 @@
 <?php
 /**
+ * Zobrazuje profil pouzivatela
  * @author  Vladimir Jurenka
  */
 $this->pageTitle = CHtml::encode($model->full_name) . " profil";

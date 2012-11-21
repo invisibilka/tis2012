@@ -43,6 +43,9 @@ class Controller extends CController
         $filter->filter($filterChain);
     }
 
+    /**
+     * vykona sa pri nepovolenej akcii
+     */
     public function denyAction()
     {
         $this->redirect(Yii::app()->baseUrl . '/site/error/id/911');
@@ -58,6 +61,10 @@ class Controller extends CController
         );
     }
 
+    /**
+     * zisti, ci je momentalne prihlaseny administrator
+     * @return bool
+     */
     protected  function isAdminRequest()
     {
         $user_model = Users::model()->findByPk(Yii::app()->user->id);
