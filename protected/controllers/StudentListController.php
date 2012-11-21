@@ -67,9 +67,10 @@ class StudentListController extends Controller
             $model->_file = CUploadedFile::getInstance($model, '_file');
             if ($model->save()) {
                 //handle xlsx import, VJ
-                $xlsx = new XLXSImport();
-                $xlsx->import(Yii::app()->user->id, $model, $model->_file->tempName);
-
+                if($model->_file){
+                    $xlsx = new XLXSImport();
+                    $xlsx->import(Yii::app()->user->id, $model, $model->_file->tempName);
+                }
                 $this->redirect($this->createUrl('view', array('id' => $model->id)));
             }
         }
