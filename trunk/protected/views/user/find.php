@@ -16,7 +16,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'type' => 'raw',
             'name' => 'username',
-            'value' => 'CHtml::link( $data->username , Yii::app()->createUrl("user/view/", array("id"=>$data->id)))'
+            'value' => 'CHtml::link( CHtml::encode($data->username) , Yii::app()->createUrl("user/view/", array("id"=>$data->id)))'
         ),
         array(
             'name' => 'full_name',

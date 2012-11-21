@@ -21,7 +21,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'type' => 'raw',
             'name' => 'name',
-            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
+            'value' => 'CHtml::Link(CHtml::encode($data->name), Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
         ),
         array(
             'name' => 'keyword',
@@ -53,7 +53,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'type' => 'raw',
             'name' => 'username',
-            'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
+            'value' => '$data->user ? CHtml::link( CHtml::encode($data->user->full_name) , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
         )
     ))); ?>
 

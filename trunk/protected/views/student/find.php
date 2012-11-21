@@ -23,7 +23,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'type' => 'raw',
             'name' => 'name',
-            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl("/student/update", array("id" => $data->id)), array())'
+            'value' => 'CHtml::Link(CHtml::encode($data->name), Yii::app()->createUrl("/student/update", array("id" => $data->id)), array())'
         ),
         array(
             'name' => 'email',

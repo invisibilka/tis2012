@@ -15,7 +15,7 @@
         array(
             'type' => 'raw',
             'name' => 'name',
-            'value' => 'CHtml::Link($data->name, Yii::app()->createUrl("/studentList/update", array("id" => $data->id)), array())'
+            'value' => 'CHtml::Link(CHtml::encode($data->name), Yii::app()->createUrl("/studentList/update", array("id" => $data->id)), array())'
         ),
         array(
             'class' => 'CButtonColumn',

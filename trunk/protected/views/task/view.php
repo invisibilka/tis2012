@@ -23,7 +23,7 @@ $this->breadcrumbs=array(
 ?>
 <div class="task">
     <?php
-    echo '<h2>' . $model->name . '</h2>';
+    echo '<h2>' . CHtml::encode($model->name) . '</h2>';
     echo '<p>' . $model->html . '</p>';
     echo '<b>Klucove slova</b>';
     $keywords = $model->keywordsList;
@@ -68,8 +68,8 @@ $this->breadcrumbs=array(
         echo '<i>Túto úlohu ešte nikto neokomentoval.</i>';
     }
     foreach ($comments as $comment) {
-        echo '<div class="comment"><div class="commentHead"><b>' . $comment->user->full_name . '</b>   ' . date('j. M Y', strtotime($comment->date)) . '</div>' .
-            '<div class="commentBody">' . $comment->text . '</div></div>';
+        echo '<div class="comment"><div class="commentHead"><b>' . CHtml::encode($comment->user->full_name) . '</b>   ' . date('j. M Y', strtotime($comment->date)) . '</div>' .
+            '<div class="commentBody">' . CHtml::encode($comment->text) . '</div></div>';
     }
     ?>
 </div>

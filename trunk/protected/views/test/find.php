@@ -4,7 +4,9 @@
  */
 
 ?>
-
+<?php
+echo CHtml::link('Vytvorit novu pisomku', $this->createUrl('test/update/'));
+?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tests',
@@ -13,7 +15,7 @@
         array(
             'type' => 'raw',
             'name' => 'name',
-            'value' => 'CHtml::link($data->name, Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
+            'value' => 'CHtml::link(CHtml::encode($data->name), Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
         ),
         array(
             'class' => 'CButtonColumn',
