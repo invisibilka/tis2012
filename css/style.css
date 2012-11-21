@@ -59,7 +59,7 @@ h1 span {
 }
 
 #navigation {
-	width: 961px;
+	width: 964px;
 	margin: 0 auto 0 auto;
 	font-size: 0;
 }
@@ -368,4 +368,9 @@ input.long{
 	left: 0px;
 	background-color: #ededed;
 	display: block;
+}
+
+.testControllers img{
+    position: relative;
+    top: 8px;
 }
