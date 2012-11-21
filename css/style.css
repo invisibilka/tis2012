@@ -252,3 +252,57 @@ a:hover .underline {
     width: 100%;
 }
 
+.ui-dialog .ui-dialog-titlebar{
+    padding: 0 !important;
+}
+
+
+/**
+test/update
+*/
+#tasksTable{
+    width: 30%;
+    float: left;
+    margin-top: 35px;
+}
+
+#tasksTable th{
+    text-align: left;
+}
+
+#taskPool{
+    width: 50%;
+    float: right;
+    clear: right;
+}
+
+#testControls{
+    width: 15%;
+    float: left;
+
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+#testControls{
+    margin-top: 60px;
+}
