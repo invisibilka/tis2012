@@ -39,7 +39,13 @@ class TestController extends Controller
     public function actionDelete()
     {
         $id = Yii::app()->request->getParam('id');
-        Tests::model()->deleteByPk($id);
+        $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+            $model->delete();
+        }
     }
 
 
@@ -63,10 +69,21 @@ class TestController extends Controller
         $this->showSubmenu = true;
         $this->submenuIndex = 1;
         $id = Yii::app()->request->getParam('id');
-       // $model = Tests::model()->findByPk($id);
         $model = new TestEmailForm();
         $model->test_id = $id;
-        //MailSender::sendEmails(null, Users::model()->findByPk(Yii::app()->user->id), $model, 'test', 'test');
+        if (isset($_POST['TestEmailForm'])) {
+            $model->setAttributes($_POST['TestEmailForm'], true);
+            if ($model->validate()) {
+                MailSender::sendEmails(
+                    StudentLists::model()->findByPk($model->list_id),
+                    Users::model()->findByPk(Yii::app()->user->id),
+                    Tests::model()->findByPk($model->test_id),
+                    $model->subject,
+                    $model->body);
+                $this->redirect($this->createUrl('view', array('id' => $model->test_id)));
+            }
+        }
+
         $this->render('email', array('model'=>$model));
     }
 

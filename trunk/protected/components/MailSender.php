@@ -10,8 +10,10 @@ class MailSender extends CApplicationComponent
      * @param $studentList - zoznam studentov
      * @param $user - od koho je email
      * @param $test - pisomka
+     * @param $subject - predmet spravy
+     * @param $_body - telo spravy
      */
-    public static function sendEmails($studentList, $user, $test, $subject, $body)
+    public static function sendEmails($studentList, $user, $test, $subject, $_body)
     {
         $html = Yii::app()->controller->renderPartial('_testpdf', array('model' => $test), true);
         //echo $html;
@@ -34,7 +36,7 @@ class MailSender extends CApplicationComponent
         $body .= "--" . $separator . $eol;
         $body .= "Content-Type: text/html; charset=\"iso-8859-1\"" . $eol;
         $body .= "Content-Transfer-Encoding: 8bit" . $eol . $eol;
-        $body .= $body . $eol;
+        $body .= $_body . $eol;
 
         $body .= "--" . $separator . $eol;
         $body .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"" . $eol;
@@ -43,8 +45,9 @@ class MailSender extends CApplicationComponent
         $body .= $data . $eol;
         $body .= "--" . $separator . "--";
 
-        foreach($studentList as $student){
+        foreach($studentList->students as $student){
             mail($student->email, $subject, $body, $headers);
+            //echo 'mail send to '.$student->email.'<br/>';
         }
     }
 
