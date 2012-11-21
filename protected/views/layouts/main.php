@@ -55,8 +55,18 @@
 	</div>
 
     <div id="main">
-
-    <?php if (!Yii::app()->user->isGuest && $this->showSubmenu) { $this->renderPartial("subnavigation", array()); } ?>
+    
+    <div id="panel">
+    	<?php if (!Yii::app()->user->isGuest && $this->showSubmenu) {
+			$this->renderPartial("subnavigation", array());
+		}
+		
+		if (Yii::app()->user->isGuest) {
+			echo "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget orci massa. Duis venenatis justo quis diam bibendum vulputate. Phasellus sit amet dui vitae massa mattis ultricies. Sed ante felis, viverra nec ultricies placerat, eleifend volutpat tellus.</p>";
+		} else {
+			echo $this->functionSubmenu;
+		} ?>
+    </div>
 
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -65,6 +75,9 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 	<?php echo $content; ?>
+    
+    <div class="clearfix"></div>
+    
     </div>
 
 	<div id="footer" class="clear">
