@@ -3,7 +3,7 @@
  * Reprezentuje pozvanky ulozene v databaze
  * @author V. Jurenka
  */
-class Invitations extends CActiveRecord
+class Invitations extends ActiveRecord
 {
 
     /**

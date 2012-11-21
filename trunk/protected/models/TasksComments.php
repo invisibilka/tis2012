@@ -3,7 +3,7 @@
  * Reprezentuje komentare k uloham v databaze.
  * @author Eva Libantova
  */
-class TasksComments extends CActiveRecord {
+class TasksComments extends ActiveRecord {
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className

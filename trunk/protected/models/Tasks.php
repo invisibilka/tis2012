@@ -3,7 +3,7 @@
  * Reprezentuje ulohy v databaze.
  * @author Eva Libantova
  */
-class Tasks extends CActiveRecord
+class Tasks extends ActiveRecord
 {
 
     public $username;

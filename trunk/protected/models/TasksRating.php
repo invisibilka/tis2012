@@ -5,7 +5,7 @@
  * Date: 31.10.2012
  * Time: 14:09
  */
-class TasksRating extends CActiveRecord
+class TasksRating extends ActiveRecord
 {
     /**
      * Vrati novu instanciu tejto triedy

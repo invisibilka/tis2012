@@ -3,7 +3,7 @@
  * Reprezentuje pouzivatelov v databaze.
  * @author V. Jurenka
  */
-class Users extends CActiveRecord
+class Users extends ActiveRecord
 {
     /**
      * @var nove heslo v plaintexte, ak si ho chce pouzivatel zmenit
@@ -108,6 +108,7 @@ class Users extends CActiveRecord
      * ulohy a testy zostavaju
      */
     public function afterDelete(){
+        parent::afterDelete();
         foreach($this->studentLists as $studentLists){
             $studentLists->delete();
         }

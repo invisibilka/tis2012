@@ -3,7 +3,7 @@
  * Reprezentuje v databáze, ktoré úlohy prislúchajú ku ktorému testu.
  * @author Marek Oravec
  */
-class TestsTasks extends CActiveRecord
+class TestsTasks extends ActiveRecord
 {
 
 	/**

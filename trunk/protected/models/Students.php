@@ -3,7 +3,7 @@
  * Reprezentuje študentov v databáze.
  * @author Milos Blascak
  */
-class Students extends CActiveRecord
+class Students extends ActiveRecord
 {
     /**
      * pomocna premenna pri vyhladavani v zozname studentov
@@ -112,6 +112,7 @@ class Students extends CActiveRecord
 
     public function afterDelete(){
         Yii::app()->db->createCommand()->delete('tis_students_lists', 'student_id = :student_id', array(':student_id' => $this->id));
+        parent::afterDelete();
     }
 }
 
