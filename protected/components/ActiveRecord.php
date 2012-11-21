@@ -7,6 +7,9 @@
  */
 class ActiveRecord extends CActiveRecord
 {
+    /**
+     * zabezpeci logovanie pri dopytoch INSERT a SELECT
+     */
     protected function afterSave()
     {
         $user = Users::model()->findByPk(Yii::app()->user->id);
@@ -15,6 +18,9 @@ class ActiveRecord extends CActiveRecord
         parent::afterSave();
     }
 
+    /**
+     * zabezpeci logovanie pri dopytoch DELETE
+     */
     protected function afterDelete()
     {
         $user = Users::model()->findByPk(Yii::app()->user->id);

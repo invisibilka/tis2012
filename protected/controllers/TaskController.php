@@ -48,8 +48,8 @@ class TaskController extends Controller
             $model = new Tasks();
         }
         else{
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
             $model->keyword = $model->getKeywordsList();
         }
@@ -75,19 +75,11 @@ class TaskController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tasks::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
             $model->delete();
         }
-    }
-
-    /**
-     * Pridá komentár k danej úlohe.
-     */
-    public function actionAddComment()
-    {
-
     }
 
     /**
