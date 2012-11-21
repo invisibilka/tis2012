@@ -1,5 +1,6 @@
 <?php
 /**
+ * prihlasovanie pouzivatela
  *@author  Vladimir Jurenka
  */
 $this->pageTitle = "Prihlásenie do systému";

@@ -1,5 +1,6 @@
 <?php
 /**
+ * Zobrazi zonam pouzivatelov
  * @author  Vladimir Jurenka
  */
 $this->pageTitle = "Zoznam pouzivatelov";

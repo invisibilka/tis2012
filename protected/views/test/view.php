@@ -1,6 +1,6 @@
 <?php
 /**
- *@author  Katka, V. Jurenka
+ *@author  Katka
  */
 ?>
 <?php
