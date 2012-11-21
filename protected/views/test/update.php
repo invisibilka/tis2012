@@ -1,4 +1,149 @@
 <?php
 /**
- *@author  Katka
+ * @author  Katka, V.Jurenka
  */
+
+Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
+Yii::app()->clientScript->registerCssFile(
+    Yii::app()->clientScript->getCoreScriptUrl() .
+        '/jui/css/base/jquery-ui.css'
+);
+?>
+
+
+
+<div id="dialog" style="zoom : 40%"></div>
+
+<table id="tasksTable">
+    <thead>
+    <tr><th></th><th>Poradie</th><th>Nazov</th><th>Presunut</tr>
+    </thead>
+    <tbody id="tasks">
+    <?php
+    foreach ($model->tests_tasks as $r_task) {
+        $_task = $r_task->task;
+        $this->renderPartial('_task', array('index' => $r_task->task_index, 'model' => $_task));
+    }
+    ?>
+    </tbody>
+</table>
+
+<div id="testControls">
+    <a href="javascript:addToTest();"><img src=""/>&lt;&lt;do testu&lt;&lt;</a>
+    <br/>
+    <br/>
+    <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;z testu&gt;&gt;</a>
+</div>
+
+<div id="taskPool">
+    <?php
+    $this->widget('zii.widgets.grid.CGridView', array(
+        'dataProvider' => $task->search(),
+        'id' => 'Tasks',
+        'filter' => $task,
+        'columns' => array(
+            array(
+                'type' => 'raw',
+                'value' => 'CHtml::checkBox("pool_".$data->id)'
+            ),
+            array(
+                'type' => 'raw',
+                'name' => 'name',
+                'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
+            ),
+            array(
+                'name' => 'keyword',
+                'value' => '$data->keywordsList',
+            ),
+            array(
+                'name' => 'rating',
+                'value' => '$data->rating',
+            ),
+            array(
+                'type' => 'raw',
+                'name' => 'username',
+                'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
+            )
+        ))); ?>
+</div>
+
+<div class="clearfix"></div>
+
+<button onclick="preview();">Preview</button>
+
+<script type="text/javascript">
+
+    $('#dialog').dialog({ modal:true, autoOpen:false, width:335, resizable:false});
+
+    function preview() {
+        $.ajax({
+            type:"GET",
+            url:"<?php echo Yii::app()->baseUrl . '/test/preview/'; ?>",
+            data:{ id: <?php echo $model->id; ?> }
+        }).done(function (msg) {
+                $('#dialog').html(msg);
+                $('#dialog').dialog('open');
+            });
+    }
+
+    function refreshLeft() {
+        $.ajax({
+            type:"GET",
+            url:"<?php echo Yii::app()->baseUrl . '/test/ajaxTasks/'; ?>",
+            data:{ id: <?php echo $model->id; ?> }
+        }).done(function (msg) {
+                $('#tasks').html(msg);
+            });
+    }
+
+
+    function addToTest() {
+        var boxes = $("#taskPool input:checkbox:checked");
+        var ids = [];
+        $.each(boxes, function (key, value) {
+            ids.push($(value).attr('id').substr(5));
+        });
+        $.ajax({
+            type:"POST",
+            url:"<?php echo Yii::app()->baseUrl . '/test/ajaxAddToTest/'; ?>",
+            data:{ id: <?php echo $model->id; ?> , tasks:ids}
+        }).done(function (msg) {
+                $('#taskPool input:checkbox').removeAttr('checked');
+                refreshLeft();
+                $.fn.yiiGridView.update("Tasks");
+            });
+    }
+
+    function removeFromTest() {
+        var boxes = $("#tasks input:checkbox:checked");
+        var ids = [];
+        $.each(boxes, function (key, value) {
+            ids.push($(value).attr('id').substr(5));
+        });
+        $.ajax({
+            type:"POST",
+            url:"<?php echo Yii::app()->baseUrl . '/test/ajaxRemoveFromTest/'; ?>",
+            data:{ id: <?php echo $model->id; ?> , tasks:ids}
+        }).done(function (msg) {
+                $('#tasks input:checkbox').removeAttr('checked');
+                refreshLeft();
+                $.fn.yiiGridView.update("Tasks");
+            });
+    }
+
+    function move(index, dir){
+        $.ajax({
+            type:"POST",
+            url:"<?php echo Yii::app()->baseUrl . '/test/ajaxMove/'; ?>",
+            data:{ id: <?php echo $model->id; ?> , index : index, dir:dir}
+        }).done(function (msg) {
+                refreshLeft();
+            });
+    }
+
+
+    $(document).ready(function () {
+
+    });
+
+</script>
