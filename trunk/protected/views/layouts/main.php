@@ -86,8 +86,9 @@
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 
-    <script type="text/javascript">
+    <?php /*
+	<script type="text/javascript">
         $('.subnavigation').find('li:eq(<?php echo $this->submenuIndex; ?>) a').addClass('selected');
-    </script>
+    </script> */ ?>
 </body>
 </html>
