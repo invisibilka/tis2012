@@ -29,7 +29,7 @@ class Controller extends CController
 	/*
 	* pomocny string pre zoznam funkcii, posiela sa v nom html na zobrazenie do panelu - specificke pre kazdy view
 	*/
-	public $functions = "";
+	public $functionSubmenu = "";
 
     /**
      * zabezpeci zakaz pristupu pre neprihlasenych pouzivatelov
