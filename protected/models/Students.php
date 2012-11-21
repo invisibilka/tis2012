@@ -36,7 +36,7 @@ class Students extends ActiveRecord
     public function rules()
     {
         return array(
-            array('email', 'required' ,'message' => 'Položka "{attribute}" musí byť vyplnená.'),
+            array('name, email', 'required' ,'message' => 'Položka "{attribute}" musí byť vyplnená.'),
             array('email', 'email', 'message' => 'Položka "{attribute}" nie je platná emailová adresa.'),
         );
     }

@@ -37,6 +37,7 @@ class StudentLists extends ActiveRecord
     public function rules()
     {
         return array(
+            array('name', 'required' ,'message' => 'Položka "{attribute}" musí byť vyplnená.'),
             array('_file', 'file', 'types' => 'xlsx', 'message' => 'Podporovaný je len formát xlsx', 'allowEmpty'=>true),
         );
     }

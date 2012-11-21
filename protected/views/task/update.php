@@ -38,7 +38,7 @@ if($model->id == ''){
 
         <?php echo $form->hiddenField($model, 'user_id', array('value' => Yii::app()->user->id)); ?>
 
-        <?php echo $form->errorSummary($model); ?>
+        <?php echo $form->errorSummary($model, 'Prosím opravte nasledovné:'); ?>
 
         <div class="row">
             <?php echo $form->label($model,'name'); ?>

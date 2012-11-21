@@ -21,7 +21,7 @@ $this->pageTitle = "Študent";
     );
     ?>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($model, 'Prosím opravte nasledovné:'); ?>
 
     <div class="row">
         <?php echo $form->label($model,'name'); ?>
