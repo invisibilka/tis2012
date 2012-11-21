@@ -8,6 +8,7 @@
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tests',
+    'filter' => $model,
     'columns' => array(
         array(
             'type' => 'raw',
