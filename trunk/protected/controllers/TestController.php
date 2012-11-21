@@ -109,6 +109,11 @@ class TestController extends Controller
                 $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
             }
         }
+        else{
+            $model = new Tests();
+            $model->user_id = Yii::app()->user->id;
+            $model->save(false);
+        }
 
         $task = new Tasks();
         $task->is_public = true;
