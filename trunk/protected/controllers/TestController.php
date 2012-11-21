@@ -103,6 +103,7 @@ class TestController extends Controller
         $this->showSubmenu = true;
         $this->submenuIndex = 2;
         $id = Yii::app()->request->getParam('id');
+        $create = Yii::app()->request->getParam('create');
         $model = Tests::model()->findByPk($id);
         if ($model) {
             if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
@@ -110,9 +111,11 @@ class TestController extends Controller
             }
         }
         else{
-            $model = new Tests();
-            $model->user_id = Yii::app()->user->id;
-            $model->save(false);
+            if($create){
+                $model = new Tests();
+                $model->user_id = Yii::app()->user->id;
+                $model->save(false);
+            }
         }
 
         $task = new Tasks();
