@@ -1,0 +1,1 @@
+tu sa nachadza neobjektove php, views, kde je mix html, php a javascriptu, nachadza sa tu graficky vystup akcii kontrollerov
