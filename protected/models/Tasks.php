@@ -53,17 +53,7 @@ class Tasks extends ActiveRecord
     {
         $criteria = new CDbCriteria();
 
-        $criteria->compare('user_id', $this->user_id);
-        $criteria->compare('t.name', $this->name, true);
-        if ($this->is_public != NULL) {
-            $criteria->compare('is_public', $this->is_public);
-        }
 
-        $criteria->compare('rating', '>=' . $this->rating);
-
-        $criteria->with = array('user', 'keywords');
-        $criteria->together = true;
-        $criteria->compare('user.full_name', $this->username, true);
         /*
          * DROP DOWN COMPARE
         $criteria->compare('keywords.id', $this->keyword);
@@ -75,19 +65,32 @@ class Tasks extends ActiveRecord
             foreach($keywords as $i=>&$keyword){
                 $op = 'AND';
                 if($i){
-                    $keyword = 'OR';
+                    $op = 'OR';
                 }
-                $keyword = $keyword.'%';
+                $keyword = trim($keyword).'%';
                 $criteria->compare('keywords.name', $keyword, true ,$op, false);
             }
            // $criteria->compare('keywords.name', $keywords, true);
         }
 
+        //$criteria->join = 'a';
         /* OR FULL MATCH
         if(strlen($this->keyword)){
             $criteria->compare('keywords.name', $keywords, true);
         }
         */
+
+        $criteria->compare('user_id', $this->user_id);
+        $criteria->compare('t.name', $this->name, true);
+        if ($this->is_public != NULL) {
+            $criteria->compare('is_public', $this->is_public);
+        }
+
+        $criteria->compare('rating', '>=' . $this->rating);
+
+        $criteria->with = array('user', 'keywords');
+        $criteria->together = true;
+        $criteria->compare('user.full_name', $this->username, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
