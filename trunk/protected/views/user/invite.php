@@ -6,6 +6,7 @@
 
 $this->pageTitle = "Pozvať nového používateľa";
     echo $message;
+
 ?>
 <div id="invite-form">
 
