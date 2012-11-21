@@ -1,12 +1,12 @@
 <?php
 /**
- * User: V. Jurenka
- * Date: 21.11.2012
- * Time: 11:48
+ * Nadtrieda pre modely
+ * Zabezpecuje logovanie
+ * @author V. Jurenka
+ *
  */
 class ActiveRecord extends CActiveRecord
 {
-
     protected function afterSave()
     {
         $user = Users::model()->findByPk(Yii::app()->user->id);

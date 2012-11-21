@@ -7,6 +7,7 @@
 $this->pageTitle = "Verejné úlohy";
 
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
+CHtml::
 /*
 $this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
@@ -21,12 +22,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'type' => 'raw',
             'name' => 'name',
             'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
-            /*
-                'class'=>'CLinkColumn',
-                'labelExpression'=>'$data->name',
-                'urlExpression'=>'"task/view?id=".$data->id',
-                'header'=>'name',
-             */
         ),
         array(
             'name' => 'keyword',
@@ -56,8 +51,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
                 ", true)"
         ),
         array(
+            'type' => 'raw',
             'name' => 'username',
-            'value' => '$data->user ? $data->user->full_name : "Neznamy autor"'
+            'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
         )
     ))); ?>
 
