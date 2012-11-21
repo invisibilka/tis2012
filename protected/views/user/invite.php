@@ -12,8 +12,6 @@ echo $message;
 ?>
 <div id="invite-form">
 
-<h2>Pozvať nového používateľa</h2>
-
 <p>Nikto sa bez pozvánky nedostane do systému. Pre pridanie nového používateľa stačí vyplniť pole s <strong>emailovou adresou</strong>, ktorú vaša <strong>kolegyňa/kolega</strong> používa.</p>
 
         <?php $form=$this->beginWidget('CActiveForm', array('id' => 'Invitations')); ?>
