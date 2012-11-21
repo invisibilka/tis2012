@@ -36,7 +36,7 @@ $this->pageTitle = 'Zoznam študentov';
 </div>
 
 <?php if($model->id){
-    echo CHtml::link('Pridaj studenta', Yii::app()->createUrl('student/update', array('list_id' => $model->id)));
+    echo CHtml::link('Pridaj študenta', Yii::app()->createUrl('student/update', array('list_id' => $model->id)));
     $student = new Students();
     $student->list_id = $model->id;
     $this->widget('zii.widgets.grid.CGridView', array(
@@ -51,8 +51,8 @@ $this->pageTitle = 'Zoznam študentov';
                 'class' => 'CButtonColumn',
                 'template' => '{update} {delete}',
                 'updateButtonLabel' => 'Upraviť',
-                'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/student/update?id=".$data->id',
                 'deleteButtonLabel' => 'Vymazať',
+                'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/student/update?id=".$data->id',
                 'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/studentList/removeStudent?id='.$model->id.'&student_id=".$data->id'
             )
         )

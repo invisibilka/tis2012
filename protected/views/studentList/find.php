@@ -20,6 +20,8 @@ $this->pageTitle = 'Zoznamy študentov';
         array(
             'class' => 'CButtonColumn',
             'template' => '{delete}',
+            'updateButtonLabel' => 'Upraviť',
+            'deleteButtonLabel' => 'Vymazať',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/studentList/update?id=".$data->id',
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/studentList/delete?id=".$data->id',
 
