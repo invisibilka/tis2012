@@ -133,6 +133,9 @@ class TaskController extends Controller
         $this->render('my', array('model' => $model, 'saved' => $saved));
     }
 
+    /**
+     * Zobrazi vsetky verejne ulohy
+     */
     public function actionPublic()
     {
         $this->submenuIndex = 1;

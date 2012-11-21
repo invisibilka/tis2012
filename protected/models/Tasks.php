@@ -6,14 +6,25 @@
 class Tasks extends ActiveRecord
 {
 
+    /**
+     * @var pouziva sa , ak sa vyhladava podla mena autora
+     */
     public $username;
 
+    /**
+     * @var pouziva sa , ak sa vyhladava podla klucovych slov
+     */
     public $keyword;
 
+/*
     public $title;
 
     public $message;
+*/
 
+    /**
+     * @var pouziva sa , ak sa hladaju ulohy ktore niesu v danom teste
+     */
     public $skipped_test;
 
     /**
@@ -222,9 +233,18 @@ class Tasks extends ActiveRecord
      */
     protected function afterDelete()
     {
-        TasksComments::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
-        TasksRating::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
-        TestsTasks::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+       // TasksComments::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+       // TasksRating::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+       // TestsTasks::model()->deleteAll('task_id = :task_id', array(':task_id' => $this->id));
+        foreach($this->comments as $comment){
+            $comment->delete();
+        }
+        foreach($this->tests_tasks as $tests_task){
+            $tests_task->delete();
+        }
+        foreach($this->ratings as $rating){
+            $rating->delete();
+        }
         parent::afterDelete();
     }
 

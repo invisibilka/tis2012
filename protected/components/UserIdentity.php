@@ -7,8 +7,15 @@
 class UserIdentity extends CUserIdentity
 {
 
+    /**
+     * pouziva sa na kryptovanie hesiel
+     * @var string
+     */
     private static $salt = '$2a$07$';
 
+    /**
+     * @var null id prihlaseneho usera
+     */
     private $_id = NULL;
 
     /**
@@ -60,6 +67,10 @@ class UserIdentity extends CUserIdentity
         return crypt($password, $salt);
     }
 
+    /**
+     * vrati id prihlaseneho usera
+     * @return null
+     */
     public function getId() {
         return $this->_id;
     }
