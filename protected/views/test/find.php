@@ -3,11 +3,12 @@
  *@author  Katka
  */
 $this->pageTitle = "Zoznam písomiek";
-?>
-<?php
-echo CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/'));
-?>
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+
+$this->functionSubmenu = '<ul class="subnavigation functions">';
+$this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/')) . '</li>';
+$this->functionSubmenu .= '</ul>';
+
+$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tests',
     'filter' => $model,
@@ -28,3 +29,4 @@ echo CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/'));
         )
     )
 )); ?>
+>>>>>>> .r344
