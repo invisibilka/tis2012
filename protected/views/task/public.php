@@ -8,6 +8,9 @@ $this->pageTitle = "Verejné úlohy";
 
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 
+$this->functionSubmenu = '<ul class="subnavigation functions">';
+$this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť novú úlohu', $this->createUrl('task/update/')) . '</li>';
+$this->functionSubmenu .= '</ul>';
 /*
 $this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
