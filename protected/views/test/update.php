@@ -29,10 +29,10 @@ Yii::app()->clientScript->registerCssFile(
 </table>
 
 <div id="testControls">
-    <a href="javascript:addToTest();"><img src=""/>&lt;&lt;do testu&lt;&lt;</a>
+    <a href="javascript:addToTest();"><img src=""/>&lt;&lt;pridat do testu&lt;&lt;</a>
     <br/>
     <br/>
-    <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;z testu&gt;&gt;</a>
+    <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;odobrat z testu&gt;&gt;</a>
 </div>
 
 <div id="taskPool">
