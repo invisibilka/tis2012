@@ -123,7 +123,7 @@ class UserController extends Controller
             $model = Users::model()->findByPk(Yii::app()->user->id);
         }
         if ($model->id != Yii::app()->user->id && !$this->isAdminRequest()) {
-            $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            $this->denyAction();
         }
         if ($model) {
             if (isset($_POST['Users'])) {
@@ -153,7 +153,7 @@ class UserController extends Controller
     {
         $id = Yii::app()->request->getParam('id', Yii::app()->user->id);
         if ($id != Yii::app()->user->id && !$this->isAdminRequest()) {
-            $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            $this->denyAction();
         }
         Users::model()->deleteByPk($id);
     }
@@ -165,7 +165,7 @@ class UserController extends Controller
     {
         $this->submenuIndex = 2;
         if (!$this->isAdminRequest()) {
-            $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            $this->denyAction();
         }
         $model = new Users();
         if (isset($_GET['Users'])) {

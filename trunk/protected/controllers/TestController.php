@@ -25,8 +25,8 @@ class TestController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
         }
         $html = $this->renderPartial('_testpdf', array('model' => $model), true);
@@ -41,8 +41,8 @@ class TestController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
             $model->delete();
         }
@@ -57,8 +57,8 @@ class TestController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
         }
         $html = $this->renderPartial('_testpdf', array('model' => $model), true);
@@ -79,10 +79,15 @@ class TestController extends Controller
         if (isset($_POST['TestEmailForm'])) {
             $model->setAttributes($_POST['TestEmailForm'], true);
             if ($model->validate()) {
+                $list = StudentLists::model()->findByPk($model->list_id);
+                $test = Tests::model()->findByPk($model->test_id);
+                if (($test->user_id != Yii::app()->user->id ||  $list->user_id != Yii::app()->user->id) && !$this->isAdminRequest()) {
+                    $this->denyAction();
+                }
                 MailSender::sendEmails(
-                    StudentLists::model()->findByPk($model->list_id),
+                    $list,
                     Users::model()->findByPk(Yii::app()->user->id),
-                    Tests::model()->findByPk($model->test_id),
+                    $test,
                     $model->subject,
                     $model->body);
                 $this->redirect($this->createUrl('view', array('id' => $model->test_id)));
@@ -115,8 +120,8 @@ class TestController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
         }
         else {
@@ -156,7 +161,7 @@ class TestController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
                 Yii::app()->end();
             }
         }
@@ -172,7 +177,7 @@ class TestController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
                 Yii::app()->end();
             }
         }
@@ -195,7 +200,7 @@ class TestController extends Controller
         }
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
                 Yii::app()->end();
             }
         }
@@ -224,7 +229,7 @@ class TestController extends Controller
         }
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
                 Yii::app()->end();
             }
         }
@@ -247,7 +252,7 @@ class TestController extends Controller
         $dir = Yii::app()->request->getParam('dir');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
                 Yii::app()->end();
             }
         }
@@ -284,7 +289,7 @@ class TestController extends Controller
         $name = Yii::app()->request->getParam('name');
         $model = Tests::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
                 Yii::app()->end();
             }
         }

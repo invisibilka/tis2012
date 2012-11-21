@@ -15,8 +15,8 @@ class StudentController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Students::model()->findByPk($id);
         if ($model) {
-            if($model->user_id != Yii::app()->user->id && $this->isAdminRequest()){
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()){
+                $this->denyAction();
             }
             $this->render('view', array('model' => $model));
         } else {
@@ -36,8 +36,8 @@ class StudentController extends Controller
             $model = new Students();
         }
         else{
-            if($model->user_id != Yii::app()->user->id && $this->isAdminRequest()){
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()){
+                $this->denyAction();
             }
         }
         //normalna validacia a ulozenie
@@ -67,8 +67,8 @@ class StudentController extends Controller
         $id = Yii::app()->request->getParam('id');
         $model = Students::model()->findByPk($id);
         if ($model) {
-            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
-                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            if ($model->user_id != Yii::app()->user->id && !$this->isAdminRequest()) {
+                $this->denyAction();
             }
             $model->delete();
         }
