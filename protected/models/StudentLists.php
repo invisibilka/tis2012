@@ -1,7 +1,7 @@
 <?php
 /**
  * Reprezentuje zoznamy študentov v databáze.
- * Milos Blascak
+ * @author Milos Blascak
  */
 class StudentLists extends ActiveRecord
 {
