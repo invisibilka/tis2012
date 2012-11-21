@@ -66,11 +66,12 @@ class UserController extends Controller
     /**
      * registracia z pozvanky
      */
-    public function actionRegister(){
+    public function actionRegister()
+    {
         $this->showSubmenu = false;
         $hash = Yii::app()->request->getParam('hash');
         $invitation = Invitations::model()->find('hash = :hash', array(':hash' => $hash));
-        if($invitation){
+        if ($invitation) {
             $user = new Users();
             $user->email = $invitation->email;
             $user->full_name = $invitation->email;
@@ -99,7 +100,7 @@ class UserController extends Controller
         if (!$id) {
             $id = Yii::app()->user->id;
         }
-        else{
+        else {
             $this->showSubmenu = false;
         }
         $model = Users::model()->findByPk($id);
@@ -155,7 +156,11 @@ class UserController extends Controller
         if ($id != Yii::app()->user->id && !$this->isAdminRequest()) {
             $this->denyAction();
         }
+        Yii::app()->user->logout();
+        $model = Users::model()->findByPk($id);
+        $model->delete();
         Users::model()->deleteByPk($id);
+        $this->redirect(Yii::app()->homeUrl);
     }
 
     /*
@@ -181,7 +186,7 @@ class UserController extends Controller
     public function accessRules()
     {
         return array(
-            array('allow', 'actions' => array('login' ,'register'), 'users' => array('*'))
+            array('allow', 'actions' => array('login', 'register'), 'users' => array('*'))
         );
     }
 
