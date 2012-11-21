@@ -370,6 +370,11 @@ html[xmlns] .clearfix {
 	padding-top: 50px;
 }
 
+#panel p {
+	text-align: right;
+	margin: 25px 10px 0 0;
+}
+
 .container {
 	float: right;
 	width: 80%;

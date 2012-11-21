@@ -6,7 +6,8 @@
 $this->pageTitle = $model->full_name;
 echo '<h2>' . CHtml::encode($model->full_name) . '</h2>';
 ?>
-<div class="">
+
+<div class="form">
     
     <h3>Kontakt</h3>
 

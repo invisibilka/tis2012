@@ -9,6 +9,7 @@ $this->functionSubmenu = '<ul class="subnavigation functions">';
 $this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/')) . '</li>';
 $this->functionSubmenu .= '</ul>';
 
+?><div class="form"><?php
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tests',
@@ -31,5 +32,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/test/delete?id=".$data->id',
 
         )
-    )
+    ), 
+	'cssFile' =>false
 )); ?>
+</div>

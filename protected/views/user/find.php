@@ -6,6 +6,7 @@
 $this->pageTitle = "Zoznam používateľov";
 echo '<h2>' . $this->pageTitle . '</h2>';
 
+?><div class="form"><?php
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
@@ -40,5 +41,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/user/delete?id=".$data->id',
 
         )
-    )
+    ), 
+	'cssFile' =>false
 )); ?>
+</div>

@@ -8,7 +8,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
 
 ?>
 
-<div class="form login">
+<div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
