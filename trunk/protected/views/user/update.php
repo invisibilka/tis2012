@@ -1,5 +1,5 @@
 <?php
-/**
+/**Zmeni udaje pouzivatela
  * @author  Vladimir Jurenka
  */
 

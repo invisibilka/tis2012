@@ -1,5 +1,6 @@
 <?php
 /**
+ * Odosle ulohu studentom
  *@author  Katka, V.Jurenka
  */
 ?>

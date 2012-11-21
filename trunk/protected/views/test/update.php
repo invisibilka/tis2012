@@ -1,5 +1,6 @@
 <?php
 /**
+ * Edituje test
  * @author  Katka, V.Jurenka
  */
 

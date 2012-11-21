@@ -1,8 +1,7 @@
 <?php
 /**
- * User: V. Jurenka
- * Date: 21.11.2012
- * Time: 13:10
+ * riadok v tabulke uloh v teste
+ * @author V.Jurenka
  */
 ?>
 <tr class="task_item">
