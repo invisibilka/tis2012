@@ -3,7 +3,7 @@
  * @author  Vladimir Jurenka
  */
 
-$this->pageTitle = "Používateľ - Úprava profilu";
+$this->pageTitle = "Úprava profilu";
 ?>
 <div class="form">
 

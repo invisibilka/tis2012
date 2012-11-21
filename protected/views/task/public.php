@@ -53,7 +53,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'type' => 'raw',
             'name' => 'username',
-            'value' => '$data->user ? CHtml::link( CHtml::encode($data->user->full_name) , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
+            'value' => '$data->user ? CHtml::link( CHtml::encode($data->user->full_name) , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznámy autor"'
         )
     ))); ?>
 

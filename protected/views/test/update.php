@@ -10,6 +10,8 @@ Yii::app()->clientScript->registerCssFile(
         '/jui/css/base/jquery-ui.css'
 );
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
+
+$this->pageTitle = "Písomka";
 ?>
 
 

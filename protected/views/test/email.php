@@ -3,6 +3,8 @@
  * Odosle ulohu studentom
  *@author  Katka, V.Jurenka
  */
+
+$this->pageTitle = "Odoslať email";
 ?>
 
 <div class="form">

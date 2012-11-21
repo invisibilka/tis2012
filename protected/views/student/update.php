@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
     $model->name=>array('view', 'id'=>$model->id),
     'Upraviť'
 );*/
+$this->pageTitle = "Študent";
 ?>
 <div class="form">
     <?php

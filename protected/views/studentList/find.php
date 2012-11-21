@@ -2,10 +2,10 @@
 /**
  *@author  V.Jurenka
  */
-
+$this->pageTitle = 'Zoznamy študentov';
 ?>
 <?php
-    echo CHtml::link('Vytvorit novy zoznam', $this->createUrl('studentList/update/'));
+    echo CHtml::link('Vytvoriť nový zoznam', $this->createUrl('studentList/update/'));
 ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
