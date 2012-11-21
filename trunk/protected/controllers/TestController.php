@@ -24,6 +24,11 @@ class TestController extends Controller
         $this->showSubmenu = true;
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+        }
         $html = $this->renderPartial('_testpdf', array('model' => $model), true);
         $this->render('view', array('model' => $model, 'html' => $html));
     }
@@ -51,6 +56,11 @@ class TestController extends Controller
     {
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+        }
         $html = $this->renderPartial('_testpdf', array('model' => $model), true);
         PDFExport::createPDF($html);
         //echo $html;
@@ -79,7 +89,7 @@ class TestController extends Controller
             }
         }
 
-        $this->render('email', array('model'=>$model));
+        $this->render('email', array('model' => $model));
     }
 
     /**
@@ -109,14 +119,14 @@ class TestController extends Controller
                 $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
             }
         }
-        else{
+        else {
             $model = new Tests();
             $model->user_id = Yii::app()->user->id;
             $model->save(false);
-            if($model->id){
+            if ($model->id) {
                 $this->redirect($this->createUrl('update', array('id' => $model->id)));
             }
-            else{
+            else {
                 Yii::app()->end();
             }
         }
@@ -134,35 +144,64 @@ class TestController extends Controller
                 $task->keyword = $_GET['Tasks']['keyword'];
             }
         }
-        $this->render('update', array('model' => $model , 'task' => $task));
+        $this->render('update', array('model' => $model, 'task' => $task));
     }
 
-
-    public function actionPreview(){
+    /**
+     * Zobrazi nahlad vysledneho PDF
+     * @author V.Jurenka
+     */
+    public function actionPreview()
+    {
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                Yii::app()->end();
+            }
+        }
         $this->renderPartial('_testpdf', array('model' => $model));
     }
 
-    public function actionAjaxTasks(){
+    /**
+     * Vrati vsetky ulohy  v teste
+     * @author V.Jurenka
+     */
+    public function actionAjaxTasks()
+    {
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
-        foreach($model->tests_tasks as $r_task){
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                Yii::app()->end();
+            }
+        }
+        foreach ($model->tests_tasks as $r_task) {
             $task = $r_task->task;
-            $this->renderPartial('_task', array('index' => $r_task->task_index, 'model'=>$task));
+            $this->renderPartial('_task', array('index' => $r_task->task_index, 'model' => $task));
         }
     }
 
-    public function actionAjaxAddToTest(){
+    /**
+     * Prida ulohu do testu
+     * @author V.Jurenka
+     */
+    public function actionAjaxAddToTest()
+    {
         $id = Yii::app()->request->getParam('id');
         $ids = Yii::app()->request->getParam('tasks');
-        if(count($ids) == 0){
+        if (count($ids) == 0) {
             return;
         }
         $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                Yii::app()->end();
+            }
+        }
         $num_tasks = count($model->tests_tasks);
         $index = $num_tasks + 1;
-        foreach($ids as $id){
+        foreach ($ids as $id) {
             $tt = new TestsTasks();
             $tt->task_index = $index;
             $tt->test_id = $model->id;
@@ -172,40 +211,61 @@ class TestController extends Controller
         }
     }
 
-    public function actionAjaxRemoveFromTest(){
+    /**
+     * Odoberie ulohu z testu
+     * @author V.Jurenka
+     */
+    public function actionAjaxRemoveFromTest()
+    {
         $id = Yii::app()->request->getParam('id');
         $ids = Yii::app()->request->getParam('tasks');
-        if(count($ids) == 0){
+        if (count($ids) == 0) {
             return;
         }
         $model = Tests::model()->findByPk($id);
-        foreach($ids as $id){
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                Yii::app()->end();
+            }
+        }
+        foreach ($ids as $id) {
             $tt = TestsTasks::model()->find('test_id = :test_id AND task_id = :task_id', array(':test_id' => $model->id, ':task_id' => $id));
-            if($tt){
+            if ($tt) {
                 $tt->delete();
             }
         }
     }
 
-    public function actionAjaxMove(){
+    /**
+     * Premiestni ulohu v ramci testu
+     * @author V.Jurenka
+     */
+    public function actionAjaxMove()
+    {
         $id = Yii::app()->request->getParam('id');
         $index = Yii::app()->request->getParam('index');
         $dir = Yii::app()->request->getParam('dir');
+        $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                Yii::app()->end();
+            }
+        }
 
-        if($dir == 0){
+        if ($dir == 0) {
             $tt0 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index - 1 ', array(':test_id' => $id, ':task_index' => $index));
             $tt1 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index ', array(':test_id' => $id, ':task_index' => $index));
-            if($tt0 && $tt1){
+            if ($tt0 && $tt1) {
                 $tt0->task_index = $index;
                 $tt1->task_index = $index - 1;
                 $tt0->save();
                 $tt1->save();
             }
         }
-        else{
+        else {
             $tt0 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index + 1 ', array(':test_id' => $id, ':task_index' => $index));
             $tt1 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index ', array(':test_id' => $id, ':task_index' => $index));
-            if($tt0 && $tt1){
+            if ($tt0 && $tt1) {
                 $tt0->task_index = $index;
                 $tt1->task_index = $index + 1;
                 $tt0->save();
@@ -214,10 +274,20 @@ class TestController extends Controller
         }
     }
 
-    public function actionAjaxRename(){
+    /**
+     * Premenuje test
+     * @author V.Jurenka
+     */
+    public function actionAjaxRename()
+    {
         $id = Yii::app()->request->getParam('id');
         $name = Yii::app()->request->getParam('name');
         $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                Yii::app()->end();
+            }
+        }
         $model->name = $name;
         $model->save();
     }
