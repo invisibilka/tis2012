@@ -9,7 +9,7 @@
         <?php
     } else {
         ?>
-        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/delete">Vymazať profil</a></li>
+        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/user/delete" onclick="return confirm('Ste si istý, že chcete vymazať váš profil?')">Vymazať profil</a></li>
         <?php
     }
     ?>
