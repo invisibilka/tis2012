@@ -36,7 +36,12 @@ $this->pageTitle = 'Zoznam študentov';
 </div>
 
 <?php if($model->id){
-    echo CHtml::link('Pridaj študenta', Yii::app()->createUrl('student/update', array('list_id' => $model->id)));
+ 
+	$this->functionSubmenu = '<ul class="subnavigation functions">';
+	$this->functionSubmenu .= '<li>' . CHtml::link('Pridaj študenta', Yii::app()->createUrl('student/update', array('list_id' => $model->id))) . '</li>';
+	$this->functionSubmenu .= '</ul>';
+	
+	
     $student = new Students();
     $student->list_id = $model->id;
     $this->widget('zii.widgets.grid.CGridView', array(
