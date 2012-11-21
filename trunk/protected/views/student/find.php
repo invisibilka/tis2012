@@ -5,13 +5,13 @@
  */
 ?>
 <?php
-echo CHtml::link('Pridat studenta', $this->createUrl('/student/update/'));
+echo CHtml::link('Pridať študenta', $this->createUrl('/student/update/'));
 ?>
 <?php
-$this->pageTitle = "Zoznam studentov";
+$this->pageTitle = "Zoznam študentov";
 
 $empty = new StudentLists();
-$empty->name = 'Nezaradeni studenti';
+$empty->name = 'Nezaradení študenti';
 $empty->id = -1;
 array_splice($lists, 0, 0, array($empty));
 

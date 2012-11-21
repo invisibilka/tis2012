@@ -2,10 +2,10 @@
 /**
  *@author  Katka
  */
-
+$this->pageTitle = "Zoznam písomiek";
 ?>
 <?php
-echo CHtml::link('Vytvorit novu pisomku', $this->createUrl('test/update/'));
+echo CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/'));
 ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
@@ -15,7 +15,7 @@ echo CHtml::link('Vytvorit novu pisomku', $this->createUrl('test/update/'));
         array(
             'type' => 'raw',
             'name' => 'name',
-            'value' => 'CHtml::link($data->name ? CHtml::encode($data->name) : "<i>Nepomenovana pisomka</i>", Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
+            'value' => 'CHtml::link($data->name ? CHtml::encode($data->name) : "<i>Nepomenovaná písomka</i>", Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
         ),
         array(
             'class' => 'CButtonColumn',

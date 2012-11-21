@@ -8,6 +8,8 @@ $this->breadcrumbs=array(
     'Študenti',
     $model->name
 );*/
+$this->pageTitle = $model->name;
+
 echo '<h2>'. $model->name .'</h2>';
 
 $this->widget('zii.widgets.grid.CGridView', array(

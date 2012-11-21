@@ -2,7 +2,7 @@
 /**
  * @author Marek Oravec
  */
-
+$this->pageTitle = 'Zoznam študentov';
 ?>
 
 <div class="form">

@@ -3,7 +3,7 @@
  * Zobrazi zonam pouzivatelov
  * @author  Vladimir Jurenka
  */
-$this->pageTitle = "Zoznam pouzivatelov";
+$this->pageTitle = "Zoznam používateľov";
 
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),

@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
     'Študenti',
     $model->name,
 );*/
+$this->pageTitle = $model->name;
 ?>
 <div class="task">
 

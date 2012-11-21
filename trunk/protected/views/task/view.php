@@ -20,6 +20,7 @@ $this->breadcrumbs=array(
         $model->name,
     );
 }*/
+$this->pageTitle = "Úloha";
 ?>
 <div class="task">
     <?php
