@@ -5,6 +5,7 @@
  */
 
 $this->pageTitle = "Moje úlohy";
+echo '<h2>' . $this->pageTitle . '</h2>';
 /*
 $this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',

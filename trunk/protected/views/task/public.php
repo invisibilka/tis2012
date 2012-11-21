@@ -5,6 +5,7 @@
  */
 
 $this->pageTitle = "Verejné úlohy";
+echo '<h2>' . $this->pageTitle . '</h2>';
 
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 
