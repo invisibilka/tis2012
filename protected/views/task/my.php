@@ -11,7 +11,7 @@ $this->breadcrumbs = array(
     'Moje úlohy'
 );*/
 $this->functionSubmenu = '<ul class="subnavigation functions">';
-$this->functionSubmenu .= '<li><a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a></li>';
+$this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť novú úlohu', $this->createUrl('task/update/')) . '</li>';
 $this->functionSubmenu .= '</ul>';
 
 if ($saved) {
