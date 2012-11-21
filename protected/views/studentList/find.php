@@ -3,11 +3,12 @@
  *@author  V.Jurenka
  */
 $this->pageTitle = 'Zoznamy študentov';
-?>
-<?php
-    echo CHtml::link('Vytvoriť nový zoznam', $this->createUrl('studentList/update/'));
-?>
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+
+$this->functionSubmenu = '<ul class="subnavigation functions">';
+$this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť nový zoznam', $this->createUrl('studentList/update/')) . '</li>';
+$this->functionSubmenu .= '</ul>';
+
+$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
     'filter' => $model,
