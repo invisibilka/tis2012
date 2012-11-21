@@ -45,10 +45,10 @@ $this->pageTitle = "Písomka";
     </table>
 
     <div id="testControls">
-        <a href="javascript:addToTest();"><img src=""/>&lt;&lt;pridať do testu&lt;&lt;</a>
+        <a href="javascript:addToTest();"><img src="<?php echo Yii::app()->baseUrl."/images/left.png"?>" alt="&lt;&lt;pridať do testu&lt;&lt;"/></a>
         <br/>
         <br/>
-        <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;odobrať z testu&gt;&gt;</a>
+        <a href="javascript:removeFromTest();"><img src="<?php echo Yii::app()->baseUrl."/images/right.png"?>" alt="&gt;&gt;odobrať z testu&gt;&gt;"/></a>
     </div>
 
     <div id="taskPool">
@@ -66,7 +66,7 @@ $this->pageTitle = "Písomka";
                 array(
                     'type' => 'raw',
                     'name' => 'name',
-                    'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
+                    'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array("target"=>"_blank"))'
                 ),
                 array(
                     'name' => 'keyword',
@@ -83,7 +83,7 @@ $this->pageTitle = "Písomka";
                 array(
                     'type' => 'raw',
                     'name' => 'username',
-                    'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
+                    'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznámy autor"'
                 )
             ))); ?>
     </div>
