@@ -10,7 +10,10 @@ $this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Moje úlohy'
 );*/
-echo '<a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a><br />';
+$this->functionSubmenu = '<ul class="subnavigation functions">';
+$this->functionSubmenu .= '<li><a href="' . Yii::app()->request->baseUrl . '/task/update">Vytvoriť novú úlohu</a></li>';
+$this->functionSubmenu .= '</ul>';
+
 if ($saved) {
     echo 'Úloha bola úspešne uložená.';
 }
