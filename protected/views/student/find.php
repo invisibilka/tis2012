@@ -11,7 +11,7 @@ echo CHtml::link('Pridať študenta', $this->createUrl('/student/update/'));
 $this->pageTitle = "Zoznam študentov";
 
 $empty = new StudentLists();
-$empty->name = 'Nezaradení študenti';
+$empty->name = 'Nezaradení tudenti';
 $empty->id = -1;
 array_splice($lists, 0, 0, array($empty));
 
@@ -36,9 +36,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'class' => 'CButtonColumn',
-            'template' => '{delete}',
+            'header' => 'Úpravy',
+            'deleteConfirmation'=>"js:'Ste si si istý, že chcete vymazať položku?'",
             'updateButtonLabel' => 'Upraviť',
             'deleteButtonLabel' => 'Vymazať',
+            'template' => '{delete}',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/student/update?id=".$data->id',
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/student/delete?id=".$data->id',
 
