@@ -22,6 +22,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'filter' => $model,
     'id' => 'Tasks',
+    'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
     'columns' => array(
         array(
             'type' => 'raw',

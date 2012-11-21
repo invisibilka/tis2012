@@ -57,6 +57,7 @@ $this->pageTitle = "Písomka";
             'dataProvider' => $task->search(),
             'id' => 'Tasks',
             'filter' => $task,
+            'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
             'columns' => array(
                 array(
                     'type' => 'raw',
