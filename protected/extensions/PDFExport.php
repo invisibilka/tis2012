@@ -14,7 +14,8 @@ class PDFExport
     public static function createPDF($html, $display = true){
         $pdf = new TCPDF();
         $pdf->AddPage();
-        $pdf->writeHtmlCell( 0, 10, 10, 10, $html);
+        //$pdf->writeHtmlCell( 0, 10, 10, 10, $html);
+        $pdf->writeHTML($html, true, false, true, false, '');
         return $display ? $pdf->output('example.pdf', 'I') :  $pdf->output('example.pdf', 'S');
     }
 }
