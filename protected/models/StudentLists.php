@@ -37,7 +37,7 @@ class StudentLists extends ActiveRecord
     public function rules()
     {
         return array(
-            array('_file', 'file', 'types' => 'xlsx', 'message' => 'Podporovany je len format xlsx', 'allowEmpty'=>true),
+            array('_file', 'file', 'types' => 'xlsx', 'message' => 'Podporovaný je len formát xlsx', 'allowEmpty'=>true),
         );
     }
 

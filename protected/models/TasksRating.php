@@ -31,7 +31,7 @@ class TasksRating extends ActiveRecord
     public function rules()
     {
         return array(
-            array('task_id, user_id, rating', 'required'),
+            array('task_id, user_id, rating', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
 
         );
     }
