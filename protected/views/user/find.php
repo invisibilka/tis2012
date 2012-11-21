@@ -4,6 +4,7 @@
  * @author  Vladimir Jurenka
  */
 $this->pageTitle = "Zoznam používateľov";
+echo '<h2>' . $this->pageTitle . '</h2>';
 
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
