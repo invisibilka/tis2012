@@ -61,7 +61,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm;
+        $model = new TestEmailForm;
         if (isset($_POST['ContactForm'])) {
             $model->attributes = $_POST['ContactForm'];
             if ($model->validate()) {

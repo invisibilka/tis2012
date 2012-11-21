@@ -10,6 +10,10 @@ class Tasks extends CActiveRecord
 
     public $keyword;
 
+    public $title;
+
+    public $message;
+
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
