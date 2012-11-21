@@ -16,6 +16,11 @@ class Tasks extends ActiveRecord
      */
     public $keyword;
 
+    /**
+     * @var spojit neverjne s vlastnymi pri vyhladavani
+     */
+    public $merge;
+
 /*
     public $title;
 
@@ -96,7 +101,13 @@ class Tasks extends ActiveRecord
         $criteria->compare('user_id', $this->user_id);
         $criteria->compare('t.name', $this->name, true);
         if ($this->is_public != NULL) {
-            $criteria->compare('is_public', $this->is_public);
+            if($this->merge){
+                $criteria->addCondition('is_public = true  or user_id = :user_id');
+                $criteria->params[':user_id'] = Yii::app()->user->id;
+            }
+            else{
+                $criteria->compare('is_public', $this->is_public);
+            }
         }
 
         $criteria->compare('rating', '>=' . $this->rating);

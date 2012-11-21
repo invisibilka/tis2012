@@ -140,6 +140,7 @@ class TestController extends Controller
 
         $task = new Tasks();
         $task->is_public = true;
+        $task->merge = true;
         $task->rating = NULL;
         $task->skipped_test = $model->id;
         if (isset($_GET['Tasks'])) {
