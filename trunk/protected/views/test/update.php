@@ -46,10 +46,8 @@ echo '<h2>' . $this->pageTitle . '</h2>';
     </table>
 
     <div id="testControls">
-        <a href="javascript:addToTest();"><img src="<?php echo Yii::app()->baseUrl."/images/left.png"?>" alt="&lt;&lt;pridať do testu&lt;&lt;"/></a>
-        <br/>
-        <br/>
-        <a href="javascript:removeFromTest();"><img src="<?php echo Yii::app()->baseUrl."/images/right.png"?>" alt="&gt;&gt;odobrať z testu&gt;&gt;"/></a>
+        <a href="javascript:addToTest();" class="testControllers"><img src="<?php echo Yii::app()->baseUrl."/images/up.png"?>" alt="&lt;&lt;pridať do testu&lt;&lt;"/> Pridať úlohu do testu</a>
+        <a href="javascript:removeFromTest();" class="testControllers"><img src="<?php echo Yii::app()->baseUrl."/images/down.png"?>" alt="&gt;&gt;odobrať z testu&gt;&gt;"/> Odobrať úlohu z testu</a>
     </div>
 
     <div id="taskPool">
