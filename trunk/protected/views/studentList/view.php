@@ -15,6 +15,7 @@ echo '<h2>'. $model->name .'</h2>';
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $student->search(),
     'id' => 'studentList',
+    'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
     'columns' => array(
         array(
             'name' => 'name',
