@@ -10,6 +10,7 @@
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	background: #f7f7f7;
+	color: #313131;
 }
 
 #header, #header-user {
@@ -124,7 +125,7 @@ h1 span {
 	border: thin solid #d93e1f;
 }
 
-.functions li a:hover, .testControllers {
+.functions li a:hover, .testControllers:hover {
 	background-color: #d93e1f;
 }
 
@@ -280,37 +281,60 @@ a:hover .underline {
 /**
 test/update
 */
-#tasksTable{
+table {
     width: 100%;
-	/*background-color: #FF0000;*/
-	margin: 0;
+	margin: 40px 0 40px 0;
 	padding: 0;
-	border: none !important;
-	border-collapse: collapse;
-}
-
-#tasksTable thead {
-	color: #313131;
+	border-collapse: collapse !important;
+	text-align: left;
+	background-color: #FFFFFF;
 	font-size: 12px;
 }
 
-#tasksTable th{
-    text-align: left;
+table td {
+	border-bottom: 1px solid #cecece;
+	color: #00538e;
+	padding: 6px 8px;
 }
 
-#taskPool{
-    width: 100%;
-    clear: right;
-	/*background-color: #0000FF;*/
-	margin: 0;
-	padding: 0;
+table tbody tr:hover td, table tbody tr:hover td a {
+	color: #27a0f5;
+	text-decoration: none;
+}
+
+table th {
+    font-size: 14px;
+	font-weight: normal;
+	padding: 10px 8px;
+	border-bottom: 2px solid #27a0f5;
+	color: #313131;
+}
+
+table th a {
+	color: #313131;
+}
+
+table td a {
+	color: #00538e;
+}
+
+table th a:hover {
+	text-decoration: none;
+}
+
+.filters input {
+	background-color: #FFFFFF;
+	border: thin #cecece solid;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	padding: 3px;
 }
 
 #testControls{
     width: 100%;
-	/*background-color: #00FF00;*/
 	margin: 0;
-	padding: 0;
+	padding: 25px 0 25px 0;
 }
 
 .testControllers {
@@ -373,4 +397,19 @@ input.long{
 .testControllers img{
     position: relative;
     top: 8px;
+	margin-right: 5px;
+}
+
+#testControls div {
+	border: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+	margin-right: 100px;
+}
+
+#testControls div:first-child {
+	float: left;
+	margin-left: 100px;
+	margin-right: 100px;
 }
