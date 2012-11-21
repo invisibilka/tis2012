@@ -52,6 +52,7 @@ class MailSender extends CApplicationComponent
     }
 
     /**
+     * Zasle pozvanku
      * @author M Blascak, V.Jurenka
      * @param $email - komu poslat pozvanku
      * @param $hash - jedinecny hash pre kazdu pozvnaku
