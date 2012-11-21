@@ -1,6 +1,6 @@
 <?php
 /**
- *@author  Vladimir Jurenka
+ * @author  Vladimir Jurenka
  */
 $this->pageTitle = "Zoznam pouzivatelov";
 
@@ -14,8 +14,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => '$data->id',
         ),
         array(
+            'type' => 'raw',
             'name' => 'username',
-            'value' => '$data->username',
+            'value' => 'CHtml::link( $data->username , Yii::app()->createUrl("user/view/", array("id"=>$data->id)))'
         ),
         array(
             'name' => 'full_name',

@@ -99,6 +99,9 @@ class UserController extends Controller
         if (!$id) {
             $id = Yii::app()->user->id;
         }
+        else{
+            $this->showSubmenu = false;
+        }
         $model = Users::model()->findByPk($id);
         if ($model) {
             $this->render('view', array('model' => $model));
