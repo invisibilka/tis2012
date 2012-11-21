@@ -21,6 +21,7 @@ $this->breadcrumbs=array(
     );
 }*/
 $this->pageTitle = "Úloha";
+echo '<h2>' . $this->pageTitle . '</h2>';
 ?>
 <div class="task">
     <?php
