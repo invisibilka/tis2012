@@ -2,10 +2,10 @@
 /**
  * @author  Vladimir Jurenka
  */
-$this->pageTitle = $model->full_name . " profil";
+$this->pageTitle = CHtml::encode($model->full_name) . " profil";
 ?>
 <div class="">
-    <h2><?php echo $model->full_name;?></h2>
+    <h2><?php echo CHtml::encode($model->full_name);?></h2>
     <br/>
 
     <h3>Kontakt</h3>
@@ -18,6 +18,6 @@ $this->pageTitle = $model->full_name . " profil";
     <h3>O mne</h3>
 
     <p>
-        <?php echo $model->about;?>
+        <?php echo CHtml::encode($model->about);?>
     </p>
 </div>

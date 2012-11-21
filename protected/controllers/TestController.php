@@ -213,6 +213,14 @@ class TestController extends Controller
             }
         }
     }
+
+    public function actionAjaxRenameTest(){
+        $id = Yii::app()->request->getParam('id');
+        $name = Yii::app()->request->getParam('name');
+        $model = Tests::model()->findByPk($id);
+        $model->name = $name;
+        $model->save();
+    }
 }
 
 ?>

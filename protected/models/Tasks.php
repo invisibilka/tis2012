@@ -169,7 +169,7 @@ class Tasks extends ActiveRecord
             $keywords[] = $keyword->name;
         }
         $result = implode(', ', $keywords);
-        return $result;
+        return CHtml::encode($result);
     }
 
     /**
