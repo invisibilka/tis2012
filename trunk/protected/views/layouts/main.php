@@ -80,7 +80,7 @@
 	<?php endif?>
 	<?php echo $content; ?>
     
-    <div class="clearfix"></div>
+    	<div class="clearfix"></div>
     
     </div>
     

@@ -15,6 +15,7 @@ $this->functionSubmenu = '<ul class="subnavigation functions">';
 $this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť novú úlohu', $this->createUrl('task/update/')) . '</li>';
 $this->functionSubmenu .= '</ul>';
 
+?><div class="form"><?php
 if ($saved) {
     echo 'Úloha bola úspešne uložená.';
 }
@@ -51,5 +52,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/task/delete?id=".$data->id',
 
         )
-    )
+    ),
+	'cssFile' =>false
 )); ?>
+</div>

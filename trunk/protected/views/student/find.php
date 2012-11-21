@@ -17,6 +17,7 @@ $empty->name = 'Nezaradení študenti';
 $empty->id = -1;
 array_splice($lists, 0, 0, array($empty));
 
+?><div class="form"><?php
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'taskList',
@@ -48,5 +49,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'deleteButtonUrl' => 'Yii::app()->request->baseUrl ."/student/delete?id=".$data->id',
 
         )
-    )
+    ), 
+	'cssFile' =>false
 )); ?>
+</div>

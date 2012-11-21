@@ -10,7 +10,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
 echo $message;
 
 ?>
-<div id="invite-form">
+<div class="form">
 
 <p>Nikto sa bez pozvánky nedostane do systému. Pre pridanie nového používateľa stačí vyplniť pole s <strong>emailovou adresou</strong>, ktorú vaša <strong>kolegyňa/kolega</strong> používa.</p>
 

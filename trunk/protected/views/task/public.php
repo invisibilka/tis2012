@@ -17,6 +17,7 @@ $this->breadcrumbs = array(
     'Správa úloh' => Yii::app()->request->baseUrl . '/task',
     'Verejné úlohy'
 );*/
+?><div class="form"><?php
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tasks',
@@ -60,8 +61,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'name' => 'username',
             'value' => '$data->user ? CHtml::link( CHtml::encode($data->user->full_name) , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznámy autor"'
         )
-    ))); ?>
-
+    ), 
+	'cssFile' =>false)); ?>
+</div>
 
 <script type="text/javascript">
     function rate(rating, id) {
