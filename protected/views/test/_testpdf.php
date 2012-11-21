@@ -1,4 +1,4 @@
-<?php echo "<p><h1 align='center'>". $model->name."</h1></p>";
+<?php echo "<h1 style='text-align: center'>". $model->name."</h1>";
 
  foreach ($model->tests_tasks as $task) {
      echo "<br/> <div>";
