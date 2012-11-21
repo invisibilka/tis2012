@@ -120,7 +120,6 @@ class TaskController extends Controller
             $tasks->setAttribute('rating', $average);
             $tasks->save();
             echo $average;
-
         }
     }
 
