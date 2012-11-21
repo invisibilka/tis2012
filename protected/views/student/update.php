@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
     'Upraviť'
 );*/
 $this->pageTitle = "Študent";
+echo '<h2>' . $this->pageTitle . '</h2>';
 ?>
 <div class="form">
     <?php

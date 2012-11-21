@@ -5,6 +5,7 @@
  */
 
 $this->pageTitle = "Zoznam študentov";
+echo '<h2>' . $this->pageTitle . '</h2>';
 
 $this->functionSubmenu = '<ul class="subnavigation functions">';
 $this->functionSubmenu .= '<li>' . CHtml::link('Pridať študenta', $this->createUrl('/student/update/')) . '</li>';
