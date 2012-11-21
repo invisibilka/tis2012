@@ -3,7 +3,7 @@
  * Reprezentuje zoznamy študentov v databáze.
  * Milos Blascak
  */
-class StudentLists extends CActiveRecord
+class StudentLists extends ActiveRecord
 {
     /**
      * Referencia na docasny subor pri uploadovani zoznamu studentov z xslx
@@ -102,6 +102,7 @@ class StudentLists extends CActiveRecord
     public function afterDelete()
     {
         Yii::app()->db->createCommand()->delete('tis_students_lists', 'list_id = :list_id', array(':list_id' => $this->id));
+        parent::afterDelete();
     }
 
     /**

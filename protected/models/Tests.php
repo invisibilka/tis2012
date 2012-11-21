@@ -3,7 +3,7 @@
  * Reprezentuje zoznam vytvorenych pisomiek v databaze.
  * @author Marek Oravec
  */
-class Tests extends CActiveRecord
+class Tests extends ActiveRecord
 {
     /**
      * Vrati novu instanciu tejto triedy
