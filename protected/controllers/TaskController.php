@@ -140,7 +140,9 @@ class TaskController extends Controller
     {
         $this->submenuIndex = 1;
         $model = new Tasks();
-        $model->is_public = true;
+        if(!Users::model()->findByPk(Yii::app()->user->id)->permissions){
+            $model->is_public = true;
+        }
         $model->rating = NULL;
         if (isset($_GET['Tasks'])) {
             $model->setAttributes($_GET['Tasks'], false);
