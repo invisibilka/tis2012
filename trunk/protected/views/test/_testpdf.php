@@ -9,4 +9,3 @@ foreach ($model->tests_tasks as $task) {
     echo "</p> </div>";
 }
 ?>
-
