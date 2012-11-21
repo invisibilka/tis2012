@@ -11,11 +11,14 @@ class TestController extends Controller
      */
     public $defaultAction = 'find';
 
+    public $showSubmenu = false;
+
     /**
      * Funkcia na zobrazenie danej úlohy
      */
     public function actionView()
     {
+        $this->showSubmenu = true;
         $id = Yii::app()->request->getParam('id');
         $model = Tests::model()->findByPk($id);
         $html = $this->renderPartial('_testpdf', array('model' => $model), true);
@@ -57,7 +60,14 @@ class TestController extends Controller
      */
     public function actionEmail()
     {
-        $this->render('email', array());
+        $this->showSubmenu = true;
+        $this->submenuIndex = 1;
+        $id = Yii::app()->request->getParam('id');
+       // $model = Tests::model()->findByPk($id);
+        $model = new TestEmailForm();
+        $model->test_id = $id;
+        //MailSender::sendEmails(null, Users::model()->findByPk(Yii::app()->user->id), $model, 'test', 'test');
+        $this->render('email', array('model'=>$model));
     }
 
     /**
