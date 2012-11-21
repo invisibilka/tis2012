@@ -47,6 +47,7 @@ class Tasks extends ActiveRecord
 
     /**
      * Vyhladava a triedi ulohy z databazy.
+     * @author V.Jurenka
      * @return CActiveDataProvider
      */
     public function search()
@@ -60,6 +61,7 @@ class Tasks extends ActiveRecord
         */
 
         //OR PARTIAL MATCH
+        //OR criteria must be specified first (SQL operator priority), VJ
         if(strlen($this->keyword)){
             $keywords = explode(',', $this->keyword);
             foreach($keywords as $i=>&$keyword){
@@ -70,7 +72,6 @@ class Tasks extends ActiveRecord
                 $keyword = trim($keyword).'%';
                 $criteria->compare('keywords.name', $keyword, true ,$op, false);
             }
-           // $criteria->compare('keywords.name', $keywords, true);
         }
 
         //$criteria->join = 'a';
