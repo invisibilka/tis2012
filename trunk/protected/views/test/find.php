@@ -3,6 +3,7 @@
  *@author  Katka
  */
 $this->pageTitle = "Zoznam písomiek";
+echo '<h2>' . $this->pageTitle . '</h2>';
 
 $this->functionSubmenu = '<ul class="subnavigation functions">';
 $this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť novú písomku', $this->createUrl('test/update/')) . '</li>';

@@ -5,6 +5,7 @@
  */
 
 $this->pageTitle = "Odoslať email";
+echo '<h2>' . $this->pageTitle . '</h2>';
 ?>
 
 <div class="form">
