@@ -141,9 +141,4 @@ Yii::app()->clientScript->registerCssFile(
             });
     }
 
-
-    $(document).ready(function () {
-
-    });
-
 </script>
