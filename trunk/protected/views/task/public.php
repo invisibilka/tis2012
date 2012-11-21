@@ -62,8 +62,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
     function rate(rating, id) {
         $.ajax({
             type:"GET",
-            url: "<?php echo Yii::app()->baseUrl . '/task/rating/'; ?>",
-             data:{ task_id:id, rating:rating }
+            url:"<?php echo Yii::app()->baseUrl . '/task/rating/'; ?>",
+            data:{ task_id:id, rating:rating }
         }).done(function (msg) {
                 rating = ((parseFloat(msg) * 25)) | 0;
                 $('#current-rating' + id).width(rating + 'px');

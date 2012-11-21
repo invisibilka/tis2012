@@ -43,11 +43,15 @@ class Tests extends ActiveRecord
     {
         return array(
             'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
-            'tasks' => array(self::MANY_MANY, 'Task', 'tis_tests_tasks(task_id, test_id)'),
-            'tests_tasks' => array(self::HAS_MANY, 'TestsTasks', 'test_id')
+            'tasks' => array(self::MANY_MANY, 'Tasks', 'tis_tests_tasks(task_id, test_id)'),
+            'tests_tasks' => array(self::HAS_MANY, 'TestsTasks', 'test_id', 'order'=>'task_index')
         );
     }
 
+    /**
+     * Vyhladava a triedi testy
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         $criteria = new CDbCriteria();
@@ -62,6 +66,8 @@ class Tests extends ActiveRecord
             ),
         ));
     }
+
+
 
     /**
      * vycistenie databazy pri mazani

@@ -11,6 +11,9 @@ class TestController extends Controller
      */
     public $defaultAction = 'find';
 
+    /**
+     * @var bool vypne zobrazovanie submenu
+     */
     public $showSubmenu = false;
 
     /**
@@ -23,14 +26,6 @@ class TestController extends Controller
         $model = Tests::model()->findByPk($id);
         $html = $this->renderPartial('_testpdf', array('model' => $model), true);
         $this->render('view', array('model' => $model, 'html' => $html));
-    }
-
-    /**
-     * Funkcia pre aktualizáciu už existujúcej úlohy alebo vytvorenie novej.
-     */
-    public function actionUpdate()
-    {
-        $this->render('update', array());
     }
 
     /**
@@ -100,7 +95,113 @@ class TestController extends Controller
         $this->render('find', array('model' => $model));
     }
 
+    /**
+     * Funkcia pre aktualizáciu už existujúcej úlohy alebo vytvorenie novej.
+     */
+    public function actionUpdate()
+    {
+        $this->showSubmenu = true;
+        $this->submenuIndex = 2;
+        $id = Yii::app()->request->getParam('id');
+        $model = Tests::model()->findByPk($id);
+        if ($model) {
+            if ($model->user_id != Yii::app()->user->id && $this->isAdminRequest()) {
+                $this->redirect(Yii::app()->baseUrl . '/site/error/id/123');
+            }
+        }
 
+        $task = new Tasks();
+        $task->is_public = true;
+        $task->rating = NULL;
+        $task->skipped_test = $model->id;
+        if (isset($_GET['Tasks'])) {
+            $task->setAttributes($_GET['Tasks'], false);
+            if (isset($_GET['Tasks']['username'])) {
+                $task->username = $_GET['Tasks']['username'];
+            }
+            if (isset($_GET['Tasks']['keyword'])) {
+                $task->keyword = $_GET['Tasks']['keyword'];
+            }
+        }
+        $this->render('update', array('model' => $model , 'task' => $task));
+    }
+
+
+    public function actionPreview(){
+        $id = Yii::app()->request->getParam('id');
+        $model = Tests::model()->findByPk($id);
+        $this->renderPartial('_testpdf', array('model' => $model));
+    }
+
+    public function actionAjaxTasks(){
+        $id = Yii::app()->request->getParam('id');
+        $model = Tests::model()->findByPk($id);
+        foreach($model->tests_tasks as $r_task){
+            $task = $r_task->task;
+            $this->renderPartial('_task', array('index' => $r_task->task_index, 'model'=>$task));
+        }
+    }
+
+    public function actionAjaxAddToTest(){
+        $id = Yii::app()->request->getParam('id');
+        $ids = Yii::app()->request->getParam('tasks');
+        if(count($ids) == 0){
+            return;
+        }
+        $model = Tests::model()->findByPk($id);
+        $num_tasks = count($model->tests_tasks);
+        $index = $num_tasks + 1;
+        foreach($ids as $id){
+            $tt = new TestsTasks();
+            $tt->task_index = $index;
+            $tt->test_id = $model->id;
+            $tt->task_id = $id;
+            $tt->save();
+            $index++;
+        }
+    }
+
+    public function actionAjaxRemoveFromTest(){
+        $id = Yii::app()->request->getParam('id');
+        $ids = Yii::app()->request->getParam('tasks');
+        if(count($ids) == 0){
+            return;
+        }
+        $model = Tests::model()->findByPk($id);
+        foreach($ids as $id){
+            $tt = TestsTasks::model()->find('test_id = :test_id AND task_id = :task_id', array(':test_id' => $model->id, ':task_id' => $id));
+            if($tt){
+                $tt->delete();
+            }
+        }
+    }
+
+    public function actionAjaxMove(){
+        $id = Yii::app()->request->getParam('id');
+        $index = Yii::app()->request->getParam('index');
+        $dir = Yii::app()->request->getParam('dir');
+
+        if($dir == 0){
+            $tt0 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index - 1 ', array(':test_id' => $id, ':task_index' => $index));
+            $tt1 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index ', array(':test_id' => $id, ':task_index' => $index));
+            if($tt0 && $tt1){
+                $tt0->task_index = $index;
+                $tt1->task_index = $index - 1;
+                $tt0->save();
+                $tt1->save();
+            }
+        }
+        else{
+            $tt0 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index + 1 ', array(':test_id' => $id, ':task_index' => $index));
+            $tt1 = TestsTasks::model()->find('test_id =:test_id AND task_index = :task_index ', array(':test_id' => $id, ':task_index' => $index));
+            if($tt0 && $tt1){
+                $tt0->task_index = $index;
+                $tt1->task_index = $index + 1;
+                $tt0->save();
+                $tt1->save();
+            }
+        }
+    }
 }
 
 ?>

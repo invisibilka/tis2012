@@ -14,6 +14,8 @@ class Tasks extends ActiveRecord
 
     public $message;
 
+    public $skipped_test;
+
     /**
      * Vrati novu instanciu tejto triedy
      * @param string $className
@@ -54,7 +56,6 @@ class Tasks extends ActiveRecord
     {
         $criteria = new CDbCriteria();
 
-
         /*
          * DROP DOWN COMPARE
         $criteria->compare('keywords.id', $this->keyword);
@@ -92,6 +93,14 @@ class Tasks extends ActiveRecord
         $criteria->with = array('user', 'keywords');
         $criteria->together = true;
         $criteria->compare('user.full_name', $this->username, true);
+
+        if($this->skipped_test ){
+            $criteria->addCondition('not exists (SELECT * '
+                . 'FROM tis_tests_tasks ttt '
+                . 'WHERE ttt.task_id = t.id AND ttt.test_id = :test_id '
+                . ')');
+            $criteria->params[':test_id'] = $this->skipped_test;
+        }
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
