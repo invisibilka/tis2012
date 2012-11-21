@@ -4,10 +4,9 @@
  */
 
 $this->pageTitle = "Úprava profilu";
+echo '<h2>' . $this->pageTitle . '</h2>';
 ?>
 <div class="form">
-
-	<h2>Úprava profilu</h2>
 
     <?php
     $form = $this->beginWidget('CActiveForm', array('id' => 'Users')); ?>

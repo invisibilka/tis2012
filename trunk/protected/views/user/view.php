@@ -4,11 +4,10 @@
  * @author  Vladimir Jurenka
  */
 $this->pageTitle = $model->full_name;
+echo '<h2>' . CHtml::encode($model->full_name) . '</h2>';
 ?>
 <div class="">
-    <h2><?php echo CHtml::encode($model->full_name);?></h2>
-    <br/>
-
+    
     <h3>Kontakt</h3>
 
     <p>

@@ -4,9 +4,9 @@
  *@author  Vladimir Jurenka
  */
 $this->pageTitle = "Prihlásenie do systému";
-?>
+echo '<h2>' . $this->pageTitle . '</h2>';
 
-<h2>Prihlásenie do systému</h2>
+?>
 
 <div class="form login">
 <?php $form=$this->beginWidget('CActiveForm', array(
