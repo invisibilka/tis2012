@@ -15,7 +15,7 @@ echo CHtml::link('Vytvorit novu pisomku', $this->createUrl('test/update/'));
         array(
             'type' => 'raw',
             'name' => 'name',
-            'value' => 'CHtml::link(CHtml::encode($data->name), Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
+            'value' => 'CHtml::link($data->name ? CHtml::encode($data->name) : "<i>Nepomenovana pisomka</i>", Yii::app()->createUrl(\'test/view/id/\' . $data->id), array())'
         ),
         array(
             'class' => 'CButtonColumn',

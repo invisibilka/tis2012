@@ -306,3 +306,7 @@ html[xmlns] .clearfix {
 #testControls{
     margin-top: 60px;
 }
+
+input.long{
+    width: 40% !important;
+}

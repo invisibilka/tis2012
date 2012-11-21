@@ -14,62 +14,75 @@ Yii::app()->clientScript->registerCssFile(
 
 <div id="dialog" style="zoom : 40%"></div>
 
-<table id="tasksTable">
-    <thead>
-    <tr><th></th><th>Poradie</th><th>Nazov</th><th>Presunut</tr>
-    </thead>
-    <tbody id="tasks">
-    <?php
-    foreach ($model->tests_tasks as $r_task) {
-        $_task = $r_task->task;
-        $this->renderPartial('_task', array('index' => $r_task->task_index, 'model' => $_task));
-    }
-    ?>
-    </tbody>
-</table>
+<div class="form">
+    <div class="row">
+        <?php echo CHtml::label('Nazov testu', 'name'); ?>
+        <?php echo CHtml::textField('name', $model->name, array('class'=> 'long', 'onBlur' => 'saveName();', 'onChange' => 'saveName();')); ?>
+    </div>
 
-<div id="testControls">
-    <a href="javascript:addToTest();"><img src=""/>&lt;&lt;pridat do testu&lt;&lt;</a>
-    <br/>
-    <br/>
-    <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;odobrat z testu&gt;&gt;</a>
+
+    <table id="tasksTable">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Poradie</th>
+            <th>Nazov</th>
+            <th>Presunut
+        </tr>
+        </thead>
+        <tbody id="tasks">
+        <?php
+        foreach ($model->tests_tasks as $r_task) {
+            $_task = $r_task->task;
+            $this->renderPartial('_task', array('index' => $r_task->task_index, 'model' => $_task));
+        }
+        ?>
+        </tbody>
+    </table>
+
+    <div id="testControls">
+        <a href="javascript:addToTest();"><img src=""/>&lt;&lt;pridat do testu&lt;&lt;</a>
+        <br/>
+        <br/>
+        <a href="javascript:removeFromTest();"><img src=""/>&gt;&gt;odobrat z testu&gt;&gt;</a>
+    </div>
+
+    <div id="taskPool">
+        <?php
+        $this->widget('zii.widgets.grid.CGridView', array(
+            'dataProvider' => $task->search(),
+            'id' => 'Tasks',
+            'filter' => $task,
+            'columns' => array(
+                array(
+                    'type' => 'raw',
+                    'value' => 'CHtml::checkBox("pool_".$data->id)'
+                ),
+                array(
+                    'type' => 'raw',
+                    'name' => 'name',
+                    'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
+                ),
+                array(
+                    'name' => 'keyword',
+                    'value' => '$data->keywordsList',
+                ),
+                array(
+                    'name' => 'rating',
+                    'value' => '$data->rating',
+                ),
+                array(
+                    'type' => 'raw',
+                    'name' => 'username',
+                    'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
+                )
+            ))); ?>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <button onclick="preview();">Preview</button>
 </div>
-
-<div id="taskPool">
-    <?php
-    $this->widget('zii.widgets.grid.CGridView', array(
-        'dataProvider' => $task->search(),
-        'id' => 'Tasks',
-        'filter' => $task,
-        'columns' => array(
-            array(
-                'type' => 'raw',
-                'value' => 'CHtml::checkBox("pool_".$data->id)'
-            ),
-            array(
-                'type' => 'raw',
-                'name' => 'name',
-                'value' => 'CHtml::Link($data->name, Yii::app()->createUrl(\'task/view/id/\' . $data->id), array())'
-            ),
-            array(
-                'name' => 'keyword',
-                'value' => '$data->keywordsList',
-            ),
-            array(
-                'name' => 'rating',
-                'value' => '$data->rating',
-            ),
-            array(
-                'type' => 'raw',
-                'name' => 'username',
-                'value' => '$data->user ? CHtml::link( $data->user->full_name , Yii::app()->createUrl("user/view/", array("id"=>$data->user_id))): "Neznamy autor"'
-            )
-        ))); ?>
-</div>
-
-<div class="clearfix"></div>
-
-<button onclick="preview();">Preview</button>
 
 <script type="text/javascript">
 
@@ -131,14 +144,24 @@ Yii::app()->clientScript->registerCssFile(
             });
     }
 
-    function move(index, dir){
+    function move(index, dir) {
         $.ajax({
             type:"POST",
             url:"<?php echo Yii::app()->baseUrl . '/test/ajaxMove/'; ?>",
-            data:{ id: <?php echo $model->id; ?> , index : index, dir:dir}
+            data:{ id: <?php echo $model->id; ?> , index:index, dir:dir}
         }).done(function (msg) {
                 refreshLeft();
             });
     }
+
+    function saveName(){
+        $.ajax({
+            type:"POST",
+            url:"<?php echo Yii::app()->baseUrl . '/test/ajaxRename/'; ?>",
+            data:{ id: <?php echo $model->id; ?> , name :$('#name').val()}
+        }).done(function (msg) {
+            });
+    }
+
 
 </script>
