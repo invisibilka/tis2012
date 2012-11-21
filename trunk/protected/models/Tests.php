@@ -31,7 +31,7 @@ class Tests extends ActiveRecord
     public function rules()
     {
         return array(
-            array('user_id, name', 'required'),
+            array('user_id, name', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
         );
     }
 

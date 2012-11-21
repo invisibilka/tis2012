@@ -41,13 +41,13 @@ class Users extends ActiveRecord
     public function rules()
     {
         return array(
-            array('new_password', 'compare', 'compareAttribute' => 'new_password2'),
-            array('email, username', 'unique'),
-            array('email, username, full_name', 'required'),
-            array('email', 'email'),
-            array('about', 'length', 'max' => 3000),
-            array('new_password, new_password2', 'length', 'max' => 64),
-            array('permissions', 'boolean'),
+            array('new_password', 'compare', 'compareAttribute' => 'new_password2', 'message' => 'Heslá sa nezhodujú!'),
+            array('email, username', 'unique', 'message' => 'Položka "{attribute}" musí byť jedinečná a je už bohužiaľ obsadená.'),
+            array('email, username, full_name', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
+            array('email', 'email' , 'Položka "{attribute}" nie je platná emailová adresa.'),
+            array('about', 'length', 'max' => 3000, 'Do poľa "{attribute}" zadajte maximálne 3000 znakov.'),
+            array('new_password, new_password2', 'length', 'max' => 64, 'Maximálna dĺžka hesla je 64 znakov.'),
+            array('permissions', 'boolean'), //toto sa stane len wanna-be hackerom, ti nepotrebuju slovensky preklad
         );
     }
 

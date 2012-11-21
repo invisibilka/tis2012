@@ -14,7 +14,7 @@ class TestEmailForm extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('subject, body, test_id, list_id', 'required'),
+			array('subject, body, test_id, list_id', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
 		);
 	}
 
