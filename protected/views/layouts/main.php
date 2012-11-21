@@ -54,6 +54,10 @@
 		
 	</div>
 
+	<div id="full">
+    
+    	<span id="horizontal-line"></span>
+
     <div id="main">
     
     <div id="panel">
@@ -77,6 +81,8 @@
 	<?php echo $content; ?>
     
     <div class="clearfix"></div>
+    
+    </div>
     
     </div>
 
