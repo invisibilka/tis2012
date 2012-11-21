@@ -44,9 +44,9 @@ class Users extends ActiveRecord
             array('new_password', 'compare', 'compareAttribute' => 'new_password2', 'message' => 'Heslá sa nezhodujú!'),
             array('email, username', 'unique', 'message' => 'Položka "{attribute}" musí byť jedinečná a je už bohužiaľ obsadená.'),
             array('email, username, full_name', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
-            array('email', 'email' , 'Položka "{attribute}" nie je platná emailová adresa.'),
-            array('about', 'length', 'max' => 3000, 'Do poľa "{attribute}" zadajte maximálne 3000 znakov.'),
-            array('new_password, new_password2', 'length', 'max' => 64, 'Maximálna dĺžka hesla je 64 znakov.'),
+            array('email', 'email' ,  'message' =>'Položka "{attribute}" nie je platná emailová adresa.'),
+            array('about', 'length', 'max' => 3000,  'message' =>'Do poľa "{attribute}" zadajte maximálne 3000 znakov.'),
+            array('new_password, new_password2', 'length', 'max' => 64,  'message' =>'Maximálna dĺžka hesla je 64 znakov.'),
             array('permissions', 'boolean'), //toto sa stane len wanna-be hackerom, ti nepotrebuju slovensky preklad
         );
     }
