@@ -3,6 +3,7 @@
  * @author Marek Oravec
  */
 $this->pageTitle = 'Zoznam študentov';
+echo '<h2>' . $this->pageTitle . '</h2>';
 ?>
 
 <div class="form">

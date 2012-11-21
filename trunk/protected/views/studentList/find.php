@@ -3,6 +3,7 @@
  *@author  V.Jurenka
  */
 $this->pageTitle = 'Zoznamy študentov';
+echo '<h2>' . $this->pageTitle . '</h2>';
 
 $this->functionSubmenu = '<ul class="subnavigation functions">';
 $this->functionSubmenu .= '<li>' . CHtml::link('Vytvoriť nový zoznam', $this->createUrl('studentList/update/')) . '</li>';

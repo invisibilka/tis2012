@@ -9,8 +9,7 @@ $this->breadcrumbs=array(
     $model->name
 );*/
 $this->pageTitle = $model->name;
-
-echo '<h2>'. $model->name .'</h2>';
+echo '<h2>' . $this->pageTitle . '</h2>';
 
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $student->search(),
