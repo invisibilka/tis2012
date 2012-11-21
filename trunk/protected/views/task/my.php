@@ -42,6 +42,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'class' => 'CButtonColumn',
             'template' => '{update} {delete}',
             'header' => 'Úpravy',
+            'deleteConfirmation'=>"js:'Ste si si istý, že chcete vymazať položku?'",
             'updateButtonLabel' => 'Upraviť',
             'updateButtonUrl' => 'Yii::app()->request->baseUrl ."/task/update?id=".$data->id',
             'deleteButtonLabel' => 'Zmazať',
