@@ -3,12 +3,13 @@
  * Zobrazi vsetkych studentov daneho pouzivatela
  * @author V.Jurenka
  */
-?>
-<?php
-echo CHtml::link('Pridať študenta', $this->createUrl('/student/update/'));
-?>
-<?php
+
 $this->pageTitle = "Zoznam študentov";
+
+$this->functionSubmenu = '<ul class="subnavigation functions">';
+$this->functionSubmenu .= '<li>' . CHtml::link('Pridať študenta', $this->createUrl('/student/update/')) . '</li>';
+$this->functionSubmenu .= '</ul>';
+
 
 $empty = new StudentLists();
 $empty->name = 'Nezaradení tudenti';
