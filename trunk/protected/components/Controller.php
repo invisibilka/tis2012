@@ -25,6 +25,11 @@ class Controller extends CController
      * @var int urcuje, ktora polozka submenu je aktivna
      */
     public $submenuIndex = 0;
+	
+	/*
+	* pomocny string pre zoznam funkcii, posiela sa v nom html na zobrazenie do panelu - specificke pre kazdy view
+	*/
+	public $functions = "";
 
     /**
      * zabezpeci zakaz pristupu pre neprihlasenych pouzivatelov
