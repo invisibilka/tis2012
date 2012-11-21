@@ -84,7 +84,9 @@ class StudentListController extends Controller
     public function actionFind()
     {
         $model = new StudentLists();
-        $model->user_id = Yii::app()->user->id;
+        if(!Users::model()->findByPk(Yii::app()->user->id)->permissions){
+            $model->user_id = Yii::app()->user->id;
+        }
         if (isset($_GET['StudentLists'])) {
             $model->setAttributes($_GET['StudentLists'], false);
         }
