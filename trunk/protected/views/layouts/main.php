@@ -67,7 +67,7 @@
 		}
 		
 		if (Yii::app()->user->isGuest) {
-			echo "<p>Gumkáčik predstavuje nový systém pre učiteľa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget orci massa. Duis venenatis justo quis diam bibendum vulputate. Phasellus sit amet dui vitae massa mattis ultricies. Sed ante felis, viverra nec ultricies placerat, eleifend volutpat tellus.</p>";
+			echo "<p>Gumkáčik predstavuje nový systém pre učiteľa. Umožňuje vytvárať a spracovávať zadania úloh. Podporuje tvorbu písomiek z vytvorených úloh a ich následné exportovanie do PDF. Písomky je možné odoslať emailom študentom.</p><p>Funkcie sú prístupné len učiteľom, ktorí majú oprávnenie na vstup do systému.</p>";
 		} else {
 			echo $this->functionSubmenu;
 		} ?>

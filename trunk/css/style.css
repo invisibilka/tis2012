@@ -13,6 +13,14 @@ body {
 	color: #313131;
 }
 
+a {
+	color: #27a0f5;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
 #header, #header-user {
 	width: 100%;
 	min-width: 960px;
@@ -396,6 +404,7 @@ html[xmlns] .clearfix {
 #panel p {
 	text-align: right;
 	margin: 25px 10px 0 0;
+	font-size: 12px;
 }
 
 .container {
