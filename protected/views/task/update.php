@@ -96,7 +96,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
             theme_advanced_statusbar_location : "bottom",
             theme_advanced_resizing : true,
             height:"600",
-            width: "900",
+            width: "680",
             language : "sk"
 
         });
