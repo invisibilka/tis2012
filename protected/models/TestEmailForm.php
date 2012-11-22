@@ -21,7 +21,10 @@ class TestEmailForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-
+            'subject' => 'Predmet správy',
+            'body' => 'Text správy',
+            'test_id' => 'Písomka',
+            'list_id' => 'Zoznam študentov',
 		);
 	}
 }
