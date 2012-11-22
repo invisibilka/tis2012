@@ -6,6 +6,11 @@
 Yii::app()->clientScript->registerCSSFile(Yii::app()->request->baseUrl . '/css/starrating.css');
 
 $isMyTask = $model->user_id == Yii::app()->user->id;
+if($isMyTask){
+    $this->functionSubmenu = '<ul class="subnavigation functions">';
+    $this->functionSubmenu .= '<li>' . CHtml::link('Upraviť',  Yii::app()->createUrl('task/update/id/' . $model->id)) . '</li>';
+    $this->functionSubmenu .= '</ul>';
+}
 /*
 if($isMyTask){
 $this->breadcrumbs=array(
@@ -38,7 +43,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
             CHtml::tag('li', array(), CHtml::Link('4', 'javascript:rate(4)', array('title' => '4 z 5 hviezdičiek', 'class' => 'four-stars')), true).
             CHtml::tag('li', array(), CHtml::Link('5', 'javascript:rate(5)', array('title' => '5 z 5 hviezdičiek', 'class' => 'five-stars')), true),
         true);
-    if ($isMyTask) echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $model->id) . '">Upraviť</a>';
+    //if ($isMyTask) echo '<a href="' . Yii::app()->createUrl('task/update/id/' . $model->id) . '">Upraviť</a>';
     ?>
 </div>
 

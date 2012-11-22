@@ -179,7 +179,7 @@ form label {
 	text-transform: uppercase;
 }
 
-#Invitations_email, #LoginForm_username, #LoginForm_password, #Users_full_name, #Users_email, #Users_username, #Users_new_password, #Users_new_password2, #name {
+#Tasks_name, #Tasks_keyword, #StudentLists_name, #Students_name, #Students_email, #Invitations_email, #LoginForm_username, #LoginForm_password, #Users_full_name, #Users_email, #Users_username, #Users_new_password, #Users_new_password2, #name {
 	background-color: #FFFFFF;
 	border: thin #cecece solid;
 	-webkit-border-radius: 2px;
@@ -188,6 +188,19 @@ form label {
 	padding: 9px;
 	width: 200px;
 	margin-top: 10px;
+}
+
+select, textarea{
+    background-color: #FFFFFF;
+    border: thin #cecece solid;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+
+#Users textarea{
+    padding: 9px;
+    width: 200px;
+    margin-top: 10px;
 }
 
 .submit input {
@@ -329,12 +342,22 @@ table th a:hover {
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	padding: 3px;
+    max-width: 130px;
 }
 
 #testControls{
     width: 100%;
 	margin: 0;
 	padding: 25px 0 25px 0;
+    margin-bottom: 32px;
+}
+
+#taskPool .summary{
+    display: none;
+}
+
+#testControls > div{
+    height: 37px;
 }
 
 .testControllers {
@@ -417,4 +440,9 @@ input.long{
 	float: left;
 	margin-left: 100px;
 	margin-right: 100px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+    padding: 1px 6px;
+    border: 2px outset buttonface;
 }
