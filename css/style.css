@@ -13,18 +13,6 @@ body {
 	color: #313131;
 }
 
-#logo {
-    background-image: url("../images/design/logo.png");
-    width: 245px;
-    height: 50px;
-    float: left;
-    margin-left: 15%;
-}
-
-h1 {
-    visibility: hidden;
-}
-
 #header, #header-user {
 	width: 100%;
 	min-width: 960px;
@@ -55,20 +43,20 @@ h1 {
 	font-size: 20px;
 }
 
-/*
+
 h1 span {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: ;
-	height: 70px;
-	background: transparent url('.....') top left no-repeat;
+    width: 245px;
+    height: 50px;
+	background: transparent url("../images/design/logo.png") top left no-repeat;
 }
-*/
 
 #navigation-div {
 	width: 100%;
 	border-top: thin solid #f7f7f7;
+	font-size: 0;
 }
 
 #navigation {
