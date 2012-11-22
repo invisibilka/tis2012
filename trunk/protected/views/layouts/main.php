@@ -23,12 +23,8 @@
 
 	<div id="<?php if (!Yii::app()->user->isGuest) echo "header-user"; else echo"header"; ?>">
 
-        <div id="logo">
-
-        </div>
-
     	<div id="header-content">
-			<h1><?php echo CHtml::encode(Yii::app()->name); ?></h1>
+			<h1><?php echo CHtml::encode(Yii::app()->name); ?><span></span></h1>
 
             <?php
 				if (!Yii::app()->user->isGuest) {
