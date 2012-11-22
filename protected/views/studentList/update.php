@@ -48,6 +48,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
     $this->widget('zii.widgets.grid.CGridView', array(
         'dataProvider' => $student->search(),
         'id' => 'studentList',
+        'emptyText' => 'Žiadne výsledky',
         'columns' => array(
             array(
                 'name' => 'name',

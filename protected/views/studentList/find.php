@@ -15,6 +15,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'taskList',
     'filter' => $model,
     'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
+    'emptyText' => 'Žiadne výsledky',
     'columns' => array(
         array(
             'type' => 'raw',
