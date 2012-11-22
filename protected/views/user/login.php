@@ -38,8 +38,6 @@ echo '<h2>' . $this->pageTitle . '</h2>';
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Prihlásiť'); ?>
 	</div>
-    
-    <p class="note">Polia označené <span class="required">*</span> sú povinné</p>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
