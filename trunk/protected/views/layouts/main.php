@@ -67,7 +67,7 @@
 		}
 		
 		if (Yii::app()->user->isGuest) {
-			echo "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget orci massa. Duis venenatis justo quis diam bibendum vulputate. Phasellus sit amet dui vitae massa mattis ultricies. Sed ante felis, viverra nec ultricies placerat, eleifend volutpat tellus.</p>";
+			echo "<p>Gumkáčik predstavuje nový systém pre učiteľa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget orci massa. Duis venenatis justo quis diam bibendum vulputate. Phasellus sit amet dui vitae massa mattis ultricies. Sed ante felis, viverra nec ultricies placerat, eleifend volutpat tellus.</p>";
 		} else {
 			echo $this->functionSubmenu;
 		} ?>
