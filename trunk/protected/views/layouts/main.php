@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
-    <link rel="shortcut icon" href="<?php echo Yii::app()->baseUrl.'/images/favicon.ico'; ?>" />
+    <link rel="shortcut icon" href="<?php echo Yii::app()->baseUrl.'/images/favicon3.ico'; ?>" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
