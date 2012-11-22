@@ -18,32 +18,28 @@ echo '<h2>' . $this->pageTitle . '</h2>';
     ),
 )); ?>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($model , 'Prosím opravte nasledovné:'); ?>
 
     <div class="row">
         <?php echo $form->labelEx($model,'subject'); ?>
         <?php echo $form->textField($model,'subject'); ?>
-        <?php echo $form->error($model,'subject'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'body'); ?>
         <?php echo $form->textArea($model,'body'); ?>
-        <?php echo $form->error($model,'body'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'test_id'); ?>
-        <?php  echo $form->dropDownList($model, 'test_id', CHtml::listData(Tests::model()->findAll('user_id =:user_id', array(':user_id' => Yii::app()->user->id)), 'id', 'name'), array('prompt' => Yii::t('site', 'Please select a test')));
+        <?php  echo $form->dropDownList($model, 'test_id', CHtml::listData(Tests::model()->findAll('user_id =:user_id', array(':user_id' => Yii::app()->user->id)), 'id', 'name'));
          ?>
-        <?php echo $form->error($model,'test_id'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'list_id'); ?>
-        <?php  echo $form->dropDownList($model, 'list_id', CHtml::listData(StudentLists::model()->findAll('user_id =:user_id', array(':user_id' => Yii::app()->user->id)), 'id', 'name'), array('prompt' => Yii::t('site', 'Please select a test')));
+        <?php  echo $form->dropDownList($model, 'list_id', CHtml::listData(StudentLists::model()->findAll('user_id =:user_id', array(':user_id' => Yii::app()->user->id)), 'id', 'name'), array('prompt' => Yii::t('site', 'Prosím vyberte zoznam študentov')));
         ?>
-        <?php echo $form->error($model,'list_id'); ?>
     </div>
 
     <div class="row">
@@ -51,7 +47,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
     </div>
 
    <div class="row buttons">
-        <?php echo CHtml::submitButton('Submit'); ?>
+        <?php echo CHtml::submitButton('Odoslať'); ?>
     </div>
 
     <?php $this->endWidget(); ?>

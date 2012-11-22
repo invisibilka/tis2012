@@ -189,7 +189,7 @@ form label {
 	text-transform: uppercase;
 }
 
-#Tasks_name, #Tasks_keyword, #StudentLists_name, #Students_name, #Students_email, #Invitations_email, #LoginForm_username, #LoginForm_password, #Users_full_name, #Users_email, #Users_username, #Users_new_password, #Users_new_password2, #name {
+#TestEmailForm_subject, #Tasks_name, #Tasks_keyword, #StudentLists_name, #Students_name, #Students_email, #Invitations_email, #LoginForm_username, #LoginForm_password, #Users_full_name, #Users_email, #Users_username, #Users_new_password, #Users_new_password2, #name {
 	background-color: #FFFFFF;
 	border: thin #cecece solid;
 	-webkit-border-radius: 2px;
