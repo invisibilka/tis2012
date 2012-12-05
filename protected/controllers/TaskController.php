@@ -145,6 +145,9 @@ class TaskController extends Controller
         }
         $model->rating = NULL;
         if (isset($_GET['Tasks'])) {
+            if(isset($_GET['Tasks']['rating'])){
+                $_GET['Tasks']['rating'] = preg_replace('@,@', '.', $_GET['Tasks']['rating']);
+            }
             $model->setAttributes($_GET['Tasks'], false);
             if (isset($_GET['Tasks']['username'])) {
                 $model->username = $_GET['Tasks']['username'];
