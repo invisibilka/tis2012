@@ -34,7 +34,7 @@ class Invitations extends ActiveRecord
         return array(
             array('email', 'required' ),
             array('email', 'unique' ,'message' => 'Na tento email už bola poslaná pozvánka.'),
-            array('email', 'email' ),
+            array('email', 'email' ,  'message' =>'Položka "{attribute}" nie je platná emailová adresa.'),
         );
     }
 
