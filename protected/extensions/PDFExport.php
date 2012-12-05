@@ -1,10 +1,3 @@
-<style type="text/css">
-    img { margin: 2px;
-          max-width: 700px;
-          float: left;
-        }
-</style>
-
 <?php
 /**
  * Komponent zabezpecuje exportovanie do PDF suborou
