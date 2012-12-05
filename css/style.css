@@ -217,6 +217,9 @@ select, textarea{
     padding: 9px;
     width: 200px;
     margin-top: 10px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #313131;
+	font-size: small;
 }
 
 .submit input {

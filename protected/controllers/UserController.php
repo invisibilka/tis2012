@@ -156,11 +156,17 @@ class UserController extends Controller
         if ($id != Yii::app()->user->id && !$this->isAdminRequest()) {
             $this->denyAction();
         }
-        Yii::app()->user->logout();
-        $model = Users::model()->findByPk($id);
-        $model->delete();
-        Users::model()->deleteByPk($id);
-        $this->redirect(Yii::app()->homeUrl);
+        if (Yii::app()->user->id == $id) {
+            Yii::app()->user->logout();
+            $model = Users::model()->findByPk($id);
+            $model->delete();
+            $this->redirect(Yii::app()->homeUrl);
+        }
+        else {
+            $model = Users::model()->findByPk($id);
+            $model->delete();
+            $this->redirect($this->createUrl('user/find'));
+        }
     }
 
     /*
