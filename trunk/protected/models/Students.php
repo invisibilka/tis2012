@@ -108,7 +108,7 @@ class Students extends ActiveRecord
         }
         $result = implode(', ', $listNames);
         if(strlen($result) == 0){
-            $result = 'Student nie je v ziadnom zozname';
+            $result = 'Študent nie je v žiadnom zozname';
         }
         return $result;
     }
