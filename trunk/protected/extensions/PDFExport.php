@@ -16,15 +16,14 @@ class PDFExport
         $pdf = new TCPDF();
         $pdf->AddPage();
         $css='<style type="text/css">
-        * { display: block;
-        float: none;
+        img { clear: both;
 
        }
         </style>';
         $html = $css . $html;
         //$pdf->writeHtmlCell( 0, 10, 10, 10, $html);
         $pdf->writeHTML($html, true, false, true, false, '');
-        //return $display ? $pdf->output('example.pdf', 'I') :  $pdf->output('example.pdf', 'S');
-        echo $html;
+        return $display ? $pdf->output('example.pdf', 'I') :  $pdf->output('example.pdf', 'S');
+        //echo $html;
     }
 }
