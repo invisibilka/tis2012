@@ -59,6 +59,8 @@ class TaskController extends Controller
             //fix smiley path, by V.Jurenka
             $model->html = preg_replace('@.\.\/\.\./\.\./assets/[^/]*/plugins/emotions/img/@', Yii::app()->baseUrl . '/images/emotions/', $model->html);
 
+            $model->html = preg_replace('@<img@','<br/><img', $model->html);
+
             if ($model->save()) {
                 $this->redirect($this->createUrl('my', array('saved' => true)));
             }
