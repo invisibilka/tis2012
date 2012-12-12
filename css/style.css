@@ -233,6 +233,10 @@ select, textarea{
 	margin: 25px 0 25px 25px;
 }
 
+.form img {
+    max-width: 100%;
+}
+
 #info {
 	width: auto;
 	float: right;
