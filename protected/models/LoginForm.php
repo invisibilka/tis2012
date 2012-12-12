@@ -38,7 +38,7 @@ class LoginForm extends CFormModel
 		return array(
             'username'=>'Prihlasovacie meno',
             'password'=>'Heslo',
-			'rememberMe'=>'Zapamataj si udaje',
+			'rememberMe'=>'Zapamätaj si údaje',
 		);
 	}
 
