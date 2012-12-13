@@ -15,7 +15,7 @@ class XLXSImport
     {
         $xlsx = new SimpleXLSX($file);
         foreach ($xlsx->rows() as $row) {
-            $student = Students::model()->find('email = :email AND user_id =: user_id', array(':email' => $row[2], ':user_id' => Yii::app()->user->id ));
+            $student = Students::model()->find('email = :email AND user_id =:user_id', array(':email' => $row[2], ':user_id' => Yii::app()->user->id ));
             if (!$student) {
                 $student = new Students();
                 $student->user_id = $user_id;
@@ -23,7 +23,9 @@ class XLXSImport
                 $student->email = $row[2];
                 $student->save();
             }
-            $list->addStudent($student);
+            if($student->id){
+                $list->addStudent($student);
+            }
         }
     }
 
