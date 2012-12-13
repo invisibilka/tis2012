@@ -141,7 +141,7 @@ class Tasks extends ActiveRecord
         return array(
             'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
             'keywords' => array(self::MANY_MANY, 'Keywords', 'tis_tasks_keywords(task_id, keyword_id)'),
-            'comments' => array(self::HAS_MANY, 'Comments', 'task_id'),
+            'comments' => array(self::HAS_MANY, 'TasksComments', 'task_id'),
             'ratings' => array(self::HAS_MANY, 'Ratings', 'task_id'),
             'tests' => array(self::MANY_MANY, 'Test', 'tis_tests_tasks(task_id, test_id)'),
             'tests_tasks' => array(self::HAS_MANY, 'TestsTasks', 'task_id'),
