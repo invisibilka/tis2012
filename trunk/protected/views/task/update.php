@@ -12,8 +12,7 @@ Yii::app()->clientScript->registerCssFile(
 );
 
 Yii::app()->clientScript->registerPackage('tiny_mce');
-$config['img_path'] = '/tis/uploads';
-echo $_SERVER['DOCUMENT_ROOT'].$config['img_path'];
+
 ?>
 
 
