@@ -25,7 +25,7 @@
 -------------------------------------------------------------------*/
 
 
-    $config['img_path'] = '../../../uploads';
+    $config['img_path'] = '/tis/uploads';
 
 
 /*-------------------------------------------------------------------
@@ -124,8 +124,8 @@
 -------------------------------------------------------------------*/
 
 	
-	$config['upload_path'] = '../../../../../uploads/';// Yii::app()->baseUrl.'/uploads'; //'D:\\wamp\\www\\tis\\uploads';//$_SERVER['DOCUMENT_ROOT'] . $config['img_path'];
-
+	//$config['upload_path'] = '../../../../../uploads/';// Yii::app()->baseUrl.'/uploads'; //'D:\\wamp\\www\\tis\\uploads';//$_SERVER['DOCUMENT_ROOT'] . $config['img_path'];
+    $config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path'];
 	
 
 /*-------------------------------------------------------------------
