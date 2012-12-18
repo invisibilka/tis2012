@@ -244,6 +244,19 @@ class TestController extends Controller
                 $tt->delete();
             }
         }
+
+        //compact
+        for($i = 1; $i <= count($model->tasks) + count($ids); $i++){
+            $tt = TestsTasks::model()->find('test_id = :test_id AND task_index = :task_index', array(':test_id' => $model->id, ':task_index' => $i));
+            if($tt){
+                continue;
+            }
+            $tt = TestsTasks::model()->find('test_id = :test_id AND task_index > :task_index HAVING MIN(task_index - :task_index) ', array(':test_id' => $model->id, ':task_index' => $i));
+            if($tt){
+                $tt->task_index = $i;
+                $tt->update();
+            }
+        }
     }
 
     /**
