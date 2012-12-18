@@ -3,7 +3,7 @@
  * Komponent zabezpečuje manipuláciu so zoznamami študentov.
  * @author Marek Oravec
  */
-class StudentListController extends Controller
+class StudentlistController extends Controller
 {
     /**
      * @var string predvolena akcia pri zadani adresy /user/
