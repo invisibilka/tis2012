@@ -14,6 +14,7 @@ class PDFExport
      */
     public static function createPDF($html, $display = true){
         $pdf = new TCPDF();
+        $pdf->SetFont('dejavuserif', '', 10);
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
         $pdf->AddPage();
