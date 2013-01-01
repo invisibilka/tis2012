@@ -23,7 +23,7 @@ class PDFExport
 
        }
         </style>';
-        $html = $css . $html;
+        //$html = $css . $html;
         //$pdf->writeHtmlCell( 0, 10, 10, 10, $html);
         $pdf->writeHTML($html, true, false, true, false, '');
         return $display ? $pdf->output('example.pdf', 'I') :  $pdf->output('example.pdf', 'S');
