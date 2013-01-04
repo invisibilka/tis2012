@@ -57,6 +57,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
             'dataProvider' => $task->search(),
             'id' => 'Tasks',
             'filter' => $task,
+            'cssFile' => '',
             'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
             'emptyText' => 'Žiadne výsledky',
             'columns' => array(
