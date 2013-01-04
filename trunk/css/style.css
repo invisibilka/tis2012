@@ -317,6 +317,17 @@ a:hover .underline {
 /**
 test/update
 */
+.summary {
+	display: none;
+}
+
+.button-column {
+	-moz-column-width: 60px; /* Firefox */
+	-webkit-column-width: 60px; /* Safari and Chrome */
+	column-width: 60px;
+	width: 60px;
+}
+
 table {
     width: 100%;
 	margin: 40px 0 40px 0;
