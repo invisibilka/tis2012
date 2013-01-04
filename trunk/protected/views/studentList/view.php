@@ -14,6 +14,7 @@ echo '<h2>' . $this->pageTitle . '</h2>';
 $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $student->search(),
     'id' => 'studentList',
+    'cssFile' => '',
     'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
     'columns' => array(
         array(

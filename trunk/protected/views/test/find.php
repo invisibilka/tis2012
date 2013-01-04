@@ -14,6 +14,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'id' => 'Tests',
     'filter' => $model,
+    'cssFile' => '',
     'summaryText' => 'Záznam {start} až {end} z {count} výsledkov',
     'emptyText' => 'Žiadne výsledky',
     'columns' => array(
