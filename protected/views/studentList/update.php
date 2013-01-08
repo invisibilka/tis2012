@@ -34,7 +34,6 @@ echo '<h2>' . $this->pageTitle . '</h2>';
     </div>
 
     <?php $this->endWidget(); ?>
-</div>
 
 <?php if($model->id){
  
@@ -67,3 +66,5 @@ echo '<h2>' . $this->pageTitle . '</h2>';
     ));
 
 } ?>
+
+</div>
