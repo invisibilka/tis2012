@@ -21,8 +21,10 @@ class TaskController extends Controller
         $newComment = new TasksComments();
         if (isset($_POST['TasksComments'])){
             $newComment->setAttributes(array('task_id' => $id, 'user_id' => Yii::app()->user->id, 'date' => date(DATE_ATOM),'text' => $_POST['TasksComments']['text']), false);
-            $newComment->save();
-            $newComment = new TasksComments();
+
+            if($newComment->save()){
+                $newComment = new TasksComments();
+            }
         }
 
         $model = Tasks::model()->findByPk($id);
