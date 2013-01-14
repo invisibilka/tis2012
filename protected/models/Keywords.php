@@ -3,7 +3,7 @@
  * Reprezentuje vyhladavanie v ulohach podla klucovych slov.
  * @author Katka
  */
-class Keywords extends CActiveRecord
+class Keywords extends ActiveRecord
 {
     /**
      * Vrati novu instanciu tejto triedy

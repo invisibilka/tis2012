@@ -29,6 +29,7 @@ class TasksComments extends ActiveRecord {
     {
         return array(
             array('text, user_id, task_id, date', 'required', 'message' => 'Položka "{attribute}" musí byť vyplnená.'),
+            array('text', 'length' , 'max' => 1000 , 'tooLong' => 'Maximálna dĺžka komentára je 1000 znakov.'),
         );
     }
     /**

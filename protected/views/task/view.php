@@ -55,12 +55,11 @@ echo '<h2>' . $this->pageTitle . '</h2>';
         <?php
         $form = $this->beginWidget('CActiveForm', array('id' => 'TasksComments')); ?>
 
-        <?php echo $form->errorSummary($newComment); ?>
 
         <div class="row">
             <?php echo $form->labelEx($newComment, 'text'); ?>
             <?php echo $form->textArea($newComment, 'text', array('rows' => "5")); ?>
-
+            <?php echo $form->error($newComment, 'text'); ?>
         </div>
 
         <div class="row submit">
